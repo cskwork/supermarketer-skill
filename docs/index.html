@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>/supermarketer — evidence-grounded product marketing & creative production</title>
+<meta name="description" content="One marketing objective in. Channel-ready, launch-ready package out. Truth before persuasion — never claim performance is proven without real data." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --bg: #0a0b0d;
+    --bg-elev: #121418;
+    --bg-card: #15171c;
+    --line: #24262d;
+    --line-soft: #1c1e24;
+    --text: #f4f5f7;
+    --text-dim: #a3a7b0;
+    --text-mute: #6b6f78;
+    --accent: #c8f23e;       /* chartreuse — creative, not blue/purple slop */
+    --accent-dim: #9bc02a;
+    --accent-soft: rgba(200,242,62,0.10);
+    --warn: #ff8a3d;
+    --ok: #4ade80;
+    --r: 16px;
+    --r-sm: 10px;
+    --maxw: 1160px;
+    --shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 24px 60px -28px rgba(0,0,0,0.7);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  [data-theme="light"] {
+    --bg: #fafaf7;
+    --bg-elev: #ffffff;
+    --bg-card: #ffffff;
+    --line: #e6e4dc;
+    --line-soft: #efede5;
+    --text: #16171b;
+    --text-dim: #4c505a;
+    --text-mute: #868a93;
+    --accent: #5d7d00;
+    --accent-dim: #446000;
+    --accent-soft: rgba(93,125,0,0.08);
+    --shadow: 0 1px 0 rgba(0,0,0,0.02) inset, 0 18px 40px -24px rgba(0,0,0,0.18);
+  }
+
+  /* ---------- Reset ---------- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  code, .mono { font-family: var(--mono); }
+
+  /* ---------- Layout ---------- */
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  section { padding: 96px 0; position: relative; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--accent); opacity: 0.6; }
+  h2.title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    max-width: 22ch;
+  }
+  .lede { color: var(--text-dim); font-size: 17px; max-width: 60ch; margin-top: 16px; }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; }
+  .brand .slash { color: var(--accent); font-family: var(--mono); font-weight: 700; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { color: var(--text-dim); font-size: 14px; font-weight: 500; transition: color .15s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .theme-btn {
+    background: transparent; border: 1px solid var(--line); color: var(--text-dim);
+    width: 36px; height: 36px; border-radius: 9px; cursor: pointer; font-size: 15px;
+    display: grid; place-items: center; transition: all .2s;
+  }
+  .theme-btn:hover { color: var(--text); border-color: var(--text-mute); }
+  .theme-btn .icon-sun { display: none; }
+  [data-theme="light"] .theme-btn .icon-sun { display: block; }
+  [data-theme="light"] .theme-btn .icon-moon { display: none; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 10px;
+    transition: transform .15s, background .15s, border-color .15s;
+    border: 1px solid transparent; cursor: pointer; white-space: nowrap;
+  }
+  .btn-primary { background: var(--accent); color: #0a0b0d; }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--text-mute); }
+  .btn-sm { padding: 8px 14px; font-size: 13px; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 88px 0 72px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -40% 30% auto auto; width: 70vw; height: 70vw; max-width: 900px; max-height: 900px;
+    background: radial-gradient(circle, var(--accent-soft), transparent 60%);
+    filter: blur(20px); pointer-events: none; z-index: 0;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  .hero h1 {
+    font-size: clamp(40px, 6.4vw, 76px);
+    line-height: 0.98; letter-spacing: -0.035em; font-weight: 900;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero h1 .slash { font-family: var(--mono); font-weight: 700; }
+  .hero-sub { margin-top: 24px; font-size: clamp(17px, 1.6vw, 20px); color: var(--text-dim); max-width: 34ch; }
+  .hero-ctas { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-meta { margin-top: 28px; display: flex; gap: 22px; flex-wrap: wrap; color: var(--text-mute); font-size: 13px; }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); }
+
+  /* Status card (the unique honesty artifact) */
+  .status-card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r);
+    padding: 22px; box-shadow: var(--shadow); position: relative;
+  }
+  .status-card .sc-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 16px; border-bottom: 1px solid var(--line-soft); margin-bottom: 16px;
+  }
+  .status-card .sc-title { font-size: 13px; font-weight: 700; letter-spacing: -0.01em; }
+  .status-card .sc-tag {
+    font-family: var(--mono); font-size: 11px; color: var(--text-mute);
+    border: 1px solid var(--line); padding: 3px 8px; border-radius: 6px;
+  }
+  .status-row { display: flex; align-items: center; justify-content: space-between; padding: 11px 0; }
+  .status-row + .status-row { border-top: 1px dashed var(--line-soft); }
+  .status-row .k { font-size: 13px; color: var(--text-dim); }
+  .pill {
+    font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 4px 10px;
+    border-radius: 999px; letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .pill-ok { background: rgba(74,222,128,0.12); color: var(--ok); border: 1px solid rgba(74,222,128,0.25); }
+  .pill-warn { background: rgba(255,138,61,0.12); color: var(--warn); border: 1px solid rgba(255,138,61,0.25); }
+  .pill-mute { background: var(--bg-elev); color: var(--text-mute); border: 1px solid var(--line); }
+  .status-note {
+    margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft);
+    font-size: 12px; color: var(--text-mute); line-height: 1.5;
+  }
+
+  /* ---------- Principles strip ---------- */
+  .principles { border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding: 26px 0; }
+  .principles .wrap { display: flex; gap: 36px; flex-wrap: wrap; align-items: center; }
+  .principles .lead {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-mute); white-space: nowrap;
+  }
+  .principles .items { display: flex; gap: 26px; flex-wrap: wrap; }
+  .principles .items span { font-size: 14px; color: var(--text-dim); display: inline-flex; align-items: center; gap: 8px; }
+  .principles .items span::before { content: ""; width: 5px; height: 5px; background: var(--accent); border-radius: 1px; transform: rotate(45deg); }
+
+  /* ---------- Modes ---------- */
+  .modes-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+  .modes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .mode-card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r-sm);
+    padding: 18px; transition: border-color .2s, transform .2s, background .2s; position: relative; overflow: hidden;
+  }
+  .mode-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .mode-card .m-code {
+    font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .mode-card .m-name { font-size: 16px; font-weight: 700; margin-top: 8px; letter-spacing: -0.01em; }
+  .mode-card .m-desc { font-size: 13px; color: var(--text-dim); margin-top: 6px; line-height: 1.45; }
+  .mode-card .m-route { font-family: var(--mono); font-size: 10.5px; color: var(--text-mute); margin-top: 12px; }
+
+  /* ---------- Loop ---------- */
+  .loop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; counter-reset: step; }
+  .loop-step {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r-sm);
+    padding: 22px; position: relative;
+  }
+  .loop-step .n {
+    font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 700;
+  }
+  .loop-step h4 { font-size: 16px; font-weight: 700; margin-top: 8px; letter-spacing: -0.01em; }
+  .loop-step p { font-size: 13.5px; color: var(--text-dim); margin-top: 8px; line-height: 1.5; }
+
+  /* ---------- Structure ---------- */
+  .struct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 40px; }
+  .tree {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r); padding: 26px;
+    font-family: var(--mono); font-size: 13.5px; line-height: 1.85; color: var(--text-dim);
+  }
+  .tree .root { color: var(--accent); font-weight: 700; }
+  .tree .dir { color: var(--text); font-weight: 600; }
+  .tree .desc { color: var(--text-mute); font-family: var(--font); font-size: 12.5px; }
+  .struct-list { list-style: none; }
+  .struct-list li { padding: 16px 0; border-bottom: 1px solid var(--line-soft); }
+  .struct-list li:first-child { padding-top: 0; }
+  .struct-list li:last-child { border-bottom: 0; }
+  .struct-list .h { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 10px; }
+  .struct-list .h code { color: var(--accent); font-size: 13px; }
+  .struct-list p { color: var(--text-dim); font-size: 14px; margin-top: 4px; }
+
+  /* ---------- Status / honesty ---------- */
+  .honesty { background: var(--bg-elev); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+  .honesty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 36px; }
+  .honesty-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r); padding: 28px; }
+  .honesty-card h4 { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+  .honesty-card .badge {
+    font-family: var(--mono); font-size: 10px; padding: 3px 8px; border-radius: 5px;
+    border: 1px solid var(--line); color: var(--text-mute);
+  }
+  .honesty-card ul { list-style: none; margin-top: 16px; }
+  .honesty-card li { font-size: 14px; color: var(--text-dim); padding: 8px 0; display: flex; gap: 10px; align-items: flex-start; }
+  .honesty-card li::before { content: ""; width: 6px; height: 6px; margin-top: 8px; background: var(--accent); border-radius: 1px; transform: rotate(45deg); flex-shrink: 0; }
+
+  /* ---------- CTA ---------- */
+  .cta-band {
+    margin: 0 24px; border: 1px solid var(--line); border-radius: 22px;
+    background:
+      radial-gradient(circle at 80% 20%, var(--accent-soft), transparent 50%),
+      var(--bg-card);
+    padding: 56px 48px; text-align: center; max-width: calc(var(--maxw) - 48px); margin: 0 auto;
+  }
+  .cta-band h3 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; }
+  .cta-band p { color: var(--text-dim); margin-top: 12px; max-width: 52ch; margin-left: auto; margin-right: auto; }
+  .cta-band .hero-ctas { justify-content: center; }
+  .cmd {
+    display: inline-block; font-family: var(--mono); background: var(--bg-elev); border: 1px solid var(--line);
+    padding: 12px 18px; border-radius: 10px; font-size: 15px; margin-top: 22px; color: var(--text);
+  }
+  .cmd .prompt { color: var(--accent); }
+
+  /* ---------- Footer ---------- */
+  footer { border-top: 1px solid var(--line-soft); padding: 40px 0 56px; margin-top: 80px; }
+  .foot-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-end; }
+  .foot-brand { font-weight: 800; }
+  .foot-brand .slash { color: var(--accent); font-family: var(--mono); }
+  .foot-meta { color: var(--text-mute); font-size: 13px; }
+  .foot-meta a { color: var(--text-dim); }
+  .foot-meta a:hover { color: var(--accent); }
+  .lineage { font-size: 12px; color: var(--text-mute); margin-top: 10px; max-width: 50ch; line-height: 1.5; }
+
+  /* ---------- Reveal anim ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .modes-grid { grid-template-columns: repeat(3, 1fr); }
+    .loop-grid { grid-template-columns: repeat(2, 1fr); }
+    .struct-grid, .honesty-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 72px 0; }
+    .modes-grid { grid-template-columns: 1fr 1fr; }
+    .loop-grid { grid-template-columns: 1fr; }
+    .principles .items { gap: 14px; }
+    .cta-band { padding: 40px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="slash">/</span>supermarketer</a>
+    <nav class="nav-links">
+      <a href="#modes">Modes</a>
+      <a href="#loop">Workflow</a>
+      <a href="#structure">Structure</a>
+      <a href="#status">Status</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
+        <span class="icon-moon">&#9790;</span><span class="icon-sun">&#9728;</span>
+      </button>
+      <a class="btn btn-ghost btn-sm" href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Agent skill &middot; spec + starter scaffold</div>
+      <h1>
+        One objective in.<br />
+        A <span class="accent">launch-ready</span><br />
+        package out.
+      </h1>
+      <p class="hero-sub">
+        Evidence-grounded product marketing and creative production &mdash; research, positioning,
+        copy, posters, images, and video &mdash; routed by a thin skill, verified before it ships.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#modes">See the 13 modes &rarr;</a>
+        <a class="btn btn-ghost" href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">Read the spec</a>
+      </div>
+      <div class="hero-meta">
+        <span><span class="dot"></span>13 production modes</span>
+        <span><span class="dot"></span>Role-separated review</span>
+        <span><span class="dot"></span>Honest by design</span>
+      </div>
+    </div>
+
+    <!-- The honesty artifact: dual status -->
+    <div class="status-card reveal">
+      <div class="sc-head">
+        <div class="sc-title">Every final report states</div>
+        <div class="sc-tag">run-vault / Z-READY</div>
+      </div>
+      <div class="status-row">
+        <span class="k">Readiness</span>
+        <span class="pill pill-ok">LAUNCH_READY</span>
+      </div>
+      <div class="status-row">
+        <span class="k">Performance</span>
+        <span class="pill pill-warn">NOT_MEASURED</span>
+      </div>
+      <div class="status-row">
+        <span class="k">After real data</span>
+        <span class="pill pill-mute">PERFORMANCE_VALIDATED</span>
+      </div>
+      <div class="status-note">
+        Pre-launch can only prove <strong>readiness</strong>. Performance requires real post-launch
+        data &mdash; this skill refuses to claim otherwise.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRINCIPLES ===================== -->
+<div class="principles">
+  <div class="wrap">
+    <span class="lead">Core principle</span>
+    <div class="items">
+      <span>Product truth before persuasion</span>
+      <span>Every claim maps to evidence</span>
+      <span>Maker never self-approves</span>
+      <span>Current, dated channel specs</span>
+      <span>No fake rendered assets</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODES ===================== -->
+<section id="modes">
+  <div class="wrap">
+    <div class="modes-head reveal">
+      <div>
+        <div class="eyebrow">The router &middot; classify, then route</div>
+        <h2 class="title">Thirteen modes. One objective, correctly routed.</h2>
+        <p class="lede">
+          State the mode in one line, then load only the playbook the job needs. The router stays
+          thin; the depth lives in <code>reference/</code>.
+        </p>
+      </div>
+    </div>
+
+    <div class="modes-grid">
+      <div class="mode-card reveal"><div class="m-code">RESEARCH</div><div class="m-name">Market &amp; customer</div><div class="m-desc">Audience, demand, competitors, category trends.</div><div class="m-route">reference/research.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">POSITION</div><div class="m-name">Positioning</div><div class="m-desc">ICP, JTBD, value prop, differentiation, message house.</div><div class="m-route">reference/positioning.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">CAMPAIGN</div><div class="m-name">Campaign &amp; GTM</div><div class="m-desc">Launch plan, channel and content plan.</div><div class="m-route">reference/campaign.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">COPY</div><div class="m-name">Copy &amp; scripts</div><div class="m-desc">Headlines, ads, landing, email, social, scripts.</div><div class="m-route">reference/copy.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">STATIC</div><div class="m-name">Static creative</div><div class="m-desc">Posters, banners, carousels, flyers, social ads.</div><div class="m-route">reference/static.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">IMAGE</div><div class="m-name">Image</div><div class="m-desc">Product images, key visuals, illustration, edits.</div><div class="m-route">reference/image.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">VIDEO</div><div class="m-name">Video</div><div class="m-desc">Reels, shorts, ad films, demos, storyboards.</div><div class="m-route">reference/video.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">LAUNCH&#8209;KIT</div><div class="m-name">Full launch kit</div><div class="m-desc">Coordinated multi-channel bundle of everything.</div><div class="m-route">default loop</div></div>
+      <div class="mode-card reveal"><div class="m-code">EXPERIMENT</div><div class="m-name">Experiments</div><div class="m-desc">A/B tests, variants, creative test design.</div><div class="m-route">reference/experiments.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">LOCALIZE</div><div class="m-name">Localization</div><div class="m-desc">Transcreate, reflow, adapt for market &amp; language.</div><div class="m-route">reference/localization.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">AUDIT</div><div class="m-name">Audit</div><div class="m-desc">Critique, compliance &amp; brand check. No edits.</div><div class="m-route">reference/qa.md</div></div>
+      <div class="mode-card reveal"><div class="m-code">MEASURE</div><div class="m-name">Measure</div><div class="m-desc">CTR, CVR, lift, performance on real results.</div><div class="m-route">reference/measurement.md</div></div>
+      <div class="mode-card reveal" style="background:linear-gradient(160deg,var(--accent-soft),var(--bg-card));border-color:var(--accent);"><div class="m-code" style="color:var(--accent-dim)">TRUTH</div><div class="m-name">The through-line</div><div class="m-desc">No mode ships without grounded claims &amp; review.</div><div class="m-route">every mode &middot; always</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOOP ===================== -->
+<section id="loop">
+  <div class="wrap">
+    <div class="eyebrow reveal">Default loop</div>
+    <h2 class="title reveal">Frame to measure &mdash; with a built-in publish gate.</h2>
+    <p class="lede reveal">The maker never self-approves. Adversarial review and deterministic QA must both pass before anything is marked ready.</p>
+
+    <div class="loop-grid">
+      <div class="loop-step reveal"><div class="n">01</div><h4>Frame</h4><p>Capture objective, audience, funnel stage, offer, KPI, and falsifiable readiness criteria in <code>BRIEF.md</code>.</p></div>
+      <div class="loop-step reveal"><div class="n">02</div><h4>Ground</h4><p>Build <code>EVIDENCE.md</code>, dated <code>CHANNEL-SPECS.yaml</code>, and <code>CLAIMS.yaml</code> from current, high-trust sources.</p></div>
+      <div class="loop-step reveal"><div class="n">03</div><h4>Strategize</h4><p>Minimum positioning, message hierarchy, offer/CTA, concept, and channel role. Creative brief for visual/video.</p></div>
+      <div class="loop-step reveal"><div class="n">04</div><h4>Produce</h4><p>Fresh-context specialists build each deliverable. Everything is logged in <code>ASSET-MANIFEST.yaml</code> with lineage.</p></div>
+      <div class="loop-step reveal"><div class="n">05</div><h4>Improve</h4><p>A separate role checks brief coverage, edge cases, crops, legibility, captions, alt text, and variants.</p></div>
+      <div class="loop-step reveal"><div class="n">06</div><h4>Adversarial review</h4><p>Fresh reviewers try to <em>disprove</em> readiness. They make no production edits.</p></div>
+      <div class="loop-step reveal"><div class="n">07</div><h4>QA &amp; package</h4><p>Deterministic artifact checks plus independent review, mapped to evidence in <code>QA.md</code>.</p></div>
+      <div class="loop-step reveal"><div class="n">08</div><h4>Publish gate</h4><p>Post/send/schedule/spend only after explicit approval naming destination, timing, account &amp; budget.</p></div>
+      <div class="loop-step reveal"><div class="n">09</div><h4>Measure</h4><p>Only real post-launch data can flip status to <code>PERFORMANCE_VALIDATED</code>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STRUCTURE ===================== -->
+<section id="structure">
+  <div class="wrap">
+    <div class="eyebrow reveal">Repository map</div>
+    <h2 class="title reveal">A thin router. Depth loaded on demand.</h2>
+    <div class="struct-grid">
+      <div class="tree reveal">
+        <div class="root">supermarketer-skill/</div>
+        &nbsp;&#9500;&#9472; <span class="dir">SKILL.md</span>&nbsp;&nbsp; <span class="desc">&mdash; the thin router</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">SPEC.md</span>&nbsp;&nbsp; <span class="desc">&mdash; full functional spec</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">agents/</span>&nbsp;&nbsp; <span class="desc">&mdash; 13 role contracts</span><br />
+        &nbsp;&#9475;&nbsp;&nbsp; product-marketer &middot; researcher<br />
+        &nbsp;&#9475;&nbsp;&nbsp; copywriter &middot; creative-director<br />
+        &nbsp;&#9475;&nbsp;&nbsp; visual / image / video producer<br />
+        &nbsp;&#9475;&nbsp;&nbsp; channel &middot; localization specialist<br />
+        &nbsp;&#9475;&nbsp;&nbsp; brand-claims &middot; creative reviewer<br />
+        &nbsp;&#9475;&nbsp;&nbsp; qa-auditor &middot; experiment-analyst<br />
+        &nbsp;&#9500;&#9472; <span class="dir">reference/</span>&nbsp;&nbsp; <span class="desc">&mdash; mode playbooks</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">templates/</span>&nbsp;&nbsp; <span class="desc">&mdash; run-vault files</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">tests/</span>&nbsp;&nbsp; <span class="desc">&mdash; acceptance contracts</span><br />
+        &nbsp;&#9492;&#9472; <span class="dir">examples/</span> &middot; <span class="dir">scripts/</span>
+      </div>
+      <ul class="struct-list reveal">
+        <li>
+          <div class="h"><code>SKILL.md</code> Router</div>
+          <p>Classifies the objective into one mode, states it in a line, and routes to the right playbook. Never embeds the playbook itself.</p>
+        </li>
+        <li>
+          <div class="h"><code>agents/</code> Roles</div>
+          <p>Each role has a contract. Producers and reviewers are always separate &mdash; the creator of an asset cannot be its only reviewer.</p>
+        </li>
+        <li>
+          <div class="h"><code>reference/</code> Playbooks</div>
+          <p>On-demand depth per mode: research, positioning, campaign, copy, static, image, video, channel-specs, QA, publishing, and more.</p>
+        </li>
+        <li>
+          <div class="h"><code>templates/</code> Run-vault</div>
+          <p>Every run gets a dated folder: BRIEF, EVIDENCE, CLAIMS, CHANNEL-SPECS, ASSET-MANIFEST, QA &mdash; and Z-READY only when all gates pass.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATUS / HONESTY ===================== -->
+<section id="status" class="honesty">
+  <div class="wrap">
+    <div class="eyebrow reveal">Status &amp; honesty</div>
+    <h2 class="title reveal">A spec and starter scaffold &mdash; not a finished tool.</h2>
+    <p class="lede reveal">This package is open about what exists and what is still to be implemented. It never claims more than it does.</p>
+
+    <div class="honesty-grid">
+      <div class="honesty-card reveal">
+        <h4>What's in the box <span class="badge">complete</span></h4>
+        <ul>
+          <li>Full functional &amp; operational <code>SPEC.md</code></li>
+          <li>Thin router (<code>SKILL.md</code>) mapping all 13 modes</li>
+          <li>13 role contracts in <code>agents/</code></li>
+          <li>17 mode playbooks in <code>reference/</code></li>
+          <li>Run-vault templates with stable evidence &amp; claim anchors</li>
+          <li>Acceptance &amp; scenario contracts in <code>tests/</code></li>
+        </ul>
+      </div>
+      <div class="honesty-card reveal">
+        <h4>Planned, not yet built <span class="badge">todo</span></h4>
+        <ul>
+          <li>Deterministic gate scripts (<code>brief / claims / manifest / channel-spec</code>)</li>
+          <li>Image &amp; video metadata gates</li>
+          <li>Image generation/editing adapters</li>
+          <li>Video render adapters (production-pack fallback exists today)</li>
+          <li>Experiment &amp; analytics connectors</li>
+          <li>External publishing adapters behind explicit approval</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section>
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h3>Give it one marketing objective.</h3>
+      <p>Place the repo where your agent runtime discovers skills, keep one canonical checkout, then invoke:</p>
+      <div class="cmd"><span class="prompt">/</span>supermarketer &lt;one marketing objective&gt;</div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-ghost" href="https://github.com/cskwork/supermarketer-skill/blob/main/SPEC.md" target="_blank" rel="noopener">Read SPEC.md</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <div class="foot-brand"><span class="slash">/</span>supermarketer</div>
+      <div class="lineage">
+        Design lineage inspired by <a href="https://github.com/cskwork/supergoal-skill" target="_blank" rel="noopener">supergoal-skill</a> and
+        <a href="https://github.com/cskwork/superdesign-skill" target="_blank" rel="noopener">superdesign-skill</a>. This starter is newly written
+        specification text; review upstream licenses before copying implementation code.
+      </div>
+    </div>
+    <div class="foot-meta">
+      <a href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">github.com/cskwork/supermarketer-skill</a><br />
+      Spec &amp; starter scaffold &middot; status: <span style="color:var(--accent)">LAUNCH_READY</span> / <span style="color:var(--text-mute)">NOT_MEASURED</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  (function () {
+    var btn = document.getElementById('themeBtn');
+    var root = document.documentElement;
+    var saved = localStorage.getItem('sm-theme');
+    if (saved) root.setAttribute('data-theme', saved);
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('sm-theme', next);
+    });
+  })();
+
+  // Scroll reveal
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (e, i) { e.style.transitionDelay = Math.min(i * 30, 180) + 'ms'; io.observe(e); });
+  })();
+</script>
+</body>
+</html>
