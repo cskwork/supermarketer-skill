@@ -1,0 +1,35 @@
+run:
+  id: ""
+  mode: ""
+  created_at: ""
+  readiness: DRAFT
+  performance: NOT_MEASURED
+
+assets:
+  - id: ASSET-001
+    name: ""
+    purpose: ""
+    audience: ""
+    channel: ""
+    placement: ""
+    language_market: ""
+    dimensions: ""
+    aspect_ratio: ""
+    duration_seconds: null
+    source_path: ""
+    rendered_path: ""
+    preview_path: ""
+    copy_version: ""
+    claim_ids: []
+    generation_method: ""
+    adapter: ""
+    fallback_status: none
+    ai_generated: false
+    rights_status: pending
+    accessibility:
+      alt_text_path: ""
+      captions_path: ""
+      transcript_path: ""
+    reviewers: []
+    review_status: pending
+    notes: ""

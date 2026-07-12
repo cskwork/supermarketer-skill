@@ -1,0 +1,18 @@
+channels:
+  - name: ""
+    placement: ""
+    checked_at: ""
+    source: ""
+    dimensions: []
+    aspect_ratios: []
+    duration_seconds:
+      min: null
+      max: null
+    file_types: []
+    file_size_limit: null
+    text_constraints: {}
+    safe_zone_notes: ""
+    caption_requirements: ""
+    accessibility_notes: ""
+    policy_notes: ""
+    confidence: low
