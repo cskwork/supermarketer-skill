@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local run-vault outputs (per-run working files)
+.supermarketer/runs/
+
+# Node (for future gate scripts)
+node_modules/
+*.log
+.env
+.env.*
+
+# Python (for future gate scripts)
+__pycache__/
+*.pyc
+.venv/
+venv/

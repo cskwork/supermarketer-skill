@@ -1,0 +1,10 @@
+claims:
+  - id: CL-001
+    text: ""
+    type: factual
+    evidence_ids: []
+    qualification: ""
+    approval: pending
+    approver: ""
+    asset_ids: []
+    notes: ""

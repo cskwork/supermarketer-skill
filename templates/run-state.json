@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1",
+  "run_id": "",
+  "mode": "",
+  "phase": "frame",
+  "readiness": "DRAFT",
+  "performance": "NOT_MEASURED",
+  "external_action_authorized": false,
+  "open_decisions": [],
+  "blocking_findings": [],
+  "artifacts": [],
+  "updated_at": ""
+}
