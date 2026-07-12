@@ -24,7 +24,9 @@ description: Designs controlled creative/message experiments and analyzes real c
 
 - `EXPERIMENT.md`
 - `RESULTS.md`
-- `Z-VALIDATED.md` only when the predeclared condition is truly met.
+- `MEASUREMENT.yaml` for machine-checkable post-launch validation inputs.
+
+Do not write `Z-VALIDATED.md` directly. After an independent measurement review exists, the conductor runs `node bin/supermarketer.mjs validate-results <vault>`.
 
 ## Never
 

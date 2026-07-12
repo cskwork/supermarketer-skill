@@ -1,0 +1,47 @@
+{
+  "name": "supermarketer-skill",
+  "version": "1.0.0",
+  "description": "Evidence-grounded product marketing and creative production skill with machine-checkable launch-readiness gates.",
+  "type": "module",
+  "bin": {
+    "supermarketer": "./bin/supermarketer.mjs"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:all": "bash tests/run-all.sh",
+    "check:skill": "node scripts/reference-integrity-gate.mjs . && node scripts/skill-frontmatter-gate.mjs SKILL.md",
+    "prepack": "bash tests/run-all.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "SKILL.md",
+    "SPEC.md",
+    "README.md",
+    "README.ko.md",
+    "NOTICE.md",
+    "CHANGELOG.md",
+    "RELEASE-NOTES.md",
+    "LICENSE",
+    "bin",
+    "lib",
+    "scripts",
+    "agents",
+    "reference",
+    "adapters",
+    "templates",
+    "schemas",
+    "docs",
+    "examples",
+    "tests"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "agent-skill",
+    "product-marketing",
+    "creative-production",
+    "marketing-qa",
+    "claims-compliance"
+  ]
+}

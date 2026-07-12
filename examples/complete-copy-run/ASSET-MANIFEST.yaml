@@ -1,0 +1,43 @@
+schema_version: "1.0"
+run:
+  id: 20260712-1528-complete-copy-example
+  mode: COPY
+  created_at: "2026-07-12T15:28:55.493Z"
+  readiness: LAUNCH_READY
+  performance: NOT_MEASURED
+assets:
+  - id: ASSET-001
+    deliverable_ids:
+      - D-001
+    kind: copy
+    status: approved
+    name: "Product A lifecycle email copy"
+    purpose: "Explain the approved product workflow and invite review"
+    audience: "B2B lifecycle marketing managers"
+    channel: email
+    placement: body
+    language_market: ko-KR
+    channel_spec_required: true
+    source_paths:
+      - sources/product.md
+    rendered_path: assets/as-001/copy.md
+    copy:
+      headline: "Approved campaign copy in one place"
+      body: "Keep product facts, channel limits, and review evidence linked before launch."
+      cta: "Review the package"
+    claim_ids:
+      - CL-001
+    producer: "Copy Producer"
+    generation_method: "Human-directed drafting with deterministic validation"
+    fallback_status: none
+    ai_generated: false
+    rights_status: not_applicable
+    rights_sources: []
+    reviewers:
+      - "Claims Reviewer"
+      - "Creative Reviewer"
+      - "QA Auditor"
+    review_status: approved
+    accessibility:
+      decorative: true
+      captions_required: false

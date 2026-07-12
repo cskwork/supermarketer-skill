@@ -1,7 +1,7 @@
 # SuperMarketer Skill — Product & Marketing Specification
 
-**Version:** 0.1.0-draft  
-**Status:** Specification and starter scaffold  
+**Version:** 1.0.0  
+**Status:** Implemented reference release  
 **Command:** `/supermarketer <one marketing objective>`  
 **Primary language for persistent files:** Match the project/brand language; if mixed or unknown, use the user's language. Keep filenames, status tokens, evidence IDs, and machine-checked anchors in English.
 
@@ -98,22 +98,28 @@ Minimum run files:
 ```text
 BRIEF.md
 EVIDENCE.md
+EVIDENCE.yaml
 CHANNEL-SPECS.yaml
 CLAIMS.yaml
-MESSAGE-HOUSE.md             # when messaging is load-bearing
-CREATIVE-BRIEF.md            # when assets are produced
+DELIVERABLES.yaml
 ASSET-MANIFEST.yaml
+REVIEWS.yaml
+APPROVALS.yaml
+PRODUCTION-PACK.yaml
 QA.md
 run-state.json
-Z-READY.md                   # only after all launch-readiness gates pass
+MESSAGE-HOUSE.md             # when messaging is load-bearing
+CREATIVE-BRIEF.md            # when assets are produced
+Z-READY.md                   # generated only after all launch-readiness gates pass
 ```
 
 Post-launch runs may add:
 
 ```text
 EXPERIMENT.md
+MEASUREMENT.yaml             # real source, predeclared rule, calculation evidence, and hashes
 RESULTS.md
-Z-VALIDATED.md               # only after real outcome data meets the declared rule
+Z-VALIDATED.md               # generated only after the measurement and performance-attestation gates pass
 ```
 
 Existing source assets must not be overwritten by default. Copy them into the vault or write new versioned files.
@@ -365,7 +371,10 @@ It shall:
 - report sample size and uncertainty,
 - identify confounders,
 - recommend the next test,
-- write `Z-VALIDATED.md` only when the predeclared validation rule is met.
+- bind the source data, predeclared rule, and calculation evidence to SHA-256 digests,
+- require independent measurement review,
+- write `Z-VALIDATED.md` only when the predeclared validation rule is met, and
+- re-verify the performance attestation after later file or state changes.
 
 ---
 
@@ -719,13 +728,14 @@ Human approval is required for:
 
 Only real post-launch data may satisfy this gate.
 
-### 10.2 Readiness status
+### 10.2 Independent state models
 
-- `DRAFT` — incomplete or unreviewed.
-- `REVIEW_READY` — complete enough for stakeholder review; unresolved decisions remain.
-- `LAUNCH_READY` — all pre-launch gates green; explicit residual risks recorded.
-- `PUBLISHED` — external action completed with consent and evidence.
-- `PERFORMANCE_VALIDATED` — predeclared result condition met using real data.
+Readiness and performance are separate:
+
+- Readiness: `DRAFT`, `REVIEW_READY`, `LAUNCH_READY`, or `BLOCKED`.
+- Performance: `NOT_MEASURED`, `MEASURING`, or `PERFORMANCE_VALIDATED`.
+
+Publishing is an external action recorded by the authorized platform and local permit/audit records; it is not a readiness or performance state in the core model.
 
 ---
 
@@ -869,115 +879,86 @@ Publishing tools are never invoked from ordinary production. They require a sepa
 ## 14. Repository layout
 
 ```text
-supermarketer/
+supermarketer-skill/
 ├── SKILL.md
-├── README.md
 ├── SPEC.md
+├── README.md
+├── README.ko.md
+├── package.json
+├── bin/
+│   └── supermarketer.mjs
+├── lib/
+│   ├── cli.mjs
+│   ├── router.mjs
+│   ├── scaffold.mjs
+│   ├── workflow.mjs
+│   ├── attestation.mjs
+│   ├── performance-attestation.mjs
+│   ├── package-run.mjs
+│   ├── media/
+│   └── gates/
 ├── agents/
-│   ├── product-marketer.md
-│   ├── researcher.md
-│   ├── copywriter.md
-│   ├── creative-director.md
-│   ├── visual-producer.md
-│   ├── image-producer.md
-│   ├── video-producer.md
-│   ├── channel-specialist.md
-│   ├── localization-specialist.md
-│   ├── brand-claims-reviewer.md
-│   ├── creative-reviewer.md
-│   ├── qa-auditor.md
-│   └── experiment-analyst.md
 ├── reference/
-│   ├── workflow.md
-│   ├── research.md
-│   ├── product-marketing.md
-│   ├── positioning.md
-│   ├── campaign.md
-│   ├── copy.md
-│   ├── static.md
-│   ├── image.md
-│   ├── video.md
-│   ├── channel-specs.md
-│   ├── brand-claims-rights.md
-│   ├── accessibility.md
-│   ├── localization.md
-│   ├── experiments.md
-│   ├── measurement.md
-│   ├── qa.md
-│   └── publishing.md
+├── adapters/
 ├── templates/
-│   ├── BRIEF.md
-│   ├── EVIDENCE.md
-│   ├── MESSAGE-HOUSE.md
-│   ├── CREATIVE-BRIEF.md
-│   ├── CHANNEL-SPECS.yaml
-│   ├── CLAIMS.yaml
-│   ├── ASSET-MANIFEST.yaml
-│   ├── QA.md
-│   ├── EXPERIMENT.md
-│   ├── RESULTS.md
-│   └── run-state.json
+├── schemas/
 ├── scripts/
-│   ├── brief-gate.*
-│   ├── claims-gate.*
-│   ├── manifest-gate.*
-│   ├── image-metadata-gate.*
-│   ├── video-metadata-gate.*
-│   ├── channel-spec-gate.*
-│   └── package-gate.*
-├── tests/
-│   ├── frontmatter-contract.*
-│   ├── mode-routing-contract.*
-│   ├── reference-links-contract.*
-│   ├── no-performance-claim-contract.*
-│   ├── publish-gate-contract.*
-│   └── scenario-contracts/
-└── examples/
-    ├── b2b-saas-launch/
-    ├── consumer-poster/
-    └── short-video-fallback/
+├── docs/
+├── examples/
+└── tests/
 ```
 
-The root `SKILL.md` should remain a thin router. Detailed procedure belongs in `reference/` and persona files.
+The root `SKILL.md` remains a thin router and operating contract. Detailed procedures belong in `reference/`, role files in `agents/`, executable policy in `lib/gates/`, and stable handoff formats in `schemas/` and `adapters/`.
 
 ---
 
-## 15. Gate CLI design
+## 15. Executable CLI and gate design
 
-The exact implementation language is optional, but the interfaces should be stable.
+The implemented CLI is a dependency-free Node.js executable:
 
 ```bash
-# Validate brief completeness and status language
-node scripts/brief-gate.mjs <vault>
-
-# Ensure all external claims resolve to evidence and approvals
-node scripts/claims-gate.mjs <vault>
-
-# Verify requested assets, IDs, variants, and paths
-node scripts/manifest-gate.mjs <vault>
-
-# Inspect static file dimensions, formats, and expected variants
-python scripts/image-metadata-gate.py <vault>
-
-# Inspect duration, streams, captions, dimensions, frame rate, and container
-python scripts/video-metadata-gate.py <vault>
-
-# Require dated/source-backed channel specs
-node scripts/channel-spec-gate.mjs <vault>
-
-# Final launch-readiness gate
-bash scripts/package-gate.sh <vault>
+supermarketer route "<objective>"
+supermarketer init <project-dir>
+supermarketer new "<objective>" --project <project-dir>
+supermarketer check <vault>
+supermarketer ready <vault>
+supermarketer verify-ready <vault>
+supermarketer ingest <vault> --asset ASSET-001 --file <path> --as rendered
+supermarketer inspect <file> --kind image|video
+supermarketer package <vault> --out <delivery.zip>
+supermarketer validate-results <vault>
+supermarketer verify-results <vault>
+supermarketer publish-check <vault> --approval AP-001
+supermarketer status <vault>
+supermarketer doctor
+supermarketer check-skill .
+supermarketer install-audit . <target...>
 ```
 
-The final gate shall fail when:
+The aggregate readiness command runs 12 gates:
 
-- any required asset is missing,
-- an unsupported claim is used,
-- a channel spec is missing or undated,
-- a required review is absent,
-- fallback status is concealed,
-- a publish action lacks approval,
-- final status says performance is proven without real result evidence.
+```text
+run-files
+run-state
+brief
+evidence
+claims
+channel-specs
+deliverables
+production-pack
+asset-manifest
+reviews
+qa
+performance-attestation
+```
+
+The final readiness workflow is transactional. It writes a report containing the complete gate set and a canonical integrity manifest of the certified files, then records the report SHA-256 in `Z-READY.md`. `verify-ready`, package, publish, and measurement reject changed, deleted, symlinked, or newly injected files.
+
+Performance validation is a separate transaction. It verifies real source data, a predeclared rule, calculation evidence, all three hashes, dates, threshold, guardrails, uncertainty, and an independent measurement review before writing `Z-VALIDATED.md`. `verify-results` rejects subsequent source, rule, calculation, state, or marker drift.
+
+The final readiness gate fails when any required asset is missing, a material claim lacks evidence, a channel spec is missing or stale, a required review is absent, rights or accessibility are unresolved, a fallback masquerades as a render, the certified file set is inconsistent, or a claimed performance status lacks a valid performance attestation.
+
+The publish gate never executes an external action. It validates only one explicit, exact, unexpired human approval and emits a local permit record.
 
 ---
 
@@ -1036,52 +1017,29 @@ The final gate shall fail when:
 
 ---
 
-## 17. Recommended MVP
+## 17. Implemented release scope
 
-The full vision is broad. A reliable first release should not attempt every medium at equal depth.
+Version 1.0.0 implements the provider-neutral core described by this specification:
 
-### v0.1 — Grounded PMM + copy + static
+- all 12 routing modes and mode-specific playbook dispatch;
+- project initialization and isolated run vaults;
+- structured evidence, claims, channel, deliverable, asset, review, approval, production-pack, measurement, and state records;
+- 12 aggregate readiness gates and individual executable wrappers;
+- image/PDF/video metadata inspection and lexical/real-path enforcement;
+- symlink rejection and post-certification file-injection detection;
+- claim/evidence/asset, rights, accessibility, and generated-lineage checks;
+- independent reviewer and finding-state enforcement;
+- image/video fallback contracts that cannot masquerade as rendered output;
+- transactional readiness certification with a final report digest and certified-file integrity manifest;
+- deterministic ZIP packaging, package manifest, and checksum generation;
+- scoped publish approval permits without external execution;
+- transactional post-launch measurement validation with source/rule/calculation hashes;
+- `verify-ready` and `verify-results` integrity re-verification;
+- JSON Schema documentation, adapter contracts, and executable contract tests.
 
-Implement:
+Provider-specific image/video generation and external publishing remain integration boundaries rather than bundled credentials or autonomous actions. Host tools produce files through the adapter contract; the core ingests, traces, reviews, and verifies them. A separate authorized publisher may consume a permit, but the core performs no posting, sending, scheduling, bidding, or spending.
 
-- `RESEARCH`, `POSITION`, `COPY`, `STATIC`, `IMAGE`, `AUDIT`, `LAUNCH-KIT`.
-- Run vault and templates.
-- Claims/evidence/manifest/channel-spec gates.
-- Static metadata and preview checks.
-- Publish hard gate.
-- Independent brand/claims and creative review.
-
-Do not implement autonomous external publishing or paid media.
-
-### v0.2 — Video production system
-
-Add:
-
-- `VIDEO` with provider adapters.
-- Script/storyboard/shot list/captions.
-- Video metadata gate.
-- Thumbnail and first-frame checks.
-- Guaranteed `PRODUCTION_PACK_ONLY` fallback.
-
-### v0.3 — Experiment and measurement
-
-Add:
-
-- `EXPERIMENT` and `MEASURE`.
-- Analytics connectors.
-- Predeclared decision rules.
-- Reproducible metric calculations.
-- `Z-VALIDATED.md`.
-
-### v0.4 — Brand memory and team operations
-
-Add:
-
-- brand/product truth onboarding,
-- approval roles,
-- reusable campaign library,
-- live run board,
-- asset lineage and reuse tracking.
+Local SHA-256 records provide integrity linkage, not digital signatures or reviewer identity proof. Deployments requiring adversarial authenticity must add trusted signing, immutable storage, and authenticated approval systems.
 
 ---
 
@@ -1125,12 +1083,12 @@ A run is `LAUNCH_READY` only when:
 - no external action occurred without explicit approval,
 - and performance status remains `NOT_MEASURED` unless real post-launch evidence exists.
 
-A run is `PERFORMANCE_VALIDATED` only when a predeclared outcome rule is met using real data and the analysis documents uncertainty and limitations.
+A run is `PERFORMANCE_VALIDATED` only when a predeclared numeric outcome rule is met using real data; the source, rule, and calculation evidence hashes match; independent review passes; uncertainty and limitations are recorded; and `verify-results` confirms the current attestation. This status does not establish causality unless the required assignment design is documented and reviewed.
 
 ---
 
 ## 20. Design lineage and implementation note
 
-This specification is inspired by the routing, role separation, thin-root/reference architecture, and gated verification approach of `cskwork/supergoal-skill`, with visual-production ideas informed by `cskwork/superdesign-skill`. The marketing design changes the ground truth from code/tests to product truth, evidence-linked claims, current channel requirements, asset metadata, independent creative review, and post-launch results.
+This specification is inspired by the routing, role separation, thin-root/reference architecture, and gated verification approach of `cskwork/supergoal-skill`, with visual-production ideas informed by `cskwork/superdesign-skill`. The marketing implementation changes the ground truth from code/tests to product truth, evidence-linked claims, current channel requirements, asset metadata, rights and generation lineage, independent creative review, and post-launch results.
 
-This starter is a specification, not a claim that all listed gate scripts or external media adapters are already implemented.
+Version 1.0.0 implements the provider-neutral core and all deterministic gates described in Section 17. Provider-specific media generation remains behind the documented adapter boundary, and external publish/send/spend remains intentionally outside the executable core.

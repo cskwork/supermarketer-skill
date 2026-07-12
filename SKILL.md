@@ -1,173 +1,257 @@
 ---
 name: supermarketer
-description: Use for product marketing, market/customer research, positioning and messaging, GTM or campaign planning, marketing copy, posters/social creatives, product images, video ads or production packs, localization, marketing audit, creative experiments, or campaign measurement.
+description: Use for product marketing strategy, market or customer research, positioning, campaigns, launch plans, marketing copy, posters and static creatives, product images, marketing videos, localization, creative experiments, audits, and campaign measurement.
 ---
 
-# /supermarketer — evidence-grounded product marketing and creative production
+# `/supermarketer` — evidence-grounded product marketing and creative production
 
-One marketing objective in -> product truth and audience evidence grounded -> channel-ready marketing package out -> launch readiness verified without pretending performance is proven.
+Turn one marketing objective into a grounded, channel-ready package. Verify launch readiness without pretending that pre-launch review proves performance.
 
-`SKILL.md` is the thin router. Load only the required playbook from `reference/` and only the role files required from `agents/`.
+This root file is a router and operating contract. Load only the relevant file from `reference/` and only the required roles from `agents/`.
 
-## Standing rules
+## Non-negotiable state model
 
-Before routing, read these when present:
+Always report readiness and performance separately:
+
+```text
+Readiness: DRAFT | REVIEW_READY | LAUNCH_READY | BLOCKED
+Performance: NOT_MEASURED | MEASURING | PERFORMANCE_VALIDATED
+```
+
+`LAUNCH_READY` means the scoped package passed evidence, claims, channel, asset, rights, review, and QA gates. It does not mean the campaign will perform. `PERFORMANCE_VALIDATED` requires real post-launch data, a predeclared machine-checkable rule, limitations, and independent measurement review.
+
+## Standing truth
+
+Before beginning, read these when present:
 
 - `.supermarketer/rules/RULES.md`
 - `.supermarketer/brand/BRAND.md`
 - `.supermarketer/product/PRODUCT-TRUTH.md`
 - `.supermarketer/legal/CLAIM-RULES.md`
 
-Honor them as high-priority preferences, but never weaken evidence, rights, privacy, compliance, accessibility, or publish gates.
+Treat them as persistent project rules. They cannot waive evidence, rights, privacy, accessibility, compliance, or publish gates.
 
-## Core principles
+## Route the objective
 
-- Product truth before persuasion.
-- Audience, objective, funnel stage, offer, and desired action before channel or format.
-- Every factual or quantitative external claim maps to evidence in `CLAIMS.yaml`.
-- Channel-native variants; never mechanically resize one generic creative and call it adapted.
-- Creative polish, hierarchy, legibility, and brand fit are part of correctness.
-- Maker never self-approves.
-- Machine-check format and traceability; use independent structured review for judgment.
-- Fetch current channel specifications, policies, and regulations at run time and record source/date.
-- Never invent product facts, customer quotes, testimonials, prices, results, certifications, or rights.
-- External publish, send, scheduling, deployment, or media spend requires explicit approval.
-- Missing media tools degrade to a documented production pack, never a fake completed asset.
-- Pre-launch status is `LAUNCH_READY`, not `PERFORMANCE_VALIDATED`.
+Use the deterministic router when available:
 
-## Mode — classify and state it in one line
+```bash
+node bin/supermarketer.mjs route "<objective>"
+```
 
-| Signal | Mode | Route |
+| Signal | Mode | Playbook |
 |---|---|---|
-| market, customer, audience, competitor, demand, category, trend | RESEARCH | `reference/research.md` |
-| positioning, ICP, JTBD, value proposition, differentiation, message house | POSITION | `reference/positioning.md` |
-| campaign, GTM, launch plan, channel/content plan | CAMPAIGN | `reference/campaign.md` |
-| headline, ad copy, landing/email/social copy, script copy | COPY | `reference/copy.md` |
-| poster, banner, carousel, flyer, social/ad creative | STATIC | `reference/static.md` |
-| product image, key visual, illustration, icon, photo edit | IMAGE | `reference/image.md` |
-| video, reel, short, ad film, demo, storyboard | VIDEO | `reference/video.md` |
-| full launch kit, multi-channel bundle, all materials | LAUNCH-KIT | default loop + relevant asset playbooks |
-| A/B test, variants, creative test, optimize | EXPERIMENT | `reference/experiments.md` |
-| translate, localize, transcreate, adapt market/language | LOCALIZE | `reference/localization.md` |
-| audit, critique, review, compliance/brand check | AUDIT | `reference/qa.md`; no edits by default |
-| analyze CTR/CVR/results/lift/performance | MEASURE | `reference/measurement.md` |
+| market, customer, audience, competitor, category, demand, trend | `RESEARCH` | `reference/research.md` |
+| positioning, ICP, JTBD, value proposition, differentiation | `POSITION` | `reference/positioning.md` |
+| campaign, GTM, launch plan, channel or content plan | `CAMPAIGN` | `reference/campaign.md` |
+| headline, ad, landing, email, social, or script copy | `COPY` | `reference/copy.md` |
+| poster, banner, carousel, flyer, social or display creative | `STATIC` | `reference/static.md` |
+| product image, key visual, illustration, icon, photo edit | `IMAGE` | `reference/image.md` |
+| video, reel, short, ad film, demo, storyboard | `VIDEO` | `reference/video.md` |
+| coordinated strategy plus multiple asset classes | `LAUNCH-KIT` | `reference/workflow.md` plus asset playbooks |
+| A/B test, creative variants, experiment design | `EXPERIMENT` | `reference/experiments.md` |
+| translate, localize, transcreate, market adaptation | `LOCALIZE` | `reference/localization.md` |
+| audit, critique, brand, claims, accessibility, compliance check | `AUDIT` | `reference/qa.md` |
+| real CTR, CVR, revenue, lift, or results analysis | `MEASURE` | `reference/measurement.md` |
 
-Tie-breaks:
+Tie-breakers:
 
-- Multi-asset coordinated requests -> LAUNCH-KIT.
-- “Audit and fix” -> final deliverable mode with audit-first; pure AUDIT never edits.
-- An image inside a poster remains STATIC with an IMAGE subtask.
-- Performance optimization without real results -> EXPERIMENT, not MEASURE.
-- Translation of a designed asset -> LOCALIZE because layout, timing, and cultural meaning must be adapted.
+- Two or more coordinated asset classes route to `LAUNCH-KIT`.
+- “Audit and fix” routes to the final deliverable mode with audit first. Pure `AUDIT` makes no production edits.
+- An image used only inside a poster remains a `STATIC` run with an image subtask.
+- Optimization without real results routes to `EXPERIMENT`, not `MEASURE`.
+- A designed asset translated for another market routes to `LOCALIZE` because meaning, proof, layout, timing, and culture must be adapted.
 
-## Run vault
+## Create the run vault
 
-Create:
+Initialize once per project and create one isolated run per objective:
+
+```bash
+node bin/supermarketer.mjs init <project-dir>
+node bin/supermarketer.mjs new "<objective>" --project <project-dir> [--mode MODE]
+```
+
+The vault is created under:
 
 ```text
 .supermarketer/runs/<YYYYMMDD-HHMM>-<slug>/
 ```
 
-Minimum files:
+The machine-readable sources of truth are:
+
+- `run-state.json` — mode and state.
+- `EVIDENCE.yaml` — product, customer, market, channel, legal, and analytics evidence.
+- `CHANNEL-SPECS.yaml` — dated placement requirements.
+- `CLAIMS.yaml` — claim-to-evidence and claim-to-asset links.
+- `DELIVERABLES.yaml` — exact required outputs.
+- `ASSET-MANIFEST.yaml` — files, metadata, rights, lineage, reviewers, and fallback state.
+- `REVIEWS.yaml` — independent review verdicts and findings.
+- `APPROVALS.yaml` — explicit, scoped external-action approvals only.
+- `PRODUCTION-PACK.yaml` — accepted image/video fallback packs.
+- `MEASUREMENT.yaml` — real post-launch data and validation rule.
+
+The Markdown files explain the decision and evidence to humans; they do not replace structured records.
+
+## Default execution loop
+
+### 1. Frame
+
+Complete `BRIEF.md` before persuasive production. Establish the original request, objective, product-truth source, audience and buying situation, funnel stage, desired action, offer, proof, exact deliverables, channels, constraints, non-goals, assumptions, decision gates, success criteria, and publish boundary.
+
+Do not infer product capability, price, permission, customer consent, or legal approval. When a missing fact blocks a safe claim or irreversible action, remove the claim or set the run to `BLOCKED`.
+
+### 2. Ground
+
+Build `EVIDENCE.yaml` and the human-readable `EVIDENCE.md`. Use IDs:
 
 ```text
-BRIEF.md
-EVIDENCE.md
-CHANNEL-SPECS.yaml
-CLAIMS.yaml
-ASSET-MANIFEST.yaml
-QA.md
-run-state.json
+P-### product truth
+C-### customer evidence
+M-### market or competitor evidence
+S-### channel requirement
+L-### legal, policy, rights, or jurisdiction evidence
+A-### analytics evidence
 ```
 
-Add `MESSAGE-HOUSE.md` and `CREATIVE-BRIEF.md` when load-bearing. Write `Z-READY.md` only after all launch-readiness gates pass.
+Every source must carry date, source type, confidence, scope, and permission status where relevant. Current channel or regulated facts require current official or high-authority sources.
 
-## Default loop — CAMPAIGN / COPY / STATIC / IMAGE / VIDEO / LAUNCH-KIT
+### 3. Define claims and channel requirements
 
-1. **Frame.** Create `BRIEF.md` first: original request, objective, audience, funnel stage, desired action, offer, proof, deliverables, constraints, rights, KPI, non-goals, assumptions, approval boundary, and falsifiable readiness criteria.
-2. **Ground.** Create `EVIDENCE.md`, dated `CHANNEL-SPECS.yaml`, and `CLAIMS.yaml`. Use current official/high-trust sources. Never write persuasive factual claims before product truth is established.
-3. **Strategize.** Produce the minimum required positioning, message hierarchy, offer/CTA, concept, and channel role. For visual/video runs create `CREATIVE-BRIEF.md`.
-4. **Produce.** Dispatch fresh-context specialists. Enter every deliverable in `ASSET-MANIFEST.yaml`, including source method, claim IDs, rights status, dimensions/duration, source/editable file, rendered file, and fallback.
-5. **Improve.** A separate role checks full brief coverage and edge cases: qualifiers, safe zones, crop, small-screen legibility, silent viewing, captions, alt text, localization expansion, dates/prices/terms, QR/URL validity, and all requested variants.
-6. **Adversarial review.** Fresh reviewers make no production edits and try to disprove readiness across product truth, claims, brand, audience, differentiation, channel fit, visual/video quality, accessibility, rights, compliance, and culture.
-7. **Exact QA/package.** Run deterministic artifact checks plus independent review. Map every success criterion to evidence in `QA.md`. Write `Z-READY.md` only when green.
-8. **Publish gate.** Post/send/deploy/schedule/spend only after explicit approval naming destination, assets, timing, account, recipients, and budget scope.
-9. **Measure.** Only real post-launch data may change performance status to `PERFORMANCE_VALIDATED`.
+Record every externally verifiable statement in `CLAIMS.yaml` using `CL-###`. Map it to evidence IDs and asset IDs. Quantitative, comparative, testimonial, pricing, promotional, availability, certification, performance, high-risk, and regulated claims need their applicable evidence class, qualifications, approval owner, and expiry.
 
-Final status must show:
+Record each channel/placement/market requirement in `CHANNEL-SPECS.yaml`. Do not rely on remembered platform specifications. Capture source, authority, checked date, freshness window, dimensions, ratio, duration, file types, size, copy limits, safe zones, and captions.
 
-```text
-Readiness: LAUNCH_READY | REVIEW_READY | BLOCKED
-Performance: NOT_MEASURED | MEASURING | PERFORMANCE_VALIDATED
+### 4. Strategize
+
+Use only the strategic depth required by the objective. For messaging-heavy work, complete `MESSAGE-HOUSE.md`. For static, image, video, localization, or integrated work, complete `CREATIVE-BRIEF.md`.
+
+Use `agents/product-marketer.md`, `agents/researcher.md`, `agents/creative-director.md`, and `agents/channel-specialist.md` as fresh-context specialists. Strategy authors do not approve their own strategy.
+
+### 5. Produce
+
+Create `DELIVERABLES.yaml` before assets. Give every output a `D-###` record and every produced unit an `ASSET-###` manifest record.
+
+Use the relevant producer role:
+
+- `agents/copywriter.md`
+- `agents/visual-producer.md`
+- `agents/image-producer.md`
+- `agents/video-producer.md`
+- `agents/localization-specialist.md`
+
+Record source paths, rendered paths, actual metadata, claim IDs, producer, generation method, tool/adapter lineage, rights status, reviewers, accessibility files, and fallback state.
+
+When a host image or video tool returns a file, ingest it rather than inventing a path:
+
+```bash
+node bin/supermarketer.mjs ingest <vault> --asset ASSET-001 --file <path> --as rendered
+node bin/supermarketer.mjs inspect <file> --kind image|video
 ```
 
-## Role separation
+Follow `reference/tool-adapters.md` and `adapters/README.md` for provider-neutral handoff rules.
 
-- Strategy: `agents/product-marketer.md`
-- Research: `agents/researcher.md`
-- Copy: `agents/copywriter.md`
-- Direction: `agents/creative-director.md`
-- Static: `agents/visual-producer.md`
-- Image: `agents/image-producer.md`
-- Video: `agents/video-producer.md`
-- Channel adaptation: `agents/channel-specialist.md`
-- Localization: `agents/localization-specialist.md`
-- Claims/brand/rights review: `agents/brand-claims-reviewer.md`
-- Creative review: `agents/creative-reviewer.md`
-- Artifact/package QA: `agents/qa-auditor.md`
-- Experiment/results: `agents/experiment-analyst.md`
+### 6. Handle unavailable media tools honestly
 
-The creator of an asset cannot be its only reviewer.
+- `STATIC` requires an actual rendered file. A textual description is not a poster.
+- `IMAGE` may use `ART_DIRECTION_ONLY` only when the fallback is explicitly accepted and the required pack exists.
+- `VIDEO` may use `PRODUCTION_PACK_ONLY` only when the complete script, time-coded storyboard, shot list, voiceover, on-screen text, captions, prompt pack, source list, edit plan, and output spec exist and the fallback is explicitly accepted.
 
-## Verification tiers
+Never create an empty, invalid, or nonexistent media path to simulate completion.
 
-1. **Deterministic:** files, dimensions, format, size, duration, streams, captions, names, URLs/QR targets, copy limits, manifest, claim IDs, requested variants.
-2. **Evidence trace:** claims, sources, dates, permissions, channel specs, generated/licensed asset lineage.
-3. **Independent review:** clarity, audience fit, differentiation, credibility, hierarchy, legibility, brand, hook/pacing, accessibility, cultural and compliance risk.
-4. **Human approval:** positioning changes, high-risk claims, customer likeness/stories, publishing, sending, or spend.
-5. **Outcome validation:** real campaign data only.
+### 7. Independent review
 
-## Media fallback
+The producer cannot be the reviewer. Record reviews in `REVIEWS.yaml` using `RV-###` and findings using `F-###`.
 
-- STATIC is complete only when an actual rendered asset exists.
-- IMAGE may fall back to an art-direction/prompt pack only if clearly marked.
-- VIDEO may fall back to script + time-coded storyboard + shot list + prompts + VO + on-screen text + captions + edit plan. Set `Render status: PRODUCTION_PACK_ONLY`; never claim a rendered video exists.
+Use fresh review roles:
+
+- `agents/brand-claims-reviewer.md`
+- `agents/creative-reviewer.md`
+- `agents/qa-auditor.md`
+- `agents/experiment-analyst.md` for measurement
+
+Required review types are mode-dependent and are machine-checked. High, critical, or blocker findings cannot remain open. Critical and blocker findings cannot be accepted as residual risk.
+
+### 8. Exact QA and readiness certification
+
+Map every success criterion to evidence in `QA.md`. Run:
+
+```bash
+node bin/supermarketer.mjs check <vault>
+```
+
+The aggregate readiness command runs 12 independent gates for required files, state, brief, evidence, claims, channel specs, deliverables, production packs, manifest/media metadata, reviews, QA, and any claimed performance attestation. The performance gate is a no-op while performance remains unmeasured.
+
+Only after all gates pass:
+
+```bash
+node bin/supermarketer.mjs ready <vault>
+```
+
+This writes `Z-READY.md`, links it by SHA-256 to the final passing `reports/gate-report.json`, embeds a canonical integrity manifest for the certified file set, sets readiness to `LAUNCH_READY`, preserves performance status, and keeps external action unauthorized. Verification rejects changed, missing, symlinked, or newly injected files. Verify the integrity record before delivery:
+
+```bash
+node bin/supermarketer.mjs verify-ready <vault>
+```
+
+Package only a certified run:
+
+```bash
+node bin/supermarketer.mjs package <vault> --out <delivery.zip>
+```
+
+The package command emits a ZIP, package manifest, and SHA-256 sidecar.
+
+### 9. External action remains separate
+
+The skill never publishes, sends, schedules, deploys, or spends. To prove that a human approval record is exact and unexpired, record it in `APPROVALS.yaml` and run:
+
+```bash
+node bin/supermarketer.mjs publish-check <vault> --approval AP-001
+```
+
+The command only emits a scoped permit record. It performs no external action. Approval must name the exact assets, action, destination, account, timing, expiry, recipients when sending, and budget when spending. It must be recorded from explicit user authorization; assistant-inferred approval is invalid.
+
+### 10. Validate real results
+
+After launch, attach the real source data, predeclared rule file, and calculation-evidence file in `MEASUREMENT.yaml`; record each SHA-256; add an independent measurement review; then run:
+
+```bash
+node bin/supermarketer.mjs validate-results <vault>
+```
+
+The gate rejects modeled or invented data, post-hoc rules, mismatched source/rule/calculation hashes, failed thresholds, missing guardrails, self-review, and unsupported causal claims. Only a passing transactional run creates `Z-VALIDATED.md` and sets performance to `PERFORMANCE_VALIDATED`. Re-verify later with:
+
+```bash
+node bin/supermarketer.mjs verify-results <vault>
+```
+
+The core verifies the declared numeric rule and traceability contract; it does not universally recompute every KPI from every analytics-provider format.
 
 ## Hard stops
 
-Stop or return `BLOCKED` when:
+Return `BLOCKED` rather than improvising when:
 
-- product facts or permissions required for a claim are missing,
-- a regulated claim lacks current jurisdiction-specific review,
-- a requested asset uses an unauthorized person, logo, trademark, customer data, music, footage, or testimonial,
-- a platform requirement cannot be established with acceptable confidence,
-- the only available output is a fallback but the request requires a rendered file,
-- or external action lacks explicit approval.
+- product truth or permission required for a claim is unavailable;
+- a regulated or high-risk claim lacks current scoped review;
+- a requested person, logo, trademark, customer story, music, footage, voice, private data, or testimonial lacks rights;
+- a required channel rule cannot be established with acceptable confidence;
+- the required rendered medium is unavailable and the user has not accepted the disclosed fallback;
+- an independent reviewer is unavailable for a required review type;
+- or an external action lacks exact explicit approval.
 
-## Reference map
+## Local implementation references
 
-| Read | When |
-|---|---|
-| `reference/workflow.md` | default run contract |
-| `reference/research.md` | market/customer/competitor/channel evidence |
-| `reference/product-marketing.md` | audience, JTBD, offer, funnel, launch |
-| `reference/positioning.md` | positioning and message house |
-| `reference/campaign.md` | integrated campaign and asset matrix |
-| `reference/copy.md` | marketing copy and scripts |
-| `reference/static.md` | posters, banners, carousels, social creatives |
-| `reference/image.md` | image generation/editing and rights |
-| `reference/video.md` | video render or production-pack contract |
-| `reference/channel-specs.md` | current official channel constraints |
-| `reference/brand-claims-rights.md` | brand, product claims, privacy, rights |
-| `reference/accessibility.md` | contrast, captions, alt text, motion |
-| `reference/localization.md` | transcreation and reflow |
-| `reference/experiments.md` | variants and test design |
-| `reference/measurement.md` | post-launch analysis |
-| `reference/qa.md` | review and readiness gates |
-| `reference/publishing.md` | external-action approval gate |
+- Run lifecycle: `reference/run-vault.md`
+- Gate semantics: `reference/gates.md`
+- Tool adapters: `reference/tool-adapters.md`
+- Full workflow: `reference/workflow.md`
+- Claims, rights, and privacy: `reference/brand-claims-rights.md`
+- Accessibility: `reference/accessibility.md`
+- Publishing boundary: `reference/publishing.md`
+- CLI: `docs/CLI.md`
+- Security model: `docs/SECURITY.md`
+- Structured schemas: `docs/SCHEMAS.md`
 
-## Done
+## Completion contract
 
-`LAUNCH_READY` requires grounded claims, current dated channel specs, complete requested assets or accepted disclosed fallbacks, manifest completeness, independent review, deterministic checks, residual risk, and no unauthorized external action.
-
-`PERFORMANCE_VALIDATED` additionally requires real data meeting a predeclared validation rule with uncertainty and limitations reported.
+A run is complete only when the requested assets exist or an explicitly accepted fallback exists, every fact is traceable, current channel requirements are recorded, rights and accessibility are resolved, independent reviews are complete, deterministic checks pass, certified file integrity is valid, and the final response states both readiness and performance. Local hashes provide integrity linkage, not signer identity; use external signing or immutable storage when authenticity is required.

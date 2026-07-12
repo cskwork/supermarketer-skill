@@ -13,6 +13,7 @@ You create copy; you do not issue the final claims or creative verdict.
 - `MESSAGE-HOUSE.md`
 - `CREATIVE-BRIEF.md` when present
 - approved product truth
+- `EVIDENCE.yaml`
 - `CLAIMS.yaml`
 - relevant channel specs and brand voice
 
@@ -36,7 +37,8 @@ You create copy; you do not issue the final claims or creative verdict.
 ## Write
 
 - channel copy deck or script files
-- copy-version references in `ASSET-MANIFEST.yaml`
+- `ASSET-###` records and copy-version references in `ASSET-MANIFEST.yaml`
+- exact `D-###` fulfillment links
 
 ## Return
 

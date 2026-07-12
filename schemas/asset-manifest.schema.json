@@ -1,0 +1,296 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://supermarketer.local/schemas/asset-manifest.schema.json",
+  "title": "ASSET-MANIFEST.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run",
+    "assets"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "run": {
+      "type": "object",
+      "required": [
+        "id",
+        "mode",
+        "created_at",
+        "readiness",
+        "performance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "enum": [
+            "RESEARCH",
+            "POSITION",
+            "CAMPAIGN",
+            "COPY",
+            "STATIC",
+            "IMAGE",
+            "VIDEO",
+            "LAUNCH-KIT",
+            "EXPERIMENT",
+            "LOCALIZE",
+            "AUDIT",
+            "MEASURE"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "readiness": {
+          "enum": [
+            "DRAFT",
+            "REVIEW_READY",
+            "LAUNCH_READY",
+            "BLOCKED"
+          ]
+        },
+        "performance": {
+          "enum": [
+            "NOT_MEASURED",
+            "MEASURING",
+            "PERFORMANCE_VALIDATED"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "id",
+          "deliverable_ids",
+          "kind",
+          "status",
+          "name",
+          "purpose",
+          "audience",
+          "channel",
+          "placement",
+          "language_market",
+          "producer",
+          "generation_method",
+          "fallback_status",
+          "ai_generated",
+          "rights_status",
+          "reviewers",
+          "review_status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ASSET-[0-9]{3,}$"
+          },
+          "deliverable_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^D-[0-9]{3,}$"
+            }
+          },
+          "kind": {
+            "enum": [
+              "research",
+              "strategy",
+              "copy",
+              "static",
+              "image",
+              "video",
+              "audio",
+              "document",
+              "data"
+            ]
+          },
+          "status": {
+            "enum": [
+              "draft",
+              "rendered",
+              "approved",
+              "production_pack_only"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "audience": {
+            "type": "string",
+            "minLength": 1
+          },
+          "channel": {
+            "type": "string",
+            "minLength": 1
+          },
+          "placement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "language_market": {
+            "type": "string",
+            "minLength": 1
+          },
+          "channel_spec_required": {
+            "type": "boolean"
+          },
+          "source_paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "not": {
+                "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+              }
+            }
+          },
+          "rendered_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "preview_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "lineage_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "copy": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^CL-[0-9]{3,}$"
+            }
+          },
+          "producer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "generation_method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fallback_status": {
+            "enum": [
+              "none",
+              "ART_DIRECTION_ONLY",
+              "PRODUCTION_PACK_ONLY"
+            ]
+          },
+          "production_pack_id": {
+            "type": "string",
+            "pattern": "^PK-[0-9]{3,}$"
+          },
+          "fallback_accepted_by": {
+            "type": "string"
+          },
+          "fallback_accepted_at": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "ai_generated": {
+            "type": "boolean"
+          },
+          "model_or_tool": {
+            "type": "string"
+          },
+          "adapter": {
+            "type": "string"
+          },
+          "rights_status": {
+            "enum": [
+              "owned",
+              "licensed",
+              "cleared",
+              "not_applicable",
+              "pending",
+              "restricted"
+            ]
+          },
+          "rights_sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reviewers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "review_status": {
+            "enum": [
+              "pending",
+              "approved",
+              "rejected"
+            ]
+          },
+          "expected": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "actual": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "accessibility": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "qr_target": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  }
+}

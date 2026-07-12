@@ -1,67 +1,23 @@
 # Evidence Register
 
+`EVIDENCE.yaml` is the machine-readable source of truth. This document explains how the evidence affects marketing decisions.
+
 ## Research Question
 
 <decision this evidence supports>
 
-## Evidence Items
+## Evidence Synthesis
 
-### P-001 — Product fact
-
-- Fact:
-- Source:
-- Checked/published:
-- Scope:
-- Confidence:
-- Limitations:
-- Used by claims:
-
-### C-001 — Customer evidence
-
-- Observation:
-- Source/permission:
-- Date:
-- Segment/context:
-- Confidence:
-- Limitations:
-
-### M-001 — Market/competitor evidence
-
-- Fact:
-- Source:
-- Checked/published:
-- Scope:
-- Confidence:
-- Limitations:
-
-### S-001 — Channel specification
-
-- Requirement:
-- Official source:
-- Checked:
-- Placement:
-- Confidence:
-
-### L-001 — Legal/policy/rights requirement
-
-- Requirement:
-- Jurisdiction/platform:
-- Source:
-- Checked:
-- Reviewer/approval needed:
-
-### A-001 — Analytics/result evidence
-
-- Metric/data:
-- Source:
-- Date range:
-- Definition:
-- Quality limitations:
+- <finding> — Based on: <P-001, C-001, M-001, S-001, L-001, or A-001>
 
 ## Inferences
 
-- <inference> — Based on: <evidence IDs>
+- <inference> — Based on: <evidence IDs>; limitation: <limitation>
 
 ## Unknowns and Conflicts
 
-- <unknown/conflict and decision impact>
+- <unknown or conflict and its decision impact, or `None`>
+
+## Source Notes
+
+- <source-quality, recency, scope, permission, or methodology notes>

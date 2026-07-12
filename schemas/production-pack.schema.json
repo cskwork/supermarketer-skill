@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://supermarketer.local/schemas/production-pack.schema.json",
+  "title": "PRODUCTION-PACK.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "packs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "id",
+          "asset_id",
+          "type",
+          "accepted_by",
+          "accepted_at",
+          "prompt_pack_path",
+          "source_asset_list_path",
+          "output_spec_path"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^PK-[0-9]{3,}$"
+          },
+          "asset_id": {
+            "type": "string",
+            "pattern": "^ASSET-[0-9]{3,}$"
+          },
+          "type": {
+            "enum": [
+              "video",
+              "image_art_direction"
+            ]
+          },
+          "accepted_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "accepted_at": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "script_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "storyboard_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "shot_list_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "voiceover_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "on_screen_text_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "captions_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "prompt_pack_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "source_asset_list_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "edit_plan_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          },
+          "output_spec_path": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+            }
+          }
+        }
+      }
+    }
+  }
+}

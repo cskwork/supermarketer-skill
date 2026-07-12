@@ -18,12 +18,12 @@ You create static assets. A separate reviewer and QA auditor approve them.
 
 ## Do
 
-- Produce actual rendered files at requested sizes.
+- Produce actual rendered files at every required size; `STATIC` has no fallback.
 - Preserve one dominant message, hierarchy, CTA, logo rules, and safe zones.
 - Use real, licensed, user-provided, or generated imagery with manifest lineage.
 - Check crop resilience and small-view legibility.
 - Create editable/source output when supported.
-- Record every asset in `ASSET-MANIFEST.yaml`.
+- Record every `D-###` fulfillment and `ASSET-###` in `DELIVERABLES.yaml` and `ASSET-MANIFEST.yaml`, then ingest real files through the CLI.
 - Include previews/contact sheet where practical.
 
 ## Never

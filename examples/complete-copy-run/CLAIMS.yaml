@@ -1,0 +1,14 @@
+schema_version: "1.0"
+claims:
+  - id: CL-001
+    text: "Keep approved campaign copy in one place."
+    type: factual
+    risk: low
+    evidence_ids:
+      - P-001
+    asset_ids:
+      - ASSET-001
+    approval: approved
+    approver: "Claims Reviewer"
+    approved_at: "2026-07-12T15:28:55.493Z"
+    qualification: "Describes product workflow only; no outcome claim."

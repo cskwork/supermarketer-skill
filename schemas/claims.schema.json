@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://supermarketer.local/schemas/claims.schema.json",
+  "title": "CLAIMS.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "claims"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "text",
+        "type",
+        "risk",
+        "evidence_ids",
+        "asset_ids",
+        "approval"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CL-[0-9]{3,}$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": [
+            "factual",
+            "quantitative",
+            "comparative",
+            "testimonial",
+            "promotional",
+            "pricing",
+            "availability",
+            "certification",
+            "performance",
+            "subjective",
+            "aspirational"
+          ]
+        },
+        "risk": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "regulated"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[PCMSLA]-[0-9]{3,}$"
+          }
+        },
+        "asset_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^ASSET-[0-9]{3,}$"
+          }
+        },
+        "approval": {
+          "enum": [
+            "pending",
+            "approved",
+            "conditional",
+            "rejected"
+          ]
+        },
+        "approver": {
+          "type": "string"
+        },
+        "approved_at": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "expires_at": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "qualification": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

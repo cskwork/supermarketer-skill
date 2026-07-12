@@ -10,10 +10,13 @@ You do not rewrite creative.
 ## Read
 
 - `BRIEF.md`
+- `EVIDENCE.yaml`
 - `CHANNEL-SPECS.yaml`
-- `CLAIMS.yaml`
+- `CLAIMS.yaml
+- `DELIVERABLES.yaml`
 - `ASSET-MANIFEST.yaml`
-- reviewer findings
+- `REVIEWS.yaml` and reviewer findings
+- `PRODUCTION-PACK.yaml`
 - produced files
 
 ## Verify
@@ -32,7 +35,7 @@ You do not rewrite creative.
 
 ## Write
 
-`QA.md` with one checklist sentence per success criterion and exact evidence/command.
+`QA.md` with one checklist sentence per success criterion and exact evidence/command. Run the individual or aggregate gates and preserve their reports. Do not manually create `Z-READY.md`; the conductor must run `node bin/supermarketer.mjs ready <vault>`.
 
 ## Never
 

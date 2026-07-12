@@ -319,7 +319,7 @@
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Agent skill &middot; spec + starter scaffold</div>
+      <div class="eyebrow">Agent skill &middot; v1.0.0 &middot; dependency-free Node CLI</div>
       <h1>
         One objective in.<br />
         A <span class="accent">launch-ready</span><br />
@@ -327,15 +327,16 @@
       </h1>
       <p class="hero-sub">
         Evidence-grounded product marketing and creative production &mdash; research, positioning,
-        copy, posters, images, and video &mdash; routed by a thin skill, verified before it ships.
+        copy, posters, images, and video &mdash; routed by a thin skill, verified by deterministic
+        gates before it ships.
       </p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#modes">See the 13 modes &rarr;</a>
-        <a class="btn btn-ghost" href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">Read the spec</a>
+        <a class="btn btn-primary" href="#modes">See the 12 modes &rarr;</a>
+        <a class="btn btn-ghost" href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">View on GitHub</a>
       </div>
       <div class="hero-meta">
-        <span><span class="dot"></span>13 production modes</span>
-        <span><span class="dot"></span>Role-separated review</span>
+        <span><span class="dot"></span>12 production modes</span>
+        <span><span class="dot"></span>12 deterministic gates</span>
         <span><span class="dot"></span>Honest by design</span>
       </div>
     </div>
@@ -386,7 +387,7 @@
     <div class="modes-head reveal">
       <div>
         <div class="eyebrow">The router &middot; classify, then route</div>
-        <h2 class="title">Thirteen modes. One objective, correctly routed.</h2>
+        <h2 class="title">Twelve modes. One objective, correctly routed.</h2>
         <p class="lede">
           State the mode in one line, then load only the playbook the job needs. The router stays
           thin; the depth lives in <code>reference/</code>.
@@ -407,7 +408,7 @@
       <div class="mode-card reveal"><div class="m-code">LOCALIZE</div><div class="m-name">Localization</div><div class="m-desc">Transcreate, reflow, adapt for market &amp; language.</div><div class="m-route">reference/localization.md</div></div>
       <div class="mode-card reveal"><div class="m-code">AUDIT</div><div class="m-name">Audit</div><div class="m-desc">Critique, compliance &amp; brand check. No edits.</div><div class="m-route">reference/qa.md</div></div>
       <div class="mode-card reveal"><div class="m-code">MEASURE</div><div class="m-name">Measure</div><div class="m-desc">CTR, CVR, lift, performance on real results.</div><div class="m-route">reference/measurement.md</div></div>
-      <div class="mode-card reveal" style="background:linear-gradient(160deg,var(--accent-soft),var(--bg-card));border-color:var(--accent);"><div class="m-code" style="color:var(--accent-dim)">TRUTH</div><div class="m-name">The through-line</div><div class="m-desc">No mode ships without grounded claims &amp; review.</div><div class="m-route">every mode &middot; always</div></div>
+      <div class="mode-card reveal" style="background:linear-gradient(160deg,var(--accent-soft),var(--bg-card));border-color:var(--accent);"><div class="m-code" style="color:var(--accent-dim)">THROUGH&#8209;LINE</div><div class="m-name">Truth, always</div><div class="m-desc">Not a 13th mode &mdash; the rule every mode obeys: grounded claims &amp; review before ship.</div><div class="m-route">every mode &middot; always</div></div>
     </div>
   </div>
 </section>
@@ -442,20 +443,22 @@
       <div class="tree reveal">
         <div class="root">supermarketer-skill/</div>
         &nbsp;&#9500;&#9472; <span class="dir">SKILL.md</span>&nbsp;&nbsp; <span class="desc">&mdash; the thin router</span><br />
-        &nbsp;&#9500;&#9472; <span class="dir">SPEC.md</span>&nbsp;&nbsp; <span class="desc">&mdash; full functional spec</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">bin/</span>&nbsp;&nbsp; <span class="desc">&mdash; CLI entry point</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">lib/</span>&nbsp;&nbsp; <span class="desc">&mdash; router, scaffold, gates, media, attestation</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">scripts/</span>&nbsp;&nbsp; <span class="desc">&mdash; executable gate wrappers</span><br />
         &nbsp;&#9500;&#9472; <span class="dir">agents/</span>&nbsp;&nbsp; <span class="desc">&mdash; 13 role contracts</span><br />
-        &nbsp;&#9475;&nbsp;&nbsp; product-marketer &middot; researcher<br />
-        &nbsp;&#9475;&nbsp;&nbsp; copywriter &middot; creative-director<br />
-        &nbsp;&#9475;&nbsp;&nbsp; visual / image / video producer<br />
-        &nbsp;&#9475;&nbsp;&nbsp; channel &middot; localization specialist<br />
-        &nbsp;&#9475;&nbsp;&nbsp; brand-claims &middot; creative reviewer<br />
-        &nbsp;&#9475;&nbsp;&nbsp; qa-auditor &middot; experiment-analyst<br />
-        &nbsp;&#9500;&#9472; <span class="dir">reference/</span>&nbsp;&nbsp; <span class="desc">&mdash; mode playbooks</span><br />
-        &nbsp;&#9500;&#9472; <span class="dir">templates/</span>&nbsp;&nbsp; <span class="desc">&mdash; run-vault files</span><br />
-        &nbsp;&#9500;&#9472; <span class="dir">tests/</span>&nbsp;&nbsp; <span class="desc">&mdash; acceptance contracts</span><br />
-        &nbsp;&#9492;&#9472; <span class="dir">examples/</span> &middot; <span class="dir">scripts/</span>
+        &nbsp;&#9500;&#9472; <span class="dir">reference/</span>&nbsp;&nbsp; <span class="desc">&mdash; 20 mode &amp; ops playbooks</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">adapters/</span>&nbsp;&nbsp; <span class="desc">&mdash; provider-neutral media contracts</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">templates/</span>&nbsp;&nbsp; <span class="desc">&mdash; run-vault &amp; production-pack files</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">schemas/</span>&nbsp;&nbsp; <span class="desc">&mdash; 12 JSON Schemas</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">tests/</span>&nbsp;&nbsp; <span class="desc">&mdash; 37 contract &amp; adversarial tests</span><br />
+        &nbsp;&#9492;&#9472; <span class="dir">docs/</span> &middot; <span class="dir">examples/</span> &middot; <span class="dir">SPEC.md</span>
       </div>
       <ul class="struct-list reveal">
+        <li>
+          <div class="h"><code>bin/</code> + <code>lib/</code> The engine</div>
+          <p>Dependency-free Node 20+ CLI. One command per lifecycle step: scaffold a vault, run gates, certify readiness, package, validate results.</p>
+        </li>
         <li>
           <div class="h"><code>SKILL.md</code> Router</div>
           <p>Classifies the objective into one mode, states it in a line, and routes to the right playbook. Never embeds the playbook itself.</p>
@@ -465,12 +468,8 @@
           <p>Each role has a contract. Producers and reviewers are always separate &mdash; the creator of an asset cannot be its only reviewer.</p>
         </li>
         <li>
-          <div class="h"><code>reference/</code> Playbooks</div>
-          <p>On-demand depth per mode: research, positioning, campaign, copy, static, image, video, channel-specs, QA, publishing, and more.</p>
-        </li>
-        <li>
-          <div class="h"><code>templates/</code> Run-vault</div>
-          <p>Every run gets a dated folder: BRIEF, EVIDENCE, CLAIMS, CHANNEL-SPECS, ASSET-MANIFEST, QA &mdash; and Z-READY only when all gates pass.</p>
+          <div class="h"><code>schemas/</code> + <code>adapters/</code> Interop</div>
+          <p>JSON Schemas document every structured record; provider-neutral adapter contracts define the handoff for any image, design, or video tool.</p>
         </li>
       </ul>
     </div>
@@ -481,30 +480,31 @@
 <section id="status" class="honesty">
   <div class="wrap">
     <div class="eyebrow reveal">Status &amp; honesty</div>
-    <h2 class="title reveal">A spec and starter scaffold &mdash; not a finished tool.</h2>
-    <p class="lede reveal">This package is open about what exists and what is still to be implemented. It never claims more than it does.</p>
+    <h2 class="title reveal">Shipped v1.0.0 &mdash; and explicit about what it deliberately is not.</h2>
+    <p class="lede reveal">37 automated tests pass. The integrity model is code, not prose. And the boundaries below are choices, not gaps.</p>
 
     <div class="honesty-grid">
       <div class="honesty-card reveal">
-        <h4>What's in the box <span class="badge">complete</span></h4>
+        <h4>Built and verified <span class="badge">v1.0.0</span></h4>
         <ul>
-          <li>Full functional &amp; operational <code>SPEC.md</code></li>
-          <li>Thin router (<code>SKILL.md</code>) mapping all 13 modes</li>
-          <li>13 role contracts in <code>agents/</code></li>
-          <li>17 mode playbooks in <code>reference/</code></li>
-          <li>Run-vault templates with stable evidence &amp; claim anchors</li>
-          <li>Acceptance &amp; scenario contracts in <code>tests/</code></li>
+          <li>Dependency-free Node 20+ CLI: <code>init / new / check / ready / verify-ready / package / publish-check / validate-results</code></li>
+          <li>12 aggregate launch-readiness gates with stable error codes + focused wrappers</li>
+          <li>Transactional <code>Z-READY</code> &amp; <code>Z-VALIDATED</code> with SHA-256 manifests + post-cert injection detection</li>
+          <li>Media metadata inspection (PNG/JPEG/GIF/WebP/SVG/PDF/video), rights &amp; lineage checks</li>
+          <li>Reviewer-separation enforcement, path containment, symlink rejection</li>
+          <li>Built-in ZIP packaging + checksum sidecar, 12 JSON Schemas, GitHub Actions CI</li>
+          <li>37 contract &amp; adversarial tests; a certified COPY example</li>
         </ul>
       </div>
       <div class="honesty-card reveal">
-        <h4>Planned, not yet built <span class="badge">todo</span></h4>
+        <h4>Deliberate integration boundaries <span class="badge">by design</span></h4>
         <ul>
-          <li>Deterministic gate scripts (<code>brief / claims / manifest / channel-spec</code>)</li>
-          <li>Image &amp; video metadata gates</li>
-          <li>Image generation/editing adapters</li>
-          <li>Video render adapters (production-pack fallback exists today)</li>
-          <li>Experiment &amp; analytics connectors</li>
-          <li>External publishing adapters behind explicit approval</li>
+          <li>No bundled media-provider credentials or API keys</li>
+          <li>No <code>publish</code>/<code>send</code>/<code>spend</code> execution &mdash; <code>publish-check</code> only verifies scoped human approval</li>
+          <li>No reviewer-identity authentication or legal approval</li>
+          <li>No universal analytics-export parser &mdash; calc evidence + independent reviewer remain the proof</li>
+          <li>Actual media generation happens through documented host adapters, not in-core</li>
+          <li>SHA-256 gives local integrity, not signer authenticity &mdash; use signed releases when non-repudiation matters</li>
         </ul>
       </div>
     </div>
@@ -516,11 +516,12 @@
   <div class="wrap">
     <div class="cta-band reveal">
       <h3>Give it one marketing objective.</h3>
-      <p>Place the repo where your agent runtime discovers skills, keep one canonical checkout, then invoke:</p>
+      <p>One canonical checkout, an optional <code>npm link</code>, then either invoke the skill or drive the CLI directly:</p>
       <div class="cmd"><span class="prompt">/</span>supermarketer &lt;one marketing objective&gt;</div>
-      <div class="hero-ctas">
+      <div class="hero-ctas" style="margin-top:18px">
         <a class="btn btn-primary" href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">View on GitHub</a>
-        <a class="btn btn-ghost" href="https://github.com/cskwork/supermarketer-skill/blob/main/SPEC.md" target="_blank" rel="noopener">Read SPEC.md</a>
+        <a class="btn btn-ghost" href="https://github.com/cskwork/supermarketer-skill/blob/main/docs/INSTALL.md" target="_blank" rel="noopener">Install guide</a>
+        <a class="btn btn-ghost" href="https://github.com/cskwork/supermarketer-skill/blob/main/docs/CLI.md" target="_blank" rel="noopener">CLI reference</a>
       </div>
     </div>
   </div>
@@ -533,13 +534,13 @@
       <div class="foot-brand"><span class="slash">/</span>supermarketer</div>
       <div class="lineage">
         Design lineage inspired by <a href="https://github.com/cskwork/supergoal-skill" target="_blank" rel="noopener">supergoal-skill</a> and
-        <a href="https://github.com/cskwork/superdesign-skill" target="_blank" rel="noopener">superdesign-skill</a>. This starter is newly written
-        specification text; review upstream licenses before copying implementation code.
+        <a href="https://github.com/cskwork/superdesign-skill" target="_blank" rel="noopener">superdesign-skill</a>. Newly written for product
+        marketing; review upstream licenses before copying implementation code. MIT licensed.
       </div>
     </div>
     <div class="foot-meta">
       <a href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">github.com/cskwork/supermarketer-skill</a><br />
-      Spec &amp; starter scaffold &middot; status: <span style="color:var(--accent)">LAUNCH_READY</span> / <span style="color:var(--text-mute)">NOT_MEASURED</span>
+      v1.0.0 &middot; 37 tests passing &middot; status: <span style="color:var(--accent)">LAUNCH_READY</span> / <span style="color:var(--text-mute)">NOT_MEASURED</span>
     </div>
   </div>
 </footer>

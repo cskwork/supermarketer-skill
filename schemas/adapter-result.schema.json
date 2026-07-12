@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://supermarketer.local/schemas/adapter-result.schema.json",
+  "title": "Media adapter result",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "adapter",
+    "asset_id",
+    "status",
+    "outputs",
+    "lineage"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "adapter": {
+      "type": "string",
+      "minLength": 1
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^ASSET-[0-9]{3,}$"
+    },
+    "status": {
+      "enum": [
+        "rendered",
+        "ART_DIRECTION_ONLY",
+        "PRODUCTION_PACK_ONLY",
+        "failed"
+      ]
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "not": {
+          "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "required": [
+        "tool",
+        "invoked_at",
+        "inputs",
+        "prompt_or_instructions"
+      ],
+      "properties": {
+        "tool": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": "string"
+        },
+        "invoked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "inputs": {
+          "type": "array"
+        },
+        "prompt_or_instructions": {
+          "type": "string",
+          "minLength": 1
+        },
+        "seed": {},
+        "license_notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "error": {
+      "type": "string"
+    }
+  }
+}

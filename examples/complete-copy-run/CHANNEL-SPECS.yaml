@@ -1,0 +1,25 @@
+schema_version: "1.0"
+channels:
+  - id: S-001
+    channel: email
+    placement: body
+    language_market: ko-KR
+    source: sources/channel.md
+    source_authority: internal
+    checked_at: 2026-07-12
+    max_age_days: 90
+    confidence: high
+    dimensions: []
+    aspect_ratios: []
+    duration_seconds:
+      min: null
+      max: null
+    file_types:
+      - md
+    file_size_limit_bytes: 100000
+    text_constraints:
+      headline_max_chars: 80
+      body_max_chars: 240
+      cta_max_chars: 30
+    safe_zone_notes: "N/A for text-only email copy"
+    caption_requirements: N/A

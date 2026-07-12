@@ -15,9 +15,9 @@ Create `.supermarketer/runs/<YYYYMMDD-HHMM>-<slug>/` and initialize from `templa
 5. **Improve:** full brief plus edge cases.
 6. **Adversarial review:** separate brand/claims and creative reviewers.
 7. **QA:** deterministic metadata/trace/package checks.
-8. **Ready:** write `Z-READY.md` only when all criteria are proven.
+8. **Ready:** run transactional 12-gate certification, then verify the report digest and certified-file manifest before delivery.
 9. **Publish:** separate explicit approval.
-10. **Measure:** real data only.
+10. **Measure:** real source data, predeclared rule, calculation evidence, hashes, and independent review; run `verify-results` after validation.
 
 ## Iteration
 

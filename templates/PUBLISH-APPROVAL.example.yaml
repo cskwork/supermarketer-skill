@@ -1,0 +1,19 @@
+schema_version: "1.0"
+approvals:
+  - id: AP-001
+    type: publish
+    decision: approved
+    recorded_from: user_explicit
+    user_quote: "Publish ASSET-001 to the named account at the stated time."
+    approver: "Accountable human owner"
+    approved_at: "2026-07-12T09:00:00Z"
+    expires_at: "2026-07-19T09:00:00Z"
+    actions: [publish]
+    asset_ids: [ASSET-001]
+    destination: "Named platform and placement"
+    account: "Exact account/workspace ID"
+    timing: "Exact timestamp or approved scheduling window"
+    recipient_scope: "N/A unless actions includes send"
+    budget_currency: "N/A unless actions includes spend"
+    budget_max: null
+    notes: "This record authorizes only the listed scope. The skill itself never performs the external action."

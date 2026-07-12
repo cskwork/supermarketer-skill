@@ -1,6 +1,7 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "1.0",
   "run_id": "",
+  "objective": "",
   "mode": "",
   "phase": "frame",
   "readiness": "DRAFT",
@@ -9,5 +10,6 @@
   "open_decisions": [],
   "blocking_findings": [],
   "artifacts": [],
+  "created_at": "",
   "updated_at": ""
 }

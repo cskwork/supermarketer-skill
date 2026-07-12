@@ -1,0 +1,568 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-12T15:30:22.251Z",
+  "vault": "/mnt/data/supermarketer-work/supermarketer-skill/examples/complete-copy-run",
+  "for_ready": true,
+  "ok": true,
+  "summary": {
+    "gates": 12,
+    "passed": 12,
+    "errors": 0,
+    "warnings": 0
+  },
+  "errors": [],
+  "warnings": [],
+  "results": [
+    {
+      "gate": "run-files",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "RUN_FILES",
+          "message": "11/11 required run files present.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "gate": "run-state",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "STATE_PARSED",
+          "message": "Run 20260712-1528-complete-copy-example is in ready.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "state": {
+          "schema_version": "1.0",
+          "run_id": "20260712-1528-complete-copy-example",
+          "objective": "Create a grounded lifecycle email for Product A.",
+          "mode": "COPY",
+          "phase": "ready",
+          "readiness": "LAUNCH_READY",
+          "performance": "NOT_MEASURED",
+          "external_action_authorized": false,
+          "open_decisions": [],
+          "blocking_findings": [],
+          "artifacts": [
+            "ASSET-001"
+          ],
+          "created_at": "2026-07-12T15:28:55.493Z",
+          "updated_at": "2026-07-12T15:30:22.224Z"
+        }
+      }
+    },
+    {
+      "gate": "brief",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "BRIEF_PARSED",
+          "message": "Brief routed to COPY with 3 success criterion/criteria.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "mode": "COPY",
+        "successCriteria": [
+          {
+            "checked": true,
+            "text": "Every factual claim resolves to approved product evidence. — Verify with: `CLAIMS.yaml`, `EVIDENCE.yaml`, and RV-001",
+            "index": 0
+          },
+          {
+            "checked": true,
+            "text": "The rendered copy file exists and satisfies the channel text limits. — Verify with: `assets/as-001/copy.md` and `reports/deterministic.txt`",
+            "index": 123
+          },
+          {
+            "checked": true,
+            "text": "Final status reports readiness separately from performance. — Verify with: `QA.md` and `run-state.json`",
+            "index": 269
+          }
+        ],
+        "deliverables": [
+          {
+            "checked": true,
+            "text": "D-001 — one email-body copy asset for the lifecycle email body placement",
+            "index": 0
+          }
+        ]
+      }
+    },
+    {
+      "gate": "evidence",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "EVIDENCE_COUNT",
+          "message": "1 evidence item(s) parsed.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "ids": [
+          "P-001"
+        ],
+        "byId": {
+          "P-001": {
+            "id": "P-001",
+            "kind": "product",
+            "statement": "Product A helps teams centralize approved campaign copy.",
+            "source": "sources/product.md",
+            "source_type": "approved_internal",
+            "checked_at": "2026-07-12",
+            "time_sensitive": false,
+            "max_age_days": 365,
+            "confidence": "high",
+            "permission_status": "not_applicable",
+            "owner": "Product Marketing Operations"
+          }
+        },
+        "legalEvidence": false
+      }
+    },
+    {
+      "gate": "claims",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "CLAIM_COUNT",
+          "message": "1 claim(s) parsed.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "ids": [
+          "CL-001"
+        ],
+        "highRiskClaims": false
+      }
+    },
+    {
+      "gate": "channel-specs",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "CHANNEL_COUNT",
+          "message": "1 channel specification(s) parsed.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "records": [
+          {
+            "id": "S-001",
+            "channel": "email",
+            "placement": "body",
+            "language_market": "ko-KR",
+            "source": "sources/channel.md",
+            "source_authority": "internal",
+            "checked_at": "2026-07-12",
+            "max_age_days": 90,
+            "confidence": "high",
+            "dimensions": [],
+            "aspect_ratios": [],
+            "duration_seconds": {
+              "min": null,
+              "max": null
+            },
+            "file_types": [
+              "md"
+            ],
+            "file_size_limit_bytes": 100000,
+            "text_constraints": {
+              "headline_max_chars": 80,
+              "body_max_chars": 240,
+              "cta_max_chars": 30
+            },
+            "safe_zone_notes": "N/A for text-only email copy",
+            "caption_requirements": "N/A"
+          }
+        ]
+      }
+    },
+    {
+      "gate": "deliverables",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "DELIVERABLE_COUNT",
+          "message": "1 deliverable(s) parsed.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "ids": [
+          "D-001"
+        ],
+        "deliverables": [
+          {
+            "id": "D-001",
+            "description": "Lifecycle email body copy",
+            "kind": "copy",
+            "channel": "email",
+            "placement": "body",
+            "language_market": "ko-KR",
+            "required": true,
+            "expected_dimensions": null,
+            "expected_duration_seconds": null,
+            "fallback_allowed": false,
+            "fulfillment_asset_ids": [
+              "ASSET-001"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "gate": "production-pack",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "PACK_COUNT",
+          "message": "0 production pack(s) parsed.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "packs": [],
+        "byId": {}
+      }
+    },
+    {
+      "gate": "asset-manifest",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "ASSET_COUNT",
+          "message": "1 asset(s) parsed; 1 rendered file(s) inspected.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "ids": [
+          "ASSET-001"
+        ],
+        "assets": [
+          {
+            "id": "ASSET-001",
+            "deliverable_ids": [
+              "D-001"
+            ],
+            "kind": "copy",
+            "status": "approved",
+            "name": "Product A lifecycle email copy",
+            "purpose": "Explain the approved product workflow and invite review",
+            "audience": "B2B lifecycle marketing managers",
+            "channel": "email",
+            "placement": "body",
+            "language_market": "ko-KR",
+            "channel_spec_required": true,
+            "source_paths": [
+              "sources/product.md"
+            ],
+            "rendered_path": "assets/as-001/copy.md",
+            "copy": {
+              "headline": "Approved campaign copy in one place",
+              "body": "Keep product facts, channel limits, and review evidence linked before launch.",
+              "cta": "Review the package"
+            },
+            "claim_ids": [
+              "CL-001"
+            ],
+            "producer": "Copy Producer",
+            "generation_method": "Human-directed drafting with deterministic validation",
+            "fallback_status": "none",
+            "ai_generated": false,
+            "rights_status": "not_applicable",
+            "rights_sources": [],
+            "reviewers": [
+              "Claims Reviewer",
+              "Creative Reviewer",
+              "QA Auditor"
+            ],
+            "review_status": "approved",
+            "accessibility": {
+              "decorative": true,
+              "captions_required": false
+            }
+          }
+        ],
+        "inspected": {
+          "ASSET-001": {
+            "path": "/mnt/data/supermarketer-work/supermarketer-skill/examples/complete-copy-run/assets/as-001/copy.md",
+            "format": "md",
+            "size_bytes": 161,
+            "sha256": "c9b36fbae9abc4f8a1c4a9906d841f4627c4eeae02937f968f189e66a8579e29"
+          }
+        },
+        "producers": {
+          "ASSET-001": "Copy Producer"
+        },
+        "multipleMarkets": false
+      }
+    },
+    {
+      "gate": "reviews",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "REVIEW_COUNT",
+          "message": "3 review record(s) parsed; required types: artifact_qa, claims_brand_rights, creative.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "requiredTypes": [
+          "artifact_qa",
+          "claims_brand_rights",
+          "creative"
+        ],
+        "passedTypes": [
+          "claims_brand_rights",
+          "creative",
+          "artifact_qa"
+        ],
+        "reviewIds": [
+          "RV-001",
+          "RV-002",
+          "RV-003"
+        ]
+      }
+    },
+    {
+      "gate": "qa",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "QA_PARSED",
+          "message": "3 criterion mapping(s) and 1 deterministic check(s) parsed.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {
+        "criteria": [
+          {
+            "checked": true,
+            "text": "Product claim is grounded. — Evidence: P-001, CL-001, and RV-001",
+            "index": 0
+          },
+          {
+            "checked": true,
+            "text": "Copy artifact exists and is within channel limits. — Evidence: `assets/as-001/copy.md` and `reports/deterministic.txt`",
+            "index": 71
+          },
+          {
+            "checked": true,
+            "text": "Readiness and performance remain separate. — Evidence: `run-state.json`",
+            "index": 196
+          }
+        ],
+        "completeness": [
+          {
+            "checked": true,
+            "text": "Every required deliverable in `DELIVERABLES.yaml` resolves to approved asset IDs.",
+            "index": 0
+          },
+          {
+            "checked": true,
+            "text": "Every path in `ASSET-MANIFEST.yaml` resolves inside the run vault.",
+            "index": 88
+          },
+          {
+            "checked": true,
+            "text": "Every externally verifiable claim resolves to current, scoped evidence.",
+            "index": 161
+          },
+          {
+            "checked": true,
+            "text": "Required channel specifications are dated, sourced, and still fresh.",
+            "index": 239
+          },
+          {
+            "checked": true,
+            "text": "Media fallbacks are explicit and approved; no nonexistent render is claimed.",
+            "index": 314
+          },
+          {
+            "checked": true,
+            "text": "Required independent reviews in `REVIEWS.yaml` are complete.",
+            "index": 397
+          },
+          {
+            "checked": true,
+            "text": "No unresolved blocking finding or decision remains.",
+            "index": 464
+          },
+          {
+            "checked": true,
+            "text": "Rights, privacy, and generated-asset lineage are recorded.",
+            "index": 522
+          },
+          {
+            "checked": true,
+            "text": "The publish boundary is respected.",
+            "index": 587
+          },
+          {
+            "checked": true,
+            "text": "Readiness and performance statuses are separate.",
+            "index": 628
+          }
+        ],
+        "readiness": "LAUNCH_READY",
+        "performance": "NOT_MEASURED"
+      }
+    },
+    {
+      "gate": "performance-attestation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "checks": [
+        {
+          "code": "PERFORMANCE_NOT_CLAIMED",
+          "message": "Performance state is NOT_MEASURED; no validation attestation is required.",
+          "status": "pass",
+          "location": ""
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "integrity_manifest": [
+    {
+      "path": "ASSET-MANIFEST.yaml",
+      "normalization": "manifest-without-performance",
+      "canonical_size_bytes": 1124,
+      "sha256": "ef9ae540a9b2dac54534e91855888970fa9bb258fc5fe903048631a2181326d3"
+    },
+    {
+      "path": "BRIEF.md",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 2733,
+      "sha256": "db279ecae419e88db05b866867051761f62f3073514fd98e2525fb58027613d7"
+    },
+    {
+      "path": "CHANNEL-SPECS.yaml",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 582,
+      "sha256": "0d81d33b4529aa189404bce27d36b5e371bf3662ea4009bf63346ee4dadb0941"
+    },
+    {
+      "path": "CLAIMS.yaml",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 367,
+      "sha256": "47c9f4ca541d1076330b8aea2628a0e394f3a526c826aef448924721f5d85939"
+    },
+    {
+      "path": "DELIVERABLES.yaml",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 334,
+      "sha256": "6c61e6ee8ada6c825aaff77618efa90cbc902d9ac8852f0ef17b55e94fe72a96"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 521,
+      "sha256": "8fd15199b02b9f0571166d56f40145eab39dc0b981258921cd01024ef137c511"
+    },
+    {
+      "path": "EVIDENCE.yaml",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 380,
+      "sha256": "33d42002e1a73dd2e9523727165ddb17f345d6044a5276daa7a5292cc3c78d04"
+    },
+    {
+      "path": "PRODUCTION-PACK.yaml",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 32,
+      "sha256": "8ae97ac790ced368c0b75432a0dc2fd6f72edfaae6a46dadbd371df6de198963"
+    },
+    {
+      "path": "QA.md",
+      "normalization": "qa-with-normalized-performance-lines",
+      "canonical_size_bytes": 2493,
+      "sha256": "dd1e7d2e71bbfa1bcd89c665bb25ad13ccd06d82879fd356f66809e73f777daf"
+    },
+    {
+      "path": "README.md",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 770,
+      "sha256": "88b8b36d942b8e66eb1c4176dbc8be6035ea013a4b8ea085d6d0f2dde5633e53"
+    },
+    {
+      "path": "REVIEWS.yaml",
+      "normalization": "reviews-without-measurement-reviews",
+      "canonical_size_bytes": 534,
+      "sha256": "aa2f28b069408675a1e24283ee73ae3745fb9ec11d3b83175a46a5ce1be3053d"
+    },
+    {
+      "path": "assets/as-001/copy.md",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 161,
+      "sha256": "c9b36fbae9abc4f8a1c4a9906d841f4627c4eeae02937f968f189e66a8579e29"
+    },
+    {
+      "path": "reports/deterministic.txt",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 76,
+      "sha256": "90169ba77cab6591d56977c418fd4a2ce5f16320d99708aaacc498769b7df582"
+    },
+    {
+      "path": "run-state.json",
+      "normalization": "run-state-without-post-launch-fields",
+      "canonical_size_bytes": 320,
+      "sha256": "e57d281e129e3b8523256992e867e7809e4b5d4a11671e9bad1fbf0035d47ebc"
+    },
+    {
+      "path": "sources/channel.md",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 109,
+      "sha256": "a6e157d333cf99473eb8da2f3860bf814dbefa51bbb133f1b60c5f2901210861"
+    },
+    {
+      "path": "sources/product.md",
+      "normalization": "raw-file",
+      "canonical_size_bytes": 83,
+      "sha256": "18dd322878d5ae1f6500dd7fafd19987ee04e0882949a2d3841135ce67143a6f"
+    }
+  ]
+}
