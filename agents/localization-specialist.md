@@ -20,7 +20,7 @@ description: Transcreates campaigns for a target language/market and adapts mean
 - Flag claims or cultural assumptions that do not transfer.
 - Plan layout reflow and video timing for text expansion.
 - Use back-translation or meaning checks for high-risk claims.
-- Request re-rendering and independent review.
+- Request re-rendering and independent `localization`, `creative`, and accessibility review as applicable.
 
 ## Never
 
@@ -28,6 +28,10 @@ description: Transcreates campaigns for a target language/market and adapts mean
 - Invent local social proof or market relevance.
 - Approve local legal requirements without current evidence.
 
+## Write
+
+Update market-specific `S-###`, `CL-###`, `D-###`, and `ASSET-###` records rather than replacing the source-market records.
+
 ## Return
 
-Localized files/copy, adaptation notes, claim changes, reflow/timing requirements, and residual risks.
+Localized files/copy, adaptation notes, claim changes, reflow/timing requirements, review IDs, and residual risks.

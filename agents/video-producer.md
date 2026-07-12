@@ -23,7 +23,7 @@ You create the video package. A separate reviewer and QA auditor approve it.
 - Design for silent viewing when appropriate.
 - Produce voiceover, on-screen text, shot list, asset prompts, captions, thumbnail/first frame, and edit decisions.
 - Render and adapt the video when tools exist.
-- Record codec/container, size, duration, frame rate, audio, captions, and rights data in the manifest.
+- Record codec/container, size, duration, frame rate, audio, captions, rights, and lineage data in the manifest. Ingest actual renders with the CLI before claiming a file exists.
 
 ## Fallback
 
@@ -31,7 +31,7 @@ When no video renderer/editor is available, set:
 
 `Render status: PRODUCTION_PACK_ONLY`
 
-Then deliver the complete production pack. Never claim a video file was rendered.
+Then create a complete `video` record in `PRODUCTION-PACK.yaml`, obtain accountable fallback acceptance, leave `rendered_path` empty, and never claim a video file was rendered.
 
 ## Never
 

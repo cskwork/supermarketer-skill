@@ -1,0 +1,14 @@
+schema_version: "1.0"
+deliverables:
+  - id: D-001
+    description: "Lifecycle email body copy"
+    kind: copy
+    channel: email
+    placement: body
+    language_market: ko-KR
+    required: true
+    expected_dimensions: null
+    expected_duration_seconds: null
+    fallback_allowed: false
+    fulfillment_asset_ids:
+      - ASSET-001

@@ -1,17 +1,12 @@
-# Design lineage
+# Design lineage and third-party notice
 
-This specification is inspired by the architecture of:
+SuperMarketer 1.0.0 is a newly written implementation for product marketing and creative-production workflows.
 
-- `cskwork/supergoal-skill` — thin router, route-specific references, role separation, explicit deliverables, and gated verification.
-- `cskwork/superdesign-skill` — intent-driven visual production, separate critique, rendered verification, and explicit tool fallback.
+Its architectural design is inspired by:
 
-The marketing specification changes the verification ground truth to:
+- `cskwork/supergoal-skill`: thin routing, route-specific references, isolated roles, explicit deliverables, gated verification, and executable tests.
+- `cskwork/superdesign-skill`: intent-driven visual production, independent critique, rendered-artifact verification, and explicit no-fake fallback behavior.
 
-- product truth,
-- evidence-linked claims,
-- current channel specifications,
-- asset metadata and package completeness,
-- independent creative/brand/compliance review,
-- and actual post-launch metrics.
+No upstream implementation file is vendored in this package. The SuperMarketer code, templates, tests, and documentation were written for this repository. Its verification ground truth is product truth, evidence-linked claims, current channel requirements, asset metadata, rights and generation lineage, independent review, and real post-launch measurement.
 
-Review the upstream repositories' licenses before copying upstream code. This starter is newly written specification text and does not include upstream implementation code.
+Optional system tools such as FFmpeg/ffprobe, Poppler `pdfinfo`, and ImageMagick remain governed by their own licenses and are not bundled here.

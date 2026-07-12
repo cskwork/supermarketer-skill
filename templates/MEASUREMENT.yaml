@@ -1,0 +1,32 @@
+schema_version: "1.0"
+data:
+  real_post_launch: false
+  source_path: ""
+  source_description: ""
+  data_sha256: ""
+  date_start: ""
+  date_end: ""
+  timezone: ""
+  metric_definition: ""
+  data_quality_limitations: ""
+validation:
+  predeclared_rule_source: ""
+  predeclared_rule_sha256: ""
+  predeclared_at: ""
+  primary_metric: ""
+  operator: gte
+  threshold: null
+  observed: null
+  calculation_method: ""
+  calculation_evidence_path: ""
+  calculation_evidence_sha256: ""
+  uncertainty: ""
+  guardrails_passed: false
+  causal_claim_allowed: false
+  randomized: false
+  assignment_method: ""
+  sample_size: null
+  analyst: ""
+  reviewed_by: ""
+  decision: MORE_DATA
+  performance_status: NOT_MEASURED

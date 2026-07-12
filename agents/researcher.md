@@ -24,8 +24,9 @@ You work evidence-first and separate facts from inference.
 
 ## Write
 
-- `EVIDENCE.md`
-- applicable entries in `CHANNEL-SPECS.yaml`
+- structured records in `EVIDENCE.yaml`
+- the human-readable synthesis in `EVIDENCE.md`
+- applicable dated entries in `CHANNEL-SPECS.yaml`
 - evidence references needed by `CLAIMS.yaml`
 
 ## Never

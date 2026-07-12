@@ -1,0 +1,26 @@
+schema_version: "1.0"
+reviews:
+  - id: RV-001
+    type: claims_brand_rights
+    reviewer: "Claims Reviewer"
+    completed_at: "2026-07-12T15:28:55.493Z"
+    verdict: pass
+    asset_ids:
+      - ASSET-001
+    findings: []
+  - id: RV-002
+    type: creative
+    reviewer: "Creative Reviewer"
+    completed_at: "2026-07-12T15:28:55.493Z"
+    verdict: pass
+    asset_ids:
+      - ASSET-001
+    findings: []
+  - id: RV-003
+    type: artifact_qa
+    reviewer: "QA Auditor"
+    completed_at: "2026-07-12T15:28:55.493Z"
+    verdict: pass
+    asset_ids:
+      - ASSET-001
+    findings: []

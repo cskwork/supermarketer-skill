@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://supermarketer.local/schemas/evidence.schema.json",
+  "title": "EVIDENCE.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "kind",
+        "statement",
+        "source",
+        "source_type",
+        "checked_at",
+        "confidence",
+        "permission_status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[PCMSLA]-[0-9]{3,}$"
+        },
+        "kind": {
+          "enum": [
+            "product",
+            "customer",
+            "market",
+            "channel",
+            "legal",
+            "analytics"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "approved_internal",
+            "official",
+            "regulator",
+            "first_party",
+            "independent",
+            "customer_interview",
+            "customer_provided",
+            "analytics_export"
+          ]
+        },
+        "checked_at": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "time_sensitive": {
+          "type": "boolean"
+        },
+        "max_age_days": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "permission_status": {
+          "enum": [
+            "not_applicable",
+            "cleared",
+            "pending",
+            "restricted"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

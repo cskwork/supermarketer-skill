@@ -23,7 +23,7 @@ You make no production edits.
 
 ## Findings
 
-For each issue, record:
+Write a scoped `creative` review record in `REVIEWS.yaml`. For each issue, record:
 
 - severity,
 - asset/location/timecode,
@@ -41,4 +41,4 @@ A score may summarize but cannot replace findings.
 
 ## Return
 
-Blocking issues, improvement issues, strengths worth preserving, and verdict.
+Review ID, blocking issues, improvement issues, strengths worth preserving, and verdict. Never edit the asset or create readiness markers.

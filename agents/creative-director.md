@@ -38,4 +38,4 @@ You set direction but do not self-approve execution.
 
 ## Return
 
-Selected concept, rationale, required assets, visual/video rules, channel adaptations, and risks.
+Selected concept, rationale, required `D-###` asset set, visual/video rules, channel adaptations, and risks. Do not mark assets approved.

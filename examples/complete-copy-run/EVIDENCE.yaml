@@ -1,0 +1,13 @@
+schema_version: "1.0"
+evidence:
+  - id: P-001
+    kind: product
+    statement: "Product A helps teams centralize approved campaign copy."
+    source: sources/product.md
+    source_type: approved_internal
+    checked_at: 2026-07-12
+    time_sensitive: false
+    max_age_days: 365
+    confidence: high
+    permission_status: not_applicable
+    owner: "Product Marketing Operations"

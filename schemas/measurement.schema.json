@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://supermarketer.local/schemas/measurement.schema.json",
+  "title": "MEASUREMENT.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "data",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "real_post_launch",
+        "source_path",
+        "source_description",
+        "data_sha256",
+        "date_start",
+        "date_end",
+        "timezone",
+        "metric_definition",
+        "data_quality_limitations"
+      ],
+      "properties": {
+        "real_post_launch": {
+          "type": "boolean"
+        },
+        "source_path": {
+          "type": "string",
+          "minLength": 1,
+          "not": {
+            "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+          }
+        },
+        "source_description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "data_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "date_start": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "date_end": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_definition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "data_quality_limitations": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "predeclared_rule_source",
+        "predeclared_rule_sha256",
+        "predeclared_at",
+        "primary_metric",
+        "operator",
+        "threshold",
+        "observed",
+        "calculation_method",
+        "calculation_evidence_path",
+        "calculation_evidence_sha256",
+        "uncertainty",
+        "guardrails_passed",
+        "causal_claim_allowed",
+        "analyst",
+        "reviewed_by",
+        "decision",
+        "performance_status"
+      ],
+      "properties": {
+        "predeclared_rule_source": {
+          "type": "string",
+          "minLength": 1,
+          "not": {
+            "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+          }
+        },
+        "predeclared_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "primary_metric": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operator": {
+          "enum": [
+            "gte",
+            "gt",
+            "lte",
+            "lt",
+            "eq"
+          ]
+        },
+        "threshold": {
+          "type": "number"
+        },
+        "observed": {
+          "type": "number"
+        },
+        "uncertainty": {
+          "type": "string",
+          "minLength": 1
+        },
+        "guardrails_passed": {
+          "type": "boolean"
+        },
+        "causal_claim_allowed": {
+          "type": "boolean"
+        },
+        "randomized": {
+          "type": "boolean"
+        },
+        "assignment_method": {
+          "type": "string"
+        },
+        "sample_size": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "analyst": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewed_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision": {
+          "enum": [
+            "SCALE",
+            "ITERATE",
+            "STOP",
+            "MORE_DATA"
+          ]
+        },
+        "performance_status": {
+          "const": "PERFORMANCE_VALIDATED"
+        },
+        "predeclared_rule_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "calculation_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "calculation_evidence_path": {
+          "type": "string",
+          "minLength": 1,
+          "not": {
+            "pattern": "^(?:/|[A-Za-z]:[\\\\/]|.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$))"
+          }
+        },
+        "calculation_evidence_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    }
+  }
+}

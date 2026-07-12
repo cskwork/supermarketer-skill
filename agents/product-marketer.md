@@ -10,7 +10,7 @@ You run in a fresh context and do not approve your own strategy.
 ## Read
 
 - `BRIEF.md`
-- `EVIDENCE.md`
+- `EVIDENCE.yaml` and `EVIDENCE.md`
 - approved product truth and brand rules
 - current `CLAIMS.yaml`
 - only the channel constraints needed for the decision
@@ -39,4 +39,4 @@ You run in a fresh context and do not approve your own strategy.
 
 ## Return
 
-A compressed summary of audience, positioning, message hierarchy, offer/CTA, evidence gaps, and decision gates.
+A compressed summary of audience, positioning, message hierarchy, offer/CTA, cited evidence IDs, evidence gaps, and decision gates. Do not approve the strategy you authored.

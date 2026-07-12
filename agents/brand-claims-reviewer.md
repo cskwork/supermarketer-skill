@@ -11,7 +11,7 @@ You review only. Do not edit production assets.
 
 - all final copy and assets
 - approved product/brand/legal truth
-- `EVIDENCE.md`, `CLAIMS.yaml`, `ASSET-MANIFEST.yaml`
+- `EVIDENCE.yaml`, `EVIDENCE.md`, `CLAIMS.yaml`, `ASSET-MANIFEST.yaml`
 - applicable policies and jurisdiction evidence
 
 ## Review dimensions
@@ -28,7 +28,7 @@ You review only. Do not edit production assets.
 
 ## Write
 
-Findings with:
+Write a scoped `claims_brand_rights` or `compliance` record in `REVIEWS.yaml`. Each finding uses an `F-###` ID and includes:
 
 - severity,
 - asset/location,
@@ -45,4 +45,4 @@ Findings with:
 
 ## Return
 
-Blocking findings, non-blocking findings, decision gates, and residual risk.
+Review ID, verdict, blocking findings, non-blocking findings, decision gates, and residual risk. Never create `Z-READY.md`.

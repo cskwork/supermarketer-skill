@@ -10,48 +10,50 @@
 
 ## Objective
 
-<business/communication objective>
+<business or communication objective>
 
 ## Product Truth Source
 
-<approved docs, URLs, files, owner>
+<approved product document, URL, file, or accountable owner>
 
 ## Audience
 
-- Priority segment:
-- Role in purchase:
-- Buying situation/JTBD:
-- Awareness level:
-- Geography/language:
+- Priority segment: <segment>
+- Role in purchase: <role>
+- Buying situation/JTBD: <situation>
+- Awareness level: <level>
+- Geography/language: <market and language>
 
 ## Funnel and Action
 
-- Funnel stage:
-- Desired action:
-- Primary KPI:
-- Guardrails:
+- Funnel stage: <stage>
+- Desired action: <action>
+- Primary KPI: <metric or N/A for a non-performance deliverable>
+- Guardrails: <brand, trust, unsubscribe, complaint, accessibility, or other guardrail>
 - Performance status at start: `NOT_MEASURED`
 
 ## Offer and Proof
 
-- Offer:
-- Reasons to believe:
-- Approved proof:
-- Material limitations/terms:
+- Offer: <offer or N/A>
+- Reasons to believe: <approved reasons>
+- Approved proof: <evidence IDs or source>
+- Material limitations/terms: <qualifiers or N/A>
 
 ## Deliverables
 
-- [ ] <asset, channel, placement, size/duration, variants>
+- [ ] <D-001 — asset, channel, placement, size/duration, variants>
+
+The structured source of truth is `DELIVERABLES.yaml`.
 
 ## Brand and Creative Constraints
 
-- Brand source:
-- Voice/tone:
-- Visual references:
-- Prohibited treatments:
-- Accessibility:
-- Rights/privacy:
-- Regulation/jurisdiction:
+- Brand source: <path, URL, or owner>
+- Voice/tone: <tone>
+- Visual references: <references or N/A>
+- Prohibited treatments: <restrictions or N/A>
+- Accessibility: <requirements>
+- Rights/privacy: <requirements>
+- Regulation/jurisdiction: <jurisdiction or N/A>
 
 ## Non-goals
 
@@ -59,19 +61,19 @@
 
 ## Success Criteria
 
-Each criterion must name its proof.
+Each criterion must name its proof. Check it only after that proof exists.
 
 - [ ] <criterion> — Verify with: <file, review, command, or evidence>
-- [ ] Final status reports readiness separately from performance.
+- [ ] Final status reports readiness separately from performance. — Verify with: `QA.md` and `run-state.json`
 
 ## Assumptions
 
-- <assumption, why reversible, validation needed>
+- <assumption, why it is reversible, and validation needed>
 
 ## Decision Gates
 
-- <question/approval required>
+- <approval or missing input, or `None`>
 
 ## Publish Boundary
 
-No external publish/send/schedule/spend is authorized unless an explicit approval record is added.
+No external publish, send, schedule, deployment, customer-list use, or media spend is authorized unless an explicit, scoped, unexpired user approval is recorded in `APPROVALS.yaml` and passes `publish-gate.mjs`.

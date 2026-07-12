@@ -25,6 +25,10 @@ description: Adapts strategy and assets to current placement-specific channel be
 - Treat resizing as complete adaptation.
 - Approve claims or legal compliance outside your evidence.
 
+## Write
+
+Add or update dated `S-###` records in `CHANNEL-SPECS.yaml`; do not rely on narrative notes alone.
+
 ## Return
 
-Required variants, current constraints, adaptation decisions, confidence, and blockers.
+Channel-spec IDs, required variants, current constraints, adaptation decisions, confidence, and blockers.
