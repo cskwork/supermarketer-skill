@@ -1,6 +1,6 @@
 # SuperMarketer Skill — Product & Marketing Specification
 
-**Version:** 1.0.0  
+**Version:** 0.0.1
 **Status:** Implemented reference release  
 **Command:** `/supermarketer <one marketing objective>`  
 **Primary language for persistent files:** Match the project/brand language; if mixed or unknown, use the user's language. Keep filenames, status tokens, evidence IDs, and machine-checked anchors in English.
@@ -185,6 +185,12 @@ State the selected mode in one line before work begins.
 - “Explore three concepts” is a divergent direction phase inside `CAMPAIGN`, `STATIC`, or `VIDEO`; production begins only after one direction is selected, unless the run is explicitly autonomous.
 - “Translate this poster/video” routes to `LOCALIZE` because copy expansion, cultural fit, timing, and layout must be reworked.
 - Performance optimization with no real results routes to `EXPERIMENT`, not `MEASURE`.
+
+### 6.2 Specialist router
+
+Select one of 47 marketing specialties independently from the execution mode. Return `specialty`, `specialty_confidence`, `specialty_matched`, and `specialty_reference`; accept only an exact `--specialty` override. Load standing truth first, then the mode playbook, then the selected vendored specialist and only its required references.
+
+The fixed snapshot is attributed to `cskwork/marketingskills` commit `130847d0945555c43b0b1774e2a4f99d35a32ebe`. A dedicated gate verifies 47 catalog names, directory/frontmatter agreement, required playbooks, provenance, and every file hash. Upstream executable CLIs and competing root/plugin contracts are not distributed.
 
 ---
 
@@ -1019,9 +1025,10 @@ The publish gate never executes an external action. It validates only one explic
 
 ## 17. Implemented release scope
 
-Version 1.0.0 implements the provider-neutral core described by this specification:
+Version 0.0.1 implements the provider-neutral core described by this specification:
 
 - all 12 routing modes and mode-specific playbook dispatch;
+- all 47 independently routed specialist playbooks with exact vendored provenance;
 - project initialization and isolated run vaults;
 - structured evidence, claims, channel, deliverable, asset, review, approval, production-pack, measurement, and state records;
 - 12 aggregate readiness gates and individual executable wrappers;
@@ -1091,4 +1098,4 @@ A run is `PERFORMANCE_VALIDATED` only when a predeclared numeric outcome rule is
 
 This specification is inspired by the routing, role separation, thin-root/reference architecture, and gated verification approach of `cskwork/supergoal-skill`, with visual-production ideas informed by `cskwork/superdesign-skill`. The marketing implementation changes the ground truth from code/tests to product truth, evidence-linked claims, current channel requirements, asset metadata, rights and generation lineage, independent creative review, and post-launch results.
 
-Version 1.0.0 implements the provider-neutral core and all deterministic gates described in Section 17. Provider-specific media generation remains behind the documented adapter boundary, and external publish/send/spend remains intentionally outside the executable core.
+Version 0.0.1 implements the provider-neutral core, two-axis routing, vendored specialist integrity, and all deterministic gates described in Section 17. Provider-specific media generation remains behind the documented adapter boundary, and external publish/send/spend remains intentionally outside the executable core.

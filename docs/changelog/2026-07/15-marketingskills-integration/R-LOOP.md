@@ -1,0 +1,24 @@
+# R-LOOP - verifier -> implementer loop channel
+
+The verifier APPENDS one timestamped section per failed verification pass; the relaunched implementer
+reads `PLAN.md` plus ONLY the latest section here. Never edit older sections; never delete this file.
+A regressed previously-green criterion is unticked in `GOAL.md` and listed first.
+
+## 2026-07-15T21:22Z iteration 1
+
+- [ ] GOAL criterion 3 and criterion 10 - expected: the exact cross-funnel 90-day marketing-plan request selects `marketing-plan` as its primary specialty and the fresh-context run loads that playbook; actual: `onboarding` wins at 0.98 solely from `activation`, while `marketing-plan` and `emails` each score 3 and `onboarding` scores 0; evidence: `qa/forward-test.md`; smallest next fix: add the exact prompt as a failing specialist-router test, then make explicit cross-funnel/90-day plan intent outrank narrower funnel-stage boundaries while preserving onboarding-only cases.
+- [ ] GOAL criterion 9 and Mobile QA case - expected: HTML/body width stays within the 390 px viewport; actual: both scroll to 530 px and the two `.honesty-card` items measure about 506 px, clipping status content; evidence: `qa/landing-regression.md`, `qa/landing-mobile.png`; smallest next fix: add a 390 px containment assertion first, then constrain the honesty grid items and wrap their long inline/code content without changing the specialist panel.
+- [ ] Surfaced GOAL criterion 13, heading semantics - expected: heading levels never skip; actual: Workflow and Status jump from H2 to H4; evidence: `qa/a11y-desktop.md`, `qa/landing-regression.md`; smallest next fix: preserve the visual styling but use a non-skipping heading level, then regenerate the accessibility evidence.
+- [ ] Surfaced GOAL criterion 13, request/console hygiene - expected: a fresh local landing load has no failed resource or console errors; actual: `GET /favicon.ico` returns 404 and logs one console error; evidence: `qa/landing-regression.md`, `.domain-agent/qa/nav-map.md`; smallest next fix: provide an explicit valid favicon resource/reference and rerun the same fresh-session side-effect check.
+- [ ] Surfaced GOAL criterion 13, contrast - expected: all 35 recorded dark/light text-background pairs pass the configured WCAG thresholds; actual: the artifact QA gate exits 1 with 10 failures, including muted metadata, the dark two-axis example, light accent/pills, and the light primary button; evidence: `qa/contrast-pairs.json` and the exact `qa-gate.sh` output recorded in `QA.md`; smallest next fix: adjust the palette/element colors only, never the thresholds, then recapture actual pairs and require the same gate to exit 0.
+
+Regression: none - the 78-test regression ledger remains green; the mobile overflow also exists on the live baseline, but it still violates the approved mobile QA case and does not qualify for release.
+Next: relaunch the fresh-context builder for iteration 2 with this section, require one failing test/assertion per item before the smallest product fix, then repeat qa-tester browser evidence and fresh-context forward routing before the next auditor pass.
+
+## 2026-07-15T21:58Z iteration 2
+
+- [ ] GOAL criterion 5 - expected: the vendor gate pins the approved manifest provenance and complete 239-file snapshot, so changing provenance, omitting a reference while editing the manifest, or rewriting content while updating its manifest hash fails; actual: all three temporary-copy probes return `ok: true` with zero errors; evidence: the evaluator-owned coordinated tamper command recorded in `QA.md` against `/var/folders/lp/p1cqpv0549zdwkvkg6tzpp7h0000gn/T/sm-audit-manifest-PAo7Ak`; smallest next fix: add failing tests for all three probes, pin the approved `manifest.json` SHA-256 in first-party gate code, and validate the canonical origin/source URL plus all declared counts before accepting per-file hashes.
+- [ ] GOAL criterion 8 - expected: all public release surfaces report the fresh 83-test count; actual: `README.ko.md:26` still reports 78 automated tests while `bash tests/run-all.sh` proves 83/83; evidence: the evaluator-owned scoped stale-version/count scan recorded in `QA.md`; smallest next fix: change only that Korean count to 83, then rerun the same scoped scan and public-doc checks.
+
+Regression: the 83/83 runtime suite, 54/54 impacted floor, exact 90-day route, exact checked-in upstream comparison, and artifact-only browser gate remain green. Criterion 5 was previously ticked from an incomplete single-file tamper test and is now disproven by coordinated manifest tampering; criterion 8 regressed when iteration 2 raised the suite from 78 to 83 without updating the Korean README.
+Next: relaunch the fresh-context builder for iteration 3 with only these two local fixes. Keep d4 as an ask-user sequencing gate; do not commit, deploy, tag, release, create `Z-*`, or claim canonical PASS while d4 or criteria 11-12 remain unresolved.

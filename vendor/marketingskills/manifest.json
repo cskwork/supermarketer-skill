@@ -1,0 +1,987 @@
+{
+  "schema_version": 1,
+  "source_url": "https://github.com/cskwork/marketingskills/tree/130847d0945555c43b0b1774e2a4f99d35a32ebe",
+  "canonical_origin": "https://github.com/cskwork/marketingskills.git",
+  "source_commit": "130847d0945555c43b0b1774e2a4f99d35a32ebe",
+  "included_paths": [
+    "skills/**",
+    "LICENSE"
+  ],
+  "excluded_paths": [
+    "tools/**",
+    ".claude-plugin/**",
+    ".github/**",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "VERSIONS.md",
+    "validate-skills*.sh",
+    ".git*"
+  ],
+  "counts": {
+    "specialists": 47,
+    "references": 145,
+    "evaluations": 45,
+    "assets": 1,
+    "files": 239
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591"
+    },
+    {
+      "path": "skills/ab-testing/evals/evals.json",
+      "sha256": "215cb581a3ef018365a4c9a9145ee5ae8bfc93e48ebeab9417224ccf3e89c6b8"
+    },
+    {
+      "path": "skills/ab-testing/references/sample-size-guide.md",
+      "sha256": "96aef9d20c4607662beb924fa31260dee4c0db0c1dd6b607cdb3c4c701f9efd2"
+    },
+    {
+      "path": "skills/ab-testing/references/test-templates.md",
+      "sha256": "761a40b9de8d16f18fa7f60b59e77aa749607ac8014af43e0b022f47fa87c812"
+    },
+    {
+      "path": "skills/ab-testing/SKILL.md",
+      "sha256": "1fd229160f6014f3f2d7c92cc7d2f991fbf8dc9ed68aac9793c71b408a6d1144"
+    },
+    {
+      "path": "skills/ad-creative/assets/creative-review-template.html",
+      "sha256": "12f7ec21a574efeb24af9b672fd46bab7ce7bc6c3afcfed8a12fa108e385cefb"
+    },
+    {
+      "path": "skills/ad-creative/evals/evals.json",
+      "sha256": "d5f5981443842eb42c4950174678d4ffe36ca3adcb3bcc0b51dd453565e0c061"
+    },
+    {
+      "path": "skills/ad-creative/references/creative-review-page.md",
+      "sha256": "dbf69e95e79cd06b48a878077ccec66f0b84932372b7c63396b6648b55aa34b1"
+    },
+    {
+      "path": "skills/ad-creative/references/creative-roadmap.md",
+      "sha256": "a0be737841d8a73f0cf02094c9ed1e3f7c050e1c6f867794b1fa8b64dbf3b50e"
+    },
+    {
+      "path": "skills/ad-creative/references/generative-tools.md",
+      "sha256": "c95da2868f39eb10091898271057fa64107bff61a701a046437c8fce4026381f"
+    },
+    {
+      "path": "skills/ad-creative/references/hook-system.md",
+      "sha256": "fc5db396eb43d7616ba55e58005f30fac5d0539542bd46cd60e6cf4666bd4de2"
+    },
+    {
+      "path": "skills/ad-creative/references/imessage-video-ads.md",
+      "sha256": "89ed0d9a8802280f36cdf35fd049ec26e4bf5a22cd68037f1b8f4ca67475d1ac"
+    },
+    {
+      "path": "skills/ad-creative/references/motion-video-ads.md",
+      "sha256": "c64e83199f0316e12e7811667f09a6475a34044c8eec2e3ba549faf9c33fc28c"
+    },
+    {
+      "path": "skills/ad-creative/references/platform-specs.md",
+      "sha256": "de69753161071a8d3e4d244280562810a6c4d6ae2696c5a21940f983abd0aa8e"
+    },
+    {
+      "path": "skills/ad-creative/references/static-ad-templates.md",
+      "sha256": "8e066632e0449462af6930abe38282c666b48c63b7f07888140a1c03aba22d59"
+    },
+    {
+      "path": "skills/ad-creative/SKILL.md",
+      "sha256": "e874d7bde2f55a5f0687c938ea9d3c1f210a73ff948d58ba3ee0e08631587702"
+    },
+    {
+      "path": "skills/ads/evals/evals.json",
+      "sha256": "453e559174c18e5683963c4874793830b63feb116b6d1d6249e3ef19f369ee1c"
+    },
+    {
+      "path": "skills/ads/references/abm-playbook.md",
+      "sha256": "1a21370da52ec4e272ce9971b506a0ca678b18f95cdfcb7882f1a5a4568f13ea"
+    },
+    {
+      "path": "skills/ads/references/ad-copy-templates.md",
+      "sha256": "853ab37e23b75aa3355bdbed9a1357948e635dbdf737be5a1a7aa0126d701206"
+    },
+    {
+      "path": "skills/ads/references/audience-targeting.md",
+      "sha256": "21ed7c99fb1124ca38635d6f313cc2f3ca49a192f390cd55293b7bd5a028e1b1"
+    },
+    {
+      "path": "skills/ads/references/b2b-paid-playbook.md",
+      "sha256": "21dc1125905f8d985763996afb24a2bf54539330535b7b2b45c052901c5b2006"
+    },
+    {
+      "path": "skills/ads/references/conversion-tracking.md",
+      "sha256": "33da4f9bb1042c5b226459cf420b21954705fd8c1d885e67326b1e57492561d8"
+    },
+    {
+      "path": "skills/ads/references/google-search-playbook.md",
+      "sha256": "72e73c57d79e141b5ed132fb7262bcc3f1af98e60e13140ab4e36932b33d9e23"
+    },
+    {
+      "path": "skills/ads/references/linkedin-b2b-playbook.md",
+      "sha256": "bffa706b760c034b1a9c8f01921db6886a15db8588da9d72f1b6151c28ee02b7"
+    },
+    {
+      "path": "skills/ads/references/meta-decision-system.md",
+      "sha256": "8e62e59e3ff959db3e800bd9ed6d1610f34ce24103292ab67fe042a93a45d747"
+    },
+    {
+      "path": "skills/ads/references/platform-setup-checklists.md",
+      "sha256": "b86e206f8c7233c235d7d385a69e17fac16ac001ab130242b7700fe650752f69"
+    },
+    {
+      "path": "skills/ads/references/rsa-output-spec.md",
+      "sha256": "285fec5c1671c9cc1a4cdfbcf06d8a54a022cbad52693941457d90e1f2c5f503"
+    },
+    {
+      "path": "skills/ads/SKILL.md",
+      "sha256": "8be65c0dfa275bb42f238530e7ba4efe9a9d45bee74eaac02f0f2a644a8f1857"
+    },
+    {
+      "path": "skills/ai-seo/evals/evals.json",
+      "sha256": "7fab31facaf4de9a4261bbfcb0d94356040d1306ab47dad206a832b81bff247e"
+    },
+    {
+      "path": "skills/ai-seo/references/citations-vs-recommendations.md",
+      "sha256": "88016418b43b7e798dd950eb1240f76dec08c3408038f9a5d83005aff5a4daa3"
+    },
+    {
+      "path": "skills/ai-seo/references/content-patterns.md",
+      "sha256": "8adcfcc020a3529eda71f783e4893d3e39e8b0f503fd2fa126e8b75a80963824"
+    },
+    {
+      "path": "skills/ai-seo/references/content-types.md",
+      "sha256": "9ad0a871f866efa307fc0d6fe2bd19d443a2276cb396afdd5b4d81fe9b4167e3"
+    },
+    {
+      "path": "skills/ai-seo/references/okf.md",
+      "sha256": "4abcab5b8ee90b63c5d09c98387a8ec3cdb8f5df33e75d3b4b91eb817283bfd8"
+    },
+    {
+      "path": "skills/ai-seo/references/platform-ranking-factors.md",
+      "sha256": "ca3fb8c09fec3445abe611bab2cd1b5f20751c5d51a3a5c63ecd2b85cd458ee8"
+    },
+    {
+      "path": "skills/ai-seo/SKILL.md",
+      "sha256": "009333fb0cd44942caf83ae95a1acee24b1bfbb15eca14107b243106e3f32322"
+    },
+    {
+      "path": "skills/analytics/evals/evals.json",
+      "sha256": "56932e864114d69a61b6b55e639d207329c0a8b7df8b61a0e1188b249cbef1e8"
+    },
+    {
+      "path": "skills/analytics/references/event-library.md",
+      "sha256": "efc7bdb0a7b3efdea9e67ff0d1bc894dcf89ec9b9b8f3414f123d12bee109412"
+    },
+    {
+      "path": "skills/analytics/references/ga4-implementation.md",
+      "sha256": "f33fd6db0cbdb1bdc183af5f52bedd956d14680e54bca2e2c3917de29698636e"
+    },
+    {
+      "path": "skills/analytics/references/gtm-implementation.md",
+      "sha256": "112da33832439d2ae0b2729e5031fc927df444cd1ae8eb20542d45c1b5690f52"
+    },
+    {
+      "path": "skills/analytics/SKILL.md",
+      "sha256": "16aab197f87bf6e2599d179061f1947d96acafe0a340837432d8ab96d2f8c55a"
+    },
+    {
+      "path": "skills/aso/evals/evals.json",
+      "sha256": "d1eae32a46bec9e915c5fb6b4aba7752db699523fdf1fbce638865d2201640a9"
+    },
+    {
+      "path": "skills/aso/references/apple-specs.md",
+      "sha256": "b2f9d3efc041624dd8f2392cad34533fa5f889a171957eb47000a6a057dcd13a"
+    },
+    {
+      "path": "skills/aso/references/benchmarks.md",
+      "sha256": "0aa61c7a793605504b2768c7e4a1dc4ec2637a19bcc016494cd7ee2906d73f6d"
+    },
+    {
+      "path": "skills/aso/references/google-play-specs.md",
+      "sha256": "bf10c6d4d5319c41443bd9ecb5830715c5dadb6dda248e2ced21d99dce0ff775"
+    },
+    {
+      "path": "skills/aso/references/report-template.md",
+      "sha256": "f67c8827c4600cb1e392c8cad05ed5740f9cd01321fd715a9e851e37ec0047b2"
+    },
+    {
+      "path": "skills/aso/references/scoring-criteria.md",
+      "sha256": "e821093e54db5b6f3eb9c932eef57ec47b6e0bb1aad2fe0ae6f524a217713591"
+    },
+    {
+      "path": "skills/aso/SKILL.md",
+      "sha256": "158f42a00846d9e4bb2a27c0ecf8c10745891a45916dc3de9127a124c0a6dcfc"
+    },
+    {
+      "path": "skills/churn-prevention/evals/evals.json",
+      "sha256": "212ed9215b39190ac30bbb186f62ff343233b68d7b9d4a4ebd740cda290cda7d"
+    },
+    {
+      "path": "skills/churn-prevention/references/cancel-flow-patterns.md",
+      "sha256": "d64b9282b956da6831ec97a1fffda5841c5c43a71721b512b66b04bde104c139"
+    },
+    {
+      "path": "skills/churn-prevention/references/dunning-playbook.md",
+      "sha256": "95afe21035cb81769ef0024de08806fec31073eb507a806f05b6b18b70e259a1"
+    },
+    {
+      "path": "skills/churn-prevention/SKILL.md",
+      "sha256": "88fd25b77e44ef3689d68d54091df9659a40f5e905c8bdeb09bdeed3f049ad67"
+    },
+    {
+      "path": "skills/co-marketing/evals/evals.json",
+      "sha256": "a8594a737dcc5965725eec072e1f7292e34fa27d9a6e557632c824b721f900c8"
+    },
+    {
+      "path": "skills/co-marketing/SKILL.md",
+      "sha256": "893a3115b2e07abd5fa99568de6eb168a086db044cf44f4ba29e96ec324cbd74"
+    },
+    {
+      "path": "skills/cold-email/evals/evals.json",
+      "sha256": "e760f7766434923508d6491be56be68e3d19e2ed2508b075b37601d62c95dd98"
+    },
+    {
+      "path": "skills/cold-email/references/benchmarks.md",
+      "sha256": "3dc1d38a2d1f4fbb2706be7ca3d40156b66a3d7078c183a930ff373c3bb04c09"
+    },
+    {
+      "path": "skills/cold-email/references/follow-up-sequences.md",
+      "sha256": "87e14749104b0c5bcd865e55d33513a161edb8e6773b2a2d9802b5460f2f7369"
+    },
+    {
+      "path": "skills/cold-email/references/frameworks.md",
+      "sha256": "b29fb89922f96ae1c6911675a7e173a8f7c6a40999c9a18b14ac7f357b5f5a03"
+    },
+    {
+      "path": "skills/cold-email/references/personalization.md",
+      "sha256": "08f18652938e14143402786fbdb8e1a6269650bb5eef9106898f1cdf31e47e36"
+    },
+    {
+      "path": "skills/cold-email/references/subject-lines.md",
+      "sha256": "f71f31b1151d972bb19ff03791ffb9d24941a8ccea8b913e5a5c7aca439b45ce"
+    },
+    {
+      "path": "skills/cold-email/SKILL.md",
+      "sha256": "b7f8d793169a5111c857e5720c6b80028686cc95d5a0d0d6570957c2710aff9e"
+    },
+    {
+      "path": "skills/community-marketing/evals/evals.json",
+      "sha256": "4cfcff9d7fc0462a6ada4665cd1e8fa7d7f39595ec98daf7be0d72faac90677a"
+    },
+    {
+      "path": "skills/community-marketing/SKILL.md",
+      "sha256": "edd8060b63820e620a0612af0a280cf3ee68d3eab80684932257205c8327d971"
+    },
+    {
+      "path": "skills/competitor-profiling/evals/evals.json",
+      "sha256": "53c34c29378d3c16db7a43189e4d6903a4740bedc09e576246243434d4b6d89a"
+    },
+    {
+      "path": "skills/competitor-profiling/references/templates.md",
+      "sha256": "710d78cb519012eb7e39f63643e22d7b9026c91c569262b44c45535c10717a91"
+    },
+    {
+      "path": "skills/competitor-profiling/references/tool-reference.md",
+      "sha256": "37defe4f29d15a74b10e9b0c17d798f62effaa025e2ff8fece377171adbb658a"
+    },
+    {
+      "path": "skills/competitor-profiling/SKILL.md",
+      "sha256": "ea7b5b7feb79ead8df038653c33aae96d38890784018a2b0afae9b2a1e21b3af"
+    },
+    {
+      "path": "skills/competitors/evals/evals.json",
+      "sha256": "88509e8fd82460be80b5506817c0849c1604180f3a44262d67fc6c8ee56158f4"
+    },
+    {
+      "path": "skills/competitors/references/content-architecture.md",
+      "sha256": "9fbc1793b63f3e0302ff4f05ec74fb9944792a5f878a890aba47bab5b2ac4d35"
+    },
+    {
+      "path": "skills/competitors/references/templates.md",
+      "sha256": "8f367433afe78d532f81e0da757514cdbeaa3ea39689ce158c1c963079a93046"
+    },
+    {
+      "path": "skills/competitors/SKILL.md",
+      "sha256": "99e9ea715b1ac6dbaedda345a27358fb5e099f7d4fd5be63789d6e65cf2a6f46"
+    },
+    {
+      "path": "skills/content-strategy/evals/evals.json",
+      "sha256": "d4296db1398e7dbeef34e0e1fbb3c7468b0a38ce9a00a6512f64b816cce468d4"
+    },
+    {
+      "path": "skills/content-strategy/references/headless-cms.md",
+      "sha256": "c0a7b87f47c8f7af907ce73facf1ed4721ade811e53f86ddf22f4bc0d7ca324e"
+    },
+    {
+      "path": "skills/content-strategy/SKILL.md",
+      "sha256": "0611532b2a0dce8d0d5b783c99bba10d13a6d5fd7eecd829974012f74ea33258"
+    },
+    {
+      "path": "skills/copy-editing/evals/evals.json",
+      "sha256": "49881baea09fd93a03da69ab249a7d37a93b1fa015debce320b5861c606593ef"
+    },
+    {
+      "path": "skills/copy-editing/references/checklist.md",
+      "sha256": "db143b969b45b0933fe6eb772992890d1472d036a6c887fc98665e4fb48da43c"
+    },
+    {
+      "path": "skills/copy-editing/references/content-refresh.md",
+      "sha256": "8a3a2d301bb2b8b2a780f5bef43093ab42295041b2fea2a9caeca2421ef3c79b"
+    },
+    {
+      "path": "skills/copy-editing/references/plain-english-alternatives.md",
+      "sha256": "df4f820d4c63ae8a517c64a243c101658352cd07d002355bf3c97de0a00f3775"
+    },
+    {
+      "path": "skills/copy-editing/SKILL.md",
+      "sha256": "9b5a20be3dc5513c8f0b4f4c4960857e4d28ed83698a5b33c8dde9dc75a47bf6"
+    },
+    {
+      "path": "skills/copywriting/evals/evals.json",
+      "sha256": "1cd7c27538b91d46c2b2cd007f2064922a4874ece1f2851b4bd844fe6f78a3e6"
+    },
+    {
+      "path": "skills/copywriting/references/copy-frameworks.md",
+      "sha256": "f387b6ed4b510efa9f0d3c459f4898971c8b0176e8c34185040cb264eca50186"
+    },
+    {
+      "path": "skills/copywriting/references/natural-transitions.md",
+      "sha256": "4ff23f8943af2f65b072f26f1c53ce55f19cc26d7be211c11cae8e34b43e859f"
+    },
+    {
+      "path": "skills/copywriting/SKILL.md",
+      "sha256": "ecdaabca28863d1472f79ba637842fdf4ac2fd9acc92b215ab7f152e757b2a33"
+    },
+    {
+      "path": "skills/cro/evals/evals.json",
+      "sha256": "62f3003602836e2b49d797ca582e7703629a6b07b131eb77b51b2bb39fe65775"
+    },
+    {
+      "path": "skills/cro/references/experiments.md",
+      "sha256": "bbcc356c0af36cfaa4556bf9e929deac30c65cafb37f909d7c51d4777fe254ca"
+    },
+    {
+      "path": "skills/cro/references/form.md",
+      "sha256": "e3115b0fdfb3968915b8e3acdc32a6e5f1d2c6a335ebbed25bee9b601ec573d7"
+    },
+    {
+      "path": "skills/cro/SKILL.md",
+      "sha256": "199016bec3b44bc6a7507b111b6028f6550cc852cd54c7d0df789f15d6f814c4"
+    },
+    {
+      "path": "skills/customer-research/evals/evals.json",
+      "sha256": "b24c611c1cf6cbdfd346d9cd33678568c4fc2bb9e4f5036923553454d394560c"
+    },
+    {
+      "path": "skills/customer-research/references/source-guides.md",
+      "sha256": "56682ea98d781060396fd4009739d071671b3489a0d4c81f0a0ef3078cb5c9ee"
+    },
+    {
+      "path": "skills/customer-research/SKILL.md",
+      "sha256": "f44c116c46904bba256604f62e97048c2872f389a963843254129cc511cdf1ff"
+    },
+    {
+      "path": "skills/directory-submissions/evals/evals.json",
+      "sha256": "c4f9e756d22b4ff8019b183cf3ebab6a73c2c2ec9236453f5b580e03da62d5d5"
+    },
+    {
+      "path": "skills/directory-submissions/references/directory-list.md",
+      "sha256": "dac5d53f88f29717d72f6889e4dc5280373f3b27b48e21243bdb04efa9794edf"
+    },
+    {
+      "path": "skills/directory-submissions/references/positioning-variations.md",
+      "sha256": "66b426f8b45f147410c4500e733b9140e743d7f29bc892f08d2d76f36618595c"
+    },
+    {
+      "path": "skills/directory-submissions/references/submission-tracker-template.csv",
+      "sha256": "0874890cd0f1e5dcf96317d18e4bb802823c2a0761e885f72bd98d90a4007932"
+    },
+    {
+      "path": "skills/directory-submissions/SKILL.md",
+      "sha256": "dd08854f5cd1e16413dd588b13e02a32ce01dd3a9f4e9b1099f92a7b635ac24a"
+    },
+    {
+      "path": "skills/emails/evals/evals.json",
+      "sha256": "79cd94598ce73482055b94a1231f7c10003fc3e367da5a46ab2c529f061a48fe"
+    },
+    {
+      "path": "skills/emails/references/copy-guidelines.md",
+      "sha256": "02f08897e4aa99ecc4ec1893d61d0c26d0c5e62e09af26f175087455e9b68e01"
+    },
+    {
+      "path": "skills/emails/references/email-types.md",
+      "sha256": "a5dd4f0555a7b21d2ff426948d15657825b9d16265652563f5e272d2e1879bfd"
+    },
+    {
+      "path": "skills/emails/references/sequence-templates.md",
+      "sha256": "d47b12e263ad52b72ab741c490bbc98d8bf8034d61faccc50b7dbb2650a9fba0"
+    },
+    {
+      "path": "skills/emails/SKILL.md",
+      "sha256": "1fbd54df4c59f48408057e7db0dfb1a53c033e6a4ca5cd1927a47c51ec28d8f1"
+    },
+    {
+      "path": "skills/free-tools/evals/evals.json",
+      "sha256": "9c573f52160ee400e5050fb575f7b6b2c007a0e601d35bebb6b3cc0a05ed124d"
+    },
+    {
+      "path": "skills/free-tools/references/tool-types.md",
+      "sha256": "3869418a784ec94e95528dbe3f39cd2571cff6f7649e5e0be28d675be61d5a3f"
+    },
+    {
+      "path": "skills/free-tools/SKILL.md",
+      "sha256": "76dc4535041899581cfea32a77094ed19dda5de718e9345caf1f236356f9a6b7"
+    },
+    {
+      "path": "skills/image/evals/evals.json",
+      "sha256": "61f38e67d5fa11016e97391e360402fa696e059015c754f422d061a361a3cead"
+    },
+    {
+      "path": "skills/image/references/ai-image-prompting.md",
+      "sha256": "b090ad1be7adc2cd11d922183540bf0d4b7a36cb1d484e549e4dd3d67ce92186"
+    },
+    {
+      "path": "skills/image/SKILL.md",
+      "sha256": "c34b67e249e558410ee960043d0de3c1d188dc3b6ba36d7714c16ec6f1fad46e"
+    },
+    {
+      "path": "skills/launch/evals/evals.json",
+      "sha256": "9909f7059a4082a095a69aaf549d5e519e333ddc8f086c50cdd5b375e191797d"
+    },
+    {
+      "path": "skills/launch/SKILL.md",
+      "sha256": "6d8bbd61449c48c458b20457c0b698386fe808e7063a7baadc197fc179bd94bb"
+    },
+    {
+      "path": "skills/lead-magnets/evals/evals.json",
+      "sha256": "3edb81ddb30746a37bf7d35681cd405d28702ad9243c1bec130435f180e1f24f"
+    },
+    {
+      "path": "skills/lead-magnets/references/benchmarks.md",
+      "sha256": "becdf4bcde17e788ead10794c797294548c712ea1074e042336da93433a61187"
+    },
+    {
+      "path": "skills/lead-magnets/references/format-guide.md",
+      "sha256": "401f65d709cefbd7ee2df11273e0b616ec50e37e71d914556c800067fdcdef8e"
+    },
+    {
+      "path": "skills/lead-magnets/SKILL.md",
+      "sha256": "bfb1e260e56fb11611bfac94236e7ebf79433e3350012ecce2379eef0af25af8"
+    },
+    {
+      "path": "skills/marketing-council/evals/evals.json",
+      "sha256": "c95d3d8cdaafb6ad178d5a72ee87f2ba655f41c1c7046c83705c93b2b9afa291"
+    },
+    {
+      "path": "skills/marketing-council/references/advisor-template.md",
+      "sha256": "e748d9f91d5b663c3cc0165c83a117833b0392fbf6c77b5a2107c49b0edd3c51"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/alex-hormozi.md",
+      "sha256": "18975ae41e73d1a95779f0bcffde5bd42f91bbb96a208d55a3fa4c0095a421da"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/ann-handley.md",
+      "sha256": "b0ad24ef9ee2965a1ee35a2208ea65897ef684baafb65557e2cc3b0aa9e5ca4e"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/april-dunford.md",
+      "sha256": "7abc28f3d3043f72bf8ca710c0390de4014486cffb1e6e82029581aa7ef5212f"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/byron-sharp.md",
+      "sha256": "fe99260a03ca0123ae1075108cb6466b0bd60ccac1b0b8d64d7b7bf1a78e17af"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/claude-hopkins.md",
+      "sha256": "93366c6d6b51407fdf33308537f31e7e8667a89fecd9fa1b8ea9ac398fb80942"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/david-ogilvy.md",
+      "sha256": "868d96f850eff22a923224bf7f3b5344abdb5d4c130b77e46e4142c630c6edba"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/eugene-schwartz.md",
+      "sha256": "fef9cc5ece0ad84d5542721f9346b18e5aa44e9f1a10e62f1ed5b7e05f6ba5a5"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/gary-halbert.md",
+      "sha256": "0db92e69da50a6372a5dc1feae2a6824fff9f1b53df92094745810c3d8375d8b"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/gary-vaynerchuk.md",
+      "sha256": "256f5425b602375c83d4a6e677c7ecc97e60f3dead83f8192802b6c0c65e57e4"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/rory-sutherland.md",
+      "sha256": "07a726d3f66def9722b5b3c52acc37173edc50ac880f8d1cb072424bd9b5f235"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/russell-brunson.md",
+      "sha256": "ae0cb018f48a734ec64fd087fd469a7e8170f5d2a2fea7623dfd58f35cfe739e"
+    },
+    {
+      "path": "skills/marketing-council/references/advisors/seth-godin.md",
+      "sha256": "02cb1b64b1fff7eecc6ff9769b60c23ef68b03017fd3d82b1a5b544009dd79c0"
+    },
+    {
+      "path": "skills/marketing-council/SKILL.md",
+      "sha256": "0b94358427c344e1f5f50169770cce44e0b065ec8b05fc887a800daed008ac31"
+    },
+    {
+      "path": "skills/marketing-ideas/evals/evals.json",
+      "sha256": "4f0f473bafb7103a4a5749f00b81ce92a2cd9977ff26264cc692e275b4a31fed"
+    },
+    {
+      "path": "skills/marketing-ideas/references/ideas-by-category.md",
+      "sha256": "fac44ef0ea24a3035d85bd11096adef408497ea073ad156933f2d356d482dde2"
+    },
+    {
+      "path": "skills/marketing-ideas/SKILL.md",
+      "sha256": "7fe1f79d008129c359f28ec733837693567a11f54bd578e1fd0d178ac69bbb8d"
+    },
+    {
+      "path": "skills/marketing-loops/evals/evals.json",
+      "sha256": "07a7b55804fa86e3111e45f36f5c363afa6e00b67d3fcadfa37b0e26aba56892"
+    },
+    {
+      "path": "skills/marketing-loops/references/loop-catalog.md",
+      "sha256": "1b3116585d8098157606c8e93cc05ef23d947537364f487331c05b85bb7bbd4e"
+    },
+    {
+      "path": "skills/marketing-loops/references/loop-guardrails.md",
+      "sha256": "a93cdb67d28773d72e789c937a26f3062129c8a0076018ac24269d52e7a31e46"
+    },
+    {
+      "path": "skills/marketing-loops/references/loop-orchestration.md",
+      "sha256": "9b09e6c8ed7d6f9c1e035d110b1d2289d89c2102247acf5ba6bcc959a62b628a"
+    },
+    {
+      "path": "skills/marketing-loops/references/loop-state.md",
+      "sha256": "ecb863ecc44944afe7dbb789d4b16a1ea80f045713b8d443bdcb414a4d17547e"
+    },
+    {
+      "path": "skills/marketing-loops/references/loop-template.md",
+      "sha256": "695fde57b9b0735e49b5fc718b0e8eb726808c08b19bea89056f8913cf1bff26"
+    },
+    {
+      "path": "skills/marketing-loops/SKILL.md",
+      "sha256": "db4ba419ee74c7ef4c6dacffdf92fa4038e720640a4b4b95e8766ad9ff269898"
+    },
+    {
+      "path": "skills/marketing-plan/evals/evals.json",
+      "sha256": "3daf07ae3b26f6e5eb468608d640e7a975c333bfae9ec0ba2ca6f7d56aa7e0b6"
+    },
+    {
+      "path": "skills/marketing-plan/references/aarrr-framework.md",
+      "sha256": "5c7bf583c2aa62e193789b6b1a88a978bf3ba9dc0c8c6653b53f7f62c0c1a0e3"
+    },
+    {
+      "path": "skills/marketing-plan/references/budget-planning.md",
+      "sha256": "8f2a8870df26f713967abafad5b7869bedb7ed5e19840b7b712d23d15d4857a6"
+    },
+    {
+      "path": "skills/marketing-plan/references/client-types.md",
+      "sha256": "06e3d0a6f3e9b7195a8c0b43d5186769d1554d1dfd8b1212aca220f9ce09fc01"
+    },
+    {
+      "path": "skills/marketing-plan/references/current-state-rubric.md",
+      "sha256": "8ab1d4a4d16ec01c2bf61d83807c0abd857aadd82f3eeaf4e4842b4bbeff1f03"
+    },
+    {
+      "path": "skills/marketing-plan/references/example-quietude.md",
+      "sha256": "63c002257ee1f6eaeb7c99c4ab9c650ea8bd8f7586c75e4565c2322faef82a04"
+    },
+    {
+      "path": "skills/marketing-plan/references/funding-stage-unlocks.md",
+      "sha256": "49f073653ac32dd42b7e5e10c3deabd7adae8120c41baf0cf813ec20164c6488"
+    },
+    {
+      "path": "skills/marketing-plan/references/growth-patterns.md",
+      "sha256": "78284080de090fb82c881266e0dfc958c080d4a5c9575c6e50a83b3271cc5a58"
+    },
+    {
+      "path": "skills/marketing-plan/references/idea-cross-reference.md",
+      "sha256": "350fa9c6f4cb4cd8f23698adb8479ae94cd6564a06b2b7cfcdf1430448e68d2f"
+    },
+    {
+      "path": "skills/marketing-plan/references/measurement-framework.md",
+      "sha256": "93d9bf9d9e624a6031a27ce61cf1617e3aa5a8fff57e1c6f80194f847234b745"
+    },
+    {
+      "path": "skills/marketing-plan/references/methodology.md",
+      "sha256": "59fd621b7fb694b9bbceaeb69f3711e4621d1a594598942e636058e2aa4afcc1"
+    },
+    {
+      "path": "skills/marketing-plan/references/ops-stack-mapping.md",
+      "sha256": "9a506816d87ed176c0578d13bbf25c5f8398872d9002b3589e2dfa42ad17c907"
+    },
+    {
+      "path": "skills/marketing-plan/references/plan-template.md",
+      "sha256": "bce84c2c3c31c9163a0849a1371aadb13f6ab8b29402e64b7d5b95c316a79656"
+    },
+    {
+      "path": "skills/marketing-plan/references/team-and-agency-model.md",
+      "sha256": "0c5e55c0992de4d5d24cd299eb46765a8986cb204ebd7c65bce32c868ae0d5f7"
+    },
+    {
+      "path": "skills/marketing-plan/SKILL.md",
+      "sha256": "548e1bd8f31fdef3ffb8edf4f3218a8162b4ac2f04b639affe547bee6dd0cba0"
+    },
+    {
+      "path": "skills/marketing-psychology/evals/evals.json",
+      "sha256": "c3b7d15b3008eeb493796e21affd6a0c6e7ce312f9cfeffcdef467857903c733"
+    },
+    {
+      "path": "skills/marketing-psychology/SKILL.md",
+      "sha256": "573bbe4f6e300e7fb75299e314f56e26382d284782caa2ae0e0f33eb2e646548"
+    },
+    {
+      "path": "skills/offers/references/bonus-stacking.md",
+      "sha256": "872abbfd14501fd0b097f5ae62b9931571152d43b6690b57df5e65ab48aedfbd"
+    },
+    {
+      "path": "skills/offers/references/examples.md",
+      "sha256": "f1033e181845effe8c659800aaf68523686be6bdcb1c5e256c87008e8ea638af"
+    },
+    {
+      "path": "skills/offers/references/guarantee-design.md",
+      "sha256": "daa421558b664fe5a335c6cb764d47755799662c79606551a848bba864255c29"
+    },
+    {
+      "path": "skills/offers/references/offer-anatomy.md",
+      "sha256": "0810080788bedc9b40dc0aba53109991aa816397f4b45e813289985eb8a64cad"
+    },
+    {
+      "path": "skills/offers/references/offer-formats.md",
+      "sha256": "667d87198dcd3b5892151d33a917919141bc718822a2a4add3e9c100891755bb"
+    },
+    {
+      "path": "skills/offers/references/scarcity-urgency.md",
+      "sha256": "4abe51a54188e6c93feb6cface92abc5c8e03212b8ade5bd9366ed159ad3f8f8"
+    },
+    {
+      "path": "skills/offers/references/value-equation.md",
+      "sha256": "4610ff358be2be643e7783884e628f01e1e0c56915a7924e5ccb92c096121eff"
+    },
+    {
+      "path": "skills/offers/SKILL.md",
+      "sha256": "cdc291bdf93b9ce135c39f034283acaee136b453239b7fe712823fae4f2d5a12"
+    },
+    {
+      "path": "skills/onboarding/evals/evals.json",
+      "sha256": "beba5cd1b8c833707f5ce903016d492d63d44e7511b7eab43d5a634bbab15b29"
+    },
+    {
+      "path": "skills/onboarding/references/experiments.md",
+      "sha256": "b4caad0b50ca9483a6a79846d0b24a7bab62850b45a3f2232d73f78629468932"
+    },
+    {
+      "path": "skills/onboarding/SKILL.md",
+      "sha256": "15a802ffb73828730aba90b740426fbb8d2070721ee92d6f8737de4704e8ff0f"
+    },
+    {
+      "path": "skills/paywalls/evals/evals.json",
+      "sha256": "6b3ad98bb057a8da6c6e26b1f75bc1f654aaae4e9a6903801051eaca9e3cc3a6"
+    },
+    {
+      "path": "skills/paywalls/references/experiments.md",
+      "sha256": "5a5760e23c4809ddbc123905e0073ebca2653e7edad29482db810b825d62bd19"
+    },
+    {
+      "path": "skills/paywalls/SKILL.md",
+      "sha256": "d062c03f6b99e76ffaa367a1494ba80098b2033d4d74609b895373a024a8eac1"
+    },
+    {
+      "path": "skills/popups/evals/evals.json",
+      "sha256": "dca07b13560aea57cb0739235390c420f82c45d4e6ce01c6f7fb59fc225d2c00"
+    },
+    {
+      "path": "skills/popups/SKILL.md",
+      "sha256": "6c66e7f923c1eebc7eb7b94971af2e8016d3b5316e14bb1ad4b15ed3522084ce"
+    },
+    {
+      "path": "skills/pricing/evals/evals.json",
+      "sha256": "6bbf8d72e8febd13c1eea60fd92b595269358a8382a87b5d93b593d877886e5a"
+    },
+    {
+      "path": "skills/pricing/references/research-methods.md",
+      "sha256": "b6aab09860dbab2f11d69cc9c179cc7f6e1a100ede28e5c49b59070a2caaeb15"
+    },
+    {
+      "path": "skills/pricing/references/tier-structure.md",
+      "sha256": "b59910d37cceb74484f28b065963daa60f5c4fb1ffc36a0584d0f3cad11f3e30"
+    },
+    {
+      "path": "skills/pricing/SKILL.md",
+      "sha256": "a5d1cfe49b80569089b3d80f29b92075cf7554cef7e3cf618ef705a348a133f0"
+    },
+    {
+      "path": "skills/product-marketing/evals/evals.json",
+      "sha256": "d45d651896db777e33ad36bdcbaea1171538abe0b1c27a298bf9b98c5fe04b63"
+    },
+    {
+      "path": "skills/product-marketing/SKILL.md",
+      "sha256": "cbebd56731ed1883d2f481ec72477b392ee0bdf99be7fa7470b9d078ff154fcb"
+    },
+    {
+      "path": "skills/programmatic-seo/evals/evals.json",
+      "sha256": "e76b704edfc50210224aa82131dc4e917d6daa3a1467b9f7fe54b2d42af2a264"
+    },
+    {
+      "path": "skills/programmatic-seo/references/playbooks.md",
+      "sha256": "b2b3fd7c58c686f0670b94cf7192ff79436ccf0d602650b33a83a9d01102f11d"
+    },
+    {
+      "path": "skills/programmatic-seo/SKILL.md",
+      "sha256": "15cb5979cab5263ede902a830e03342869256ece17905bff240eef498e27cde1"
+    },
+    {
+      "path": "skills/prospecting/evals/evals.json",
+      "sha256": "8ebd8ab4c0d660c263f4adfa3f05fc5920881997e2ab0c5b98b7cec39d7532fd"
+    },
+    {
+      "path": "skills/prospecting/references/b2b-prospecting.md",
+      "sha256": "abb7e697bc357856a585bcb7896b75895be06c4629b33558f67e418f6abc45ca"
+    },
+    {
+      "path": "skills/prospecting/references/compliance.md",
+      "sha256": "e39f980e026f28767d66addd9c28014b3968667e11d776d0480df4d569c6e4b3"
+    },
+    {
+      "path": "skills/prospecting/references/data-sources.md",
+      "sha256": "c05f1e85b89093e1ac3f8691b9b692b737bc9ed8b81db7cff5bf6f73ebf17b6c"
+    },
+    {
+      "path": "skills/prospecting/references/demand-signals.md",
+      "sha256": "250ae03c7b01cd7866b6e3958f384a74cffad58e5d207693e8fa6fd237faf66a"
+    },
+    {
+      "path": "skills/prospecting/references/local-prospecting.md",
+      "sha256": "1dd71471a3413d5b0a9d230b1e42ca95469c617285bf7e2abdfa463428367fc3"
+    },
+    {
+      "path": "skills/prospecting/references/saas-prospecting.md",
+      "sha256": "24a42d2b770a9727d5e88ca01352c80f350822304855818a468f72a3df8a1f3d"
+    },
+    {
+      "path": "skills/prospecting/SKILL.md",
+      "sha256": "beabb53a99b4df893216c18ba84198d7f2622cc83ef35043c09b218840498356"
+    },
+    {
+      "path": "skills/public-relations/references/journalist-pitching.md",
+      "sha256": "ba0b853771cbf6eb29540694b0dee72a393cd79b46d7fd2d9b70c8bbcf85c663"
+    },
+    {
+      "path": "skills/public-relations/references/media-outlets.md",
+      "sha256": "49c727db10a86d0d227275b970a131d677961ef7cf16e0fc8ced588688133899"
+    },
+    {
+      "path": "skills/public-relations/references/newsjacking.md",
+      "sha256": "257b85f668db57b3a0294409920538f85a56c3a0414fb1e5841e71d1234a9892"
+    },
+    {
+      "path": "skills/public-relations/references/press-platforms.md",
+      "sha256": "e999335222a30df0954e324e6d35ea269c5d9228c609c0f33bc1d2bb528fb244"
+    },
+    {
+      "path": "skills/public-relations/SKILL.md",
+      "sha256": "d1aeff136f23e2bf3296d11e86d51abedfd08996fc8bf0c1637dd96faaa693a4"
+    },
+    {
+      "path": "skills/referrals/evals/evals.json",
+      "sha256": "f36f08f13145f98b531d5a377a5326fabbd391132ce256093187d475a01c86cb"
+    },
+    {
+      "path": "skills/referrals/references/affiliate-programs.md",
+      "sha256": "3479ba24987c24654191f02bbf57fa5ff89eecde8e93cf22c65538bed2c356b4"
+    },
+    {
+      "path": "skills/referrals/references/program-examples.md",
+      "sha256": "2baad60cdb251414ea559bd4dcf23d6c394ff66e593ae9392453f2e24f585c8a"
+    },
+    {
+      "path": "skills/referrals/SKILL.md",
+      "sha256": "4ddd01713b7ef3c3fb669fd3bb9a720641ee8db8b9ac327c35d6be3548a7f777"
+    },
+    {
+      "path": "skills/revops/evals/evals.json",
+      "sha256": "bda1dd0d19785c8d5f71370fba0cab11c9af16c06813dcee2157e559dafbefc1"
+    },
+    {
+      "path": "skills/revops/references/automation-playbooks.md",
+      "sha256": "567efd379af6102e7eec95b7a630f29451c5a16ad93c4ae91a97d52ccb8428ea"
+    },
+    {
+      "path": "skills/revops/references/lifecycle-definitions.md",
+      "sha256": "210c730e815b82f6c06d67482e667c40f9ae2179886e318ccb25f1e31e09ca1f"
+    },
+    {
+      "path": "skills/revops/references/routing-rules.md",
+      "sha256": "9057c207550ff289e84d6b25ca9d38b436c98a517e0aa4f30c2ff8f09f5d8370"
+    },
+    {
+      "path": "skills/revops/references/scoring-models.md",
+      "sha256": "923062ddfd0e0eab5fbdb51286c484afd3fee6d42b10eb91b40a39e764b1beb5"
+    },
+    {
+      "path": "skills/revops/SKILL.md",
+      "sha256": "bb27b16ad41c5c2d4fea14c12359c6a01fc755f2bb91140f0c2c43b05b3adb10"
+    },
+    {
+      "path": "skills/sales-enablement/evals/evals.json",
+      "sha256": "734702bc1a437360fbac100a77a53ec83465ef1fb2364ecfc922b5381ddf342b"
+    },
+    {
+      "path": "skills/sales-enablement/references/deck-frameworks.md",
+      "sha256": "265eea6c1b358d10f2dd22fd987789a9d115c14d30bf77a9086734ac60659336"
+    },
+    {
+      "path": "skills/sales-enablement/references/demo-scripts.md",
+      "sha256": "505616ebf73d30fe84a844540727ab8f3aeae29ebcda8c8ace28a18ada003da3"
+    },
+    {
+      "path": "skills/sales-enablement/references/objection-library.md",
+      "sha256": "e0cdfeffc41afbdbe2c014bcd9b3c024318eac9bd23159e871ec796aba29e0b2"
+    },
+    {
+      "path": "skills/sales-enablement/references/one-pager-templates.md",
+      "sha256": "2197326faff4ede03fb40e332e9c80a4e084d8efd48c74df8720d70817ac5ded"
+    },
+    {
+      "path": "skills/sales-enablement/SKILL.md",
+      "sha256": "d83c3244dd8e2e64d585f1ff0d760eff181587f06b90ceaf8127a4ce618265dd"
+    },
+    {
+      "path": "skills/schema/evals/evals.json",
+      "sha256": "084545e9aa789dace8c4d4d5daf330ffaa4fe4c64266bd76dc6688b3f8281202"
+    },
+    {
+      "path": "skills/schema/references/schema-examples.md",
+      "sha256": "5d55c96ae9859a5fb84cb18828c4a96dcd468e7aeec667c88fdf9032558ab318"
+    },
+    {
+      "path": "skills/schema/SKILL.md",
+      "sha256": "d8b7aa7bcd9727a87fb5470a6c9ee252b99a7ccb84f637d7c67c5d155b507e0b"
+    },
+    {
+      "path": "skills/seo-audit/evals/evals.json",
+      "sha256": "b808dfa7ee1e312cda39cfac57f44674bd3cee6eaa151af7008760a9514bb6cf"
+    },
+    {
+      "path": "skills/seo-audit/references/ai-writing-detection.md",
+      "sha256": "f1e273f56ce7e2215ff218bf903680ddcec0fd026ab90c3ebfb3439ed0edfaa4"
+    },
+    {
+      "path": "skills/seo-audit/references/international-seo.md",
+      "sha256": "d2fc76f40eccc422ae0f1d7e5b770095e89a045f38e1d0370811203da57996ff"
+    },
+    {
+      "path": "skills/seo-audit/SKILL.md",
+      "sha256": "3b03a2e07578e9964acac0b6907ae343a904c6547bfefe779ba326db5eedd1cb"
+    },
+    {
+      "path": "skills/signup/evals/evals.json",
+      "sha256": "ce012fff8e559b5f622826826e7b137c650c96f8193a7e10add60f75c2417edd"
+    },
+    {
+      "path": "skills/signup/SKILL.md",
+      "sha256": "9395aabae64891ebdac5f31d17c83b9d47546dc0c9b22654c7b89e9b04da7cf6"
+    },
+    {
+      "path": "skills/site-architecture/evals/evals.json",
+      "sha256": "64b76ab82488fd168919fad1b038b7117392ff9748a835104ddde95aac4a5cee"
+    },
+    {
+      "path": "skills/site-architecture/references/mermaid-templates.md",
+      "sha256": "362190c7d3f419d5f445170f1fb17beecc163937d2068922893b7a69eeb25f0f"
+    },
+    {
+      "path": "skills/site-architecture/references/navigation-patterns.md",
+      "sha256": "2efa772709b753e33d5018c007147ca30aaa95a04b04dc0df6227ea5a053078b"
+    },
+    {
+      "path": "skills/site-architecture/references/site-type-templates.md",
+      "sha256": "3c3cd7ce5e31c502dc071baf82bb58cb30f5edf4a2fd8ca052fbc8f3777db140"
+    },
+    {
+      "path": "skills/site-architecture/SKILL.md",
+      "sha256": "a47f693c6a4f45db89276d8c341b3aa3054090cc8002dd4a2635448d7d152492"
+    },
+    {
+      "path": "skills/sms/evals/evals.json",
+      "sha256": "af9f0d11e5a7ccf4f409b0e887832452e4197d25d13a90bb4fac1469695c304f"
+    },
+    {
+      "path": "skills/sms/references/compliance.md",
+      "sha256": "bbfb8f7c359cad650b7b2d27108e2bb12365a6c604e464ba3e94195b3938f149"
+    },
+    {
+      "path": "skills/sms/references/platforms.md",
+      "sha256": "3f3e54cae72bb722703be6bae76dc1f6fa2312d5541105d425bcc07cd7a3ff12"
+    },
+    {
+      "path": "skills/sms/references/sequence-templates.md",
+      "sha256": "c61e72b00bfbe80e87a771840164a2a487585f202bbd3f010d8c60485339b220"
+    },
+    {
+      "path": "skills/sms/SKILL.md",
+      "sha256": "bf649cfac0e3851f28b4746dc0dccb51c7526935b64cae7dd237b1b948c58842"
+    },
+    {
+      "path": "skills/social/evals/evals.json",
+      "sha256": "99b4a893db8dfa82484d0d6e1eaa730258576274de16999ba016f9906d07a36b"
+    },
+    {
+      "path": "skills/social/references/carousel-frameworks.md",
+      "sha256": "e7d56048a38de90f1f26f3cac8880f3d263a8bdd5fc0c9460d50aef135654768"
+    },
+    {
+      "path": "skills/social/references/listening-sources-template.md",
+      "sha256": "c68bc6f57b0a48c432b1ce72c9324d41a04d0e7784d0bab91afb4a6065a43e38"
+    },
+    {
+      "path": "skills/social/references/listening.md",
+      "sha256": "a1049663d7ed37864bcd58e15ae5e8f03c8edcaca37d8de4f7e38896d94fbf93"
+    },
+    {
+      "path": "skills/social/references/platform-limits.md",
+      "sha256": "6ecc6b40ff82b95c48906341f7d3c58337671d4d94f624c858764f1ed5a77c3c"
+    },
+    {
+      "path": "skills/social/references/platforms.md",
+      "sha256": "3c4e1b15717a3bcd4ed0cf29dc167dac28aa88bbf01723fde53815122396090f"
+    },
+    {
+      "path": "skills/social/references/post-templates.md",
+      "sha256": "febd0aca9557e6575188379f012b019b36839926bdf7924661f125f900b24d0f"
+    },
+    {
+      "path": "skills/social/references/reverse-engineering.md",
+      "sha256": "c27bef59d463b3b11331c1770f4a23e9e6bbce7d7c8db1e7f7f4f14ba206243f"
+    },
+    {
+      "path": "skills/social/references/short-form-video.md",
+      "sha256": "38e7de4049f39d116b815a8d07f5e45777501e9f506e3a5fe005c5d204d32ee7"
+    },
+    {
+      "path": "skills/social/SKILL.md",
+      "sha256": "8cc93d9b361622cdb640e87969747b85603bed2d268e923179f8dfb4799ec8c7"
+    },
+    {
+      "path": "skills/video/evals/evals.json",
+      "sha256": "7041d7596cd10cf0e099c168fd72282bcc19610fba44e7c44f6dd87b611518f8"
+    },
+    {
+      "path": "skills/video/references/ai-video-prompting.md",
+      "sha256": "210eaecc05367aacbaf35660ed7352809e31fb326123d0cfd6ab03c09681d13e"
+    },
+    {
+      "path": "skills/video/SKILL.md",
+      "sha256": "322ff36c8a0fdf7ffeb482fcf2190857c81e21514d99bce7b6c56d654edeb1ae"
+    }
+  ]
+}

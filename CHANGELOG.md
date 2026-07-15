@@ -1,16 +1,12 @@
 # Changelog
 
-## 1.0.0 — 2026-07-12
+## 0.0.1 — 2026-07-15
 
-- Implemented a dependency-free Node.js CLI and deterministic bilingual objective router.
-- Added project initialization and isolated one-objective run-vault scaffolding.
-- Added structured records for evidence, claims, channel specs, deliverables, assets, reviews, approvals, production packs, measurement, and state.
-- Added 12 aggregate launch-readiness gates plus focused executable gate wrappers.
-- Added lexical and real-path containment, symbolic-link rejection, post-certification file-injection detection, media metadata, rights, lineage, copy-limit, accessibility, and reviewer-separation checks.
-- Added honest image/video fallback contracts and prohibited static fallback.
-- Added transactional readiness certification, final gate-report SHA-256 linkage, certified-file integrity manifests, and `verify-ready`.
-- Preserved the attested gate report during post-certification checks by writing diagnostics to `gate-report-latest.json`.
-- Added deterministic packaging without package-manifest self-hash drift.
-- Added explicit publish-scope permit checks without external execution.
-- Added transactional real-results validation with source, predeclared-rule, and calculation-evidence hashes plus `verify-results`.
-- Added JSON Schema documentation, provider-neutral adapter contracts, CI, implementation/security/CLI documentation, and 37 automated contract tests.
+- Released the first public SuperMarketer package with 12 bilingual execution modes and 47 independently routed marketing specialties.
+- Vendored the exact `cskwork/marketingskills` knowledge snapshot at commit `130847d0945555c43b0b1774e2a4f99d35a32ebe`: 47 playbooks, 145 references, 45 evaluations, one asset, and the upstream MIT license.
+- Added exact specialty overrides, neighboring-intent rules, low-confidence fallback behavior, run-state metadata, and dual playbooks in each generated `RUN.md`.
+- Added a vendor integrity gate for provenance, catalog/frontmatter agreement, required playbooks, and all 239 file hashes while preserving first-party Markdown link checks.
+- Added a dependency-free Node.js CLI, project initialization, isolated run vaults, and structured evidence, claims, channel, deliverable, asset, review, approval, production-pack, measurement, and state records.
+- Added 12 aggregate readiness gates, media metadata verification, path/symlink containment, rights and lineage checks, honest media fallbacks, and independent-review enforcement.
+- Added transactional `Z-READY.md` and `Z-VALIDATED.md` attestations, deterministic ZIP packaging, scoped publish permits without external execution, and real-results validation.
+- Added public English/Korean documentation, implementation/security/CLI/schema notes, CI, certified examples, and 83 contract and adversarial tests.

@@ -19,6 +19,20 @@ test('CLI route emits machine-readable bilingual routing output', () => {
   assert.equal(result.status, 0, result.stderr);
   const parsed = JSON.parse(result.stdout);
   assert.equal(parsed.mode, 'LAUNCH-KIT');
+  assert.equal(parsed.specialty, 'launch');
+  assert.match(parsed.specialty_reference, /vendor\/marketingskills\/skills\/launch\/SKILL\.md$/);
+});
+
+test('CLI accepts an exact specialty override independently from mode', () => {
+  const result = run(['route', 'Audit pricing.', '--mode', 'AUDIT', '--specialty', 'pricing', '--json']);
+  assert.equal(result.status, 0, result.stderr);
+  const parsed = JSON.parse(result.stdout);
+  assert.equal(parsed.mode, 'AUDIT');
+  assert.equal(parsed.specialty, 'pricing');
+
+  const invalid = run(['route', 'Audit pricing.', '--specialty', 'Pricing', '--json']);
+  assert.equal(invalid.status, 1);
+  assert.match(JSON.parse(invalid.stdout).error, /Unknown specialty/);
 });
 
 test('CLI verify-ready and status distinguish valid from tampered certification', () => {

@@ -2,7 +2,7 @@
 
 ## Runtime
 
-SuperMarketer 1.0.0 is an ECMAScript-module Node.js application requiring Node 20 or newer. It has no npm runtime dependency and uses only standard-library modules plus optional system media tools.
+SuperMarketer 0.0.1 is an ECMAScript-module Node.js application requiring Node 20 or newer. It has no npm runtime dependency and uses only standard-library modules plus optional system media tools.
 
 ```text
 bin/supermarketer.mjs -> lib/cli.mjs
@@ -12,13 +12,15 @@ bin/supermarketer.mjs -> lib/cli.mjs
 
 | Module | Responsibility |
 |---|---|
-| `lib/router.mjs` | Deterministic bilingual objective classification and validated mode override |
+| `lib/router.mjs` | Backward-compatible mode routing merged with independent specialty routing |
+| `lib/specialists/` | 47-entry catalog, neighboring-intent rules, scoring, and exact specialty override |
 | `lib/scaffold.mjs` | Persistent project workspace and isolated run-vault creation |
 | `lib/yaml-lite.mjs` | Strict supported YAML subset parser and canonical writer |
 | `lib/markdown.mjs` | Required-section, field, checkbox, table, placeholder, and frontmatter parsing |
 | `lib/utils.mjs` | Atomic writes, hashes, dates, file walking, lexical/real-path containment, symlink rejection |
 | `lib/media/` | Image, PDF, and video metadata inspection |
 | `lib/gates/` | Independent deterministic validation modules |
+| `vendor/marketingskills/` | Exact knowledge snapshot, upstream MIT license, provenance, and per-file hashes |
 | `lib/attestation.mjs` | Readiness marker, report digest, certified-file integrity manifest, and file-set verification |
 | `lib/performance-attestation.mjs` | Performance marker plus source/rule/calculation/state consistency verification |
 | `lib/workflow.mjs` | Transactional readiness certification, result validation, publish permit, and asset ingestion |

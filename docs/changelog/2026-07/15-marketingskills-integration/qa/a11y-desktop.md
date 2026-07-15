@@ -1,0 +1,411 @@
+- generic [active] [ref=f6e1]:
+  - banner [ref=f6e2]:
+    - generic [ref=f6e3]:
+      - link "/ supermarketer" [ref=f6e4] [cursor=pointer]:
+        - /url: "#top"
+        - generic [ref=f6e5]: /
+        - text: supermarketer
+      - navigation [ref=f6e6]:
+        - link "Modes" [ref=f6e7] [cursor=pointer]:
+          - /url: "#modes"
+        - link "Specialists" [ref=f6e8] [cursor=pointer]:
+          - /url: "#specialists"
+        - link "Workflow" [ref=f6e9] [cursor=pointer]:
+          - /url: "#loop"
+        - link "Structure" [ref=f6e10] [cursor=pointer]:
+          - /url: "#structure"
+        - link "Status" [ref=f6e11] [cursor=pointer]:
+          - /url: "#status"
+      - generic [ref=f6e12]:
+        - button "Toggle theme" [ref=f6e13] [cursor=pointer]:
+          - generic [ref=f6e14]: ☾
+        - link "GitHub" [ref=f6e15] [cursor=pointer]:
+          - /url: https://github.com/cskwork/supermarketer-skill
+  - generic [ref=f6e17]:
+    - generic [ref=f6e18]:
+      - generic [ref=f6e19]: Agent skill · v0.0.1 · dependency-free Node CLI
+      - heading "One objective in. A launch-ready package out." [level=1] [ref=f6e20]:
+        - text: One objective in.
+        - text: A launch-ready
+        - text: package out.
+      - paragraph [ref=f6e21]: Evidence-grounded product marketing and creative production — 12 execution modes and 47 specialist playbooks selected independently, then verified by deterministic gates before anything is marked ready.
+      - generic [ref=f6e22]:
+        - link "See two-axis routing →" [ref=f6e23] [cursor=pointer]:
+          - /url: "#specialists"
+        - link "View on GitHub" [ref=f6e24] [cursor=pointer]:
+          - /url: https://github.com/cskwork/supermarketer-skill
+      - generic [ref=f6e25]:
+        - generic [ref=f6e26]: 12 production modes
+        - generic [ref=f6e28]: 47 marketing specialists
+        - generic [ref=f6e30]: 12 deterministic gates
+        - generic [ref=f6e32]: Honest by design
+    - generic [ref=f6e34]:
+      - generic [ref=f6e35]:
+        - generic [ref=f6e36]: Every final report states
+        - generic [ref=f6e37]: run-vault / Z-READY
+      - generic [ref=f6e38]:
+        - generic [ref=f6e39]: Readiness
+        - generic [ref=f6e40]: LAUNCH_READY
+      - generic [ref=f6e41]:
+        - generic [ref=f6e42]: Performance
+        - generic [ref=f6e43]: NOT_MEASURED
+      - generic [ref=f6e44]:
+        - generic [ref=f6e45]: After real data
+        - generic [ref=f6e46]: PERFORMANCE_VALIDATED
+      - generic [ref=f6e47]:
+        - text: Pre-launch can only prove
+        - strong [ref=f6e48]: readiness
+        - text: . Performance requires real post-launch data — this skill refuses to claim otherwise.
+  - generic [ref=f6e50]:
+    - generic [ref=f6e51]: Core principle
+    - generic [ref=f6e52]:
+      - generic [ref=f6e53]: Product truth before persuasion
+      - generic [ref=f6e54]: Every claim maps to evidence
+      - generic [ref=f6e55]: Maker never self-approves
+      - generic [ref=f6e56]: Current, dated channel specs
+      - generic [ref=f6e57]: No fake rendered assets
+  - generic [ref=f6e59]:
+    - generic [ref=f6e61]:
+      - generic [ref=f6e62]: Execution axis · classify the work
+      - heading "Twelve modes define how the work is done." [level=2] [ref=f6e63]
+      - paragraph [ref=f6e64]: Mode preserves the existing execution and readiness semantics. Specialty is selected on a separate axis, so the same domain can be written, audited, experimented on, or measured.
+    - generic [ref=f6e65]:
+      - generic [ref=f6e66]:
+        - generic [ref=f6e67]: RESEARCH
+        - generic [ref=f6e68]: Market & customer
+        - generic [ref=f6e69]: Audience, demand, competitors, category trends.
+        - generic [ref=f6e70]: reference/research.md
+      - generic [ref=f6e71]:
+        - generic [ref=f6e72]: POSITION
+        - generic [ref=f6e73]: Positioning
+        - generic [ref=f6e74]: ICP, JTBD, value prop, differentiation, message house.
+        - generic [ref=f6e75]: reference/positioning.md
+      - generic [ref=f6e76]:
+        - generic [ref=f6e77]: CAMPAIGN
+        - generic [ref=f6e78]: Campaign & GTM
+        - generic [ref=f6e79]: Launch plan, channel and content plan.
+        - generic [ref=f6e80]: reference/campaign.md
+      - generic [ref=f6e81]:
+        - generic [ref=f6e82]: COPY
+        - generic [ref=f6e83]: Copy & scripts
+        - generic [ref=f6e84]: Headlines, ads, landing, email, social, scripts.
+        - generic [ref=f6e85]: reference/copy.md
+      - generic [ref=f6e86]:
+        - generic [ref=f6e87]: STATIC
+        - generic [ref=f6e88]: Static creative
+        - generic [ref=f6e89]: Posters, banners, carousels, flyers, social ads.
+        - generic [ref=f6e90]: reference/static.md
+      - generic [ref=f6e91]:
+        - generic [ref=f6e92]: IMAGE
+        - generic [ref=f6e93]: Image
+        - generic [ref=f6e94]: Product images, key visuals, illustration, edits.
+        - generic [ref=f6e95]: reference/image.md
+      - generic [ref=f6e96]:
+        - generic [ref=f6e97]: VIDEO
+        - generic [ref=f6e98]: Video
+        - generic [ref=f6e99]: Reels, shorts, ad films, demos, storyboards.
+        - generic [ref=f6e100]: reference/video.md
+      - generic [ref=f6e101]:
+        - generic [ref=f6e102]: LAUNCH‑KIT
+        - generic [ref=f6e103]: Full launch kit
+        - generic [ref=f6e104]: Coordinated multi-channel bundle of everything.
+        - generic [ref=f6e105]: default loop
+      - generic [ref=f6e106]:
+        - generic [ref=f6e107]: EXPERIMENT
+        - generic [ref=f6e108]: Experiments
+        - generic [ref=f6e109]: A/B tests, variants, creative test design.
+        - generic [ref=f6e110]: reference/experiments.md
+      - generic [ref=f6e111]:
+        - generic [ref=f6e112]: LOCALIZE
+        - generic [ref=f6e113]: Localization
+        - generic [ref=f6e114]: Transcreate, reflow, adapt for market & language.
+        - generic [ref=f6e115]: reference/localization.md
+      - generic [ref=f6e116]:
+        - generic [ref=f6e117]: AUDIT
+        - generic [ref=f6e118]: Audit
+        - generic [ref=f6e119]: Critique, compliance & brand check. No edits.
+        - generic [ref=f6e120]: reference/qa.md
+      - generic [ref=f6e121]:
+        - generic [ref=f6e122]: MEASURE
+        - generic [ref=f6e123]: Measure
+        - generic [ref=f6e124]: CTR, CVR, lift, performance on real results.
+        - generic [ref=f6e125]: reference/measurement.md
+      - generic [ref=f6e126]:
+        - generic [ref=f6e127]: THROUGH‑LINE
+        - generic [ref=f6e128]: Truth, always
+        - generic [ref=f6e129]: "Not a 13th mode — the rule every mode obeys: grounded claims & review before ship."
+        - generic [ref=f6e130]: every mode · always
+  - generic [ref=f6e132]:
+    - generic [ref=f6e134]:
+      - generic [ref=f6e135]: Knowledge axis · 47 specialist playbooks
+      - heading "Broad execution. Precise marketing depth." [level=2] [ref=f6e136]
+      - paragraph [ref=f6e137]: Load standing product and brand truth first, one mode playbook second, then only the selected vendored specialist and the references it needs. The exact snapshot is hash-protected for deterministic offline use.
+    - generic [ref=f6e138]:
+      - generic [ref=f6e139]:
+        - generic [ref=f6e140]:
+          - heading "Strategy & orchestration" [level=3] [ref=f6e141]
+          - generic [ref=f6e142]:
+            - code [ref=f6e143]: product-marketing
+            - code [ref=f6e144]: marketing-plan
+            - code [ref=f6e145]: marketing-ideas
+            - code [ref=f6e146]: marketing-council
+            - code [ref=f6e147]: marketing-loops
+            - code [ref=f6e148]: launch
+            - code [ref=f6e149]: revops
+            - code [ref=f6e150]: sales-enablement
+        - generic [ref=f6e151]:
+          - heading "Research & competition" [level=3] [ref=f6e152]
+          - generic [ref=f6e153]:
+            - code [ref=f6e154]: customer-research
+            - code [ref=f6e155]: prospecting
+            - code [ref=f6e156]: competitors
+            - code [ref=f6e157]: competitor-profiling
+            - code [ref=f6e158]: marketing-psychology
+        - generic [ref=f6e159]:
+          - heading "Copy, content & channels" [level=3] [ref=f6e160]
+          - generic [ref=f6e161]:
+            - code [ref=f6e162]: copywriting
+            - code [ref=f6e163]: copy-editing
+            - code [ref=f6e164]: content-strategy
+            - code [ref=f6e165]: emails
+            - code [ref=f6e166]: cold-email
+            - code [ref=f6e167]: sms
+            - code [ref=f6e168]: social
+        - generic [ref=f6e169]:
+          - heading "Paid & creative" [level=3] [ref=f6e170]
+          - generic [ref=f6e171]:
+            - code [ref=f6e172]: ads
+            - code [ref=f6e173]: ad-creative
+            - code [ref=f6e174]: image
+            - code [ref=f6e175]: video
+        - generic [ref=f6e176]:
+          - heading "Conversion & lifecycle" [level=3] [ref=f6e177]
+          - generic [ref=f6e178]:
+            - code [ref=f6e179]: cro
+            - code [ref=f6e180]: signup
+            - code [ref=f6e181]: onboarding
+            - code [ref=f6e182]: paywalls
+            - code [ref=f6e183]: popups
+            - code [ref=f6e184]: lead-magnets
+            - code [ref=f6e185]: churn-prevention
+        - generic [ref=f6e186]:
+          - heading "Pricing & offer" [level=3] [ref=f6e187]
+          - generic [ref=f6e188]:
+            - code [ref=f6e189]: pricing
+            - code [ref=f6e190]: offers
+        - generic [ref=f6e191]:
+          - heading "Search & discovery" [level=3] [ref=f6e192]
+          - generic [ref=f6e193]:
+            - code [ref=f6e194]: seo-audit
+            - code [ref=f6e195]: programmatic-seo
+            - code [ref=f6e196]: ai-seo
+            - code [ref=f6e197]: schema
+            - code [ref=f6e198]: site-architecture
+            - code [ref=f6e199]: aso
+            - code [ref=f6e200]: directory-submissions
+        - generic [ref=f6e201]:
+          - heading "Earned, partner & product-led" [level=3] [ref=f6e202]
+          - generic [ref=f6e203]:
+            - code [ref=f6e204]: public-relations
+            - code [ref=f6e205]: co-marketing
+            - code [ref=f6e206]: community-marketing
+            - code [ref=f6e207]: referrals
+            - code [ref=f6e208]: free-tools
+        - generic [ref=f6e209]:
+          - heading "Analytics & experiments" [level=3] [ref=f6e210]
+          - generic [ref=f6e211]:
+            - code [ref=f6e212]: analytics
+            - code [ref=f6e213]: ab-testing
+      - generic [ref=f6e214]:
+        - code [ref=f6e215]: AUDIT + pricing
+        - text: checks pricing strategy without changing it.
+        - code [ref=f6e216]: COPY + emails
+        - text: writes lifecycle copy.
+        - code [ref=f6e217]: MEASURE + ads
+        - text: analyzes real paid-campaign data. Explicit mode and specialty overrides remain independent.
+  - generic [ref=f6e219]:
+    - generic [ref=f6e220]: Default loop
+    - heading "Frame to measure — with a built-in publish gate." [level=2] [ref=f6e221]
+    - paragraph [ref=f6e222]: The maker never self-approves. Adversarial review and deterministic QA must both pass before anything is marked ready.
+    - generic [ref=f6e223]:
+      - generic [ref=f6e224]:
+        - generic [ref=f6e225]: "01"
+        - heading "Frame" [level=3] [ref=f6e226]
+        - paragraph [ref=f6e227]:
+          - text: Capture objective, audience, funnel stage, offer, KPI, and falsifiable readiness criteria in
+          - code [ref=f6e228]: BRIEF.md
+          - text: .
+      - generic [ref=f6e229]:
+        - generic [ref=f6e230]: "02"
+        - heading "Ground" [level=3] [ref=f6e231]
+        - paragraph [ref=f6e232]:
+          - text: Build
+          - code [ref=f6e233]: EVIDENCE.md
+          - text: ", dated"
+          - code [ref=f6e234]: CHANNEL-SPECS.yaml
+          - text: ", and"
+          - code [ref=f6e235]: CLAIMS.yaml
+          - text: from current, high-trust sources.
+      - generic [ref=f6e236]:
+        - generic [ref=f6e237]: "03"
+        - heading "Strategize" [level=3] [ref=f6e238]
+        - paragraph [ref=f6e239]: Minimum positioning, message hierarchy, offer/CTA, concept, and channel role. Creative brief for visual/video.
+      - generic [ref=f6e240]:
+        - generic [ref=f6e241]: "04"
+        - heading "Produce" [level=3] [ref=f6e242]
+        - paragraph [ref=f6e243]:
+          - text: Fresh-context specialists build each deliverable. Everything is logged in
+          - code [ref=f6e244]: ASSET-MANIFEST.yaml
+          - text: with lineage.
+      - generic [ref=f6e245]:
+        - generic [ref=f6e246]: "05"
+        - heading "Improve" [level=3] [ref=f6e247]
+        - paragraph [ref=f6e248]: A separate role checks brief coverage, edge cases, crops, legibility, captions, alt text, and variants.
+      - generic [ref=f6e249]:
+        - generic [ref=f6e250]: "06"
+        - heading "Adversarial review" [level=3] [ref=f6e251]
+        - paragraph [ref=f6e252]:
+          - text: Fresh reviewers try to
+          - emphasis [ref=f6e253]: disprove
+          - text: readiness. They make no production edits.
+      - generic [ref=f6e254]:
+        - generic [ref=f6e255]: "07"
+        - heading "QA & package" [level=3] [ref=f6e256]
+        - paragraph [ref=f6e257]:
+          - text: Deterministic artifact checks plus independent review, mapped to evidence in
+          - code [ref=f6e258]: QA.md
+          - text: .
+      - generic [ref=f6e259]:
+        - generic [ref=f6e260]: "08"
+        - heading "Publish gate" [level=3] [ref=f6e261]
+        - paragraph [ref=f6e262]: Post/send/schedule/spend only after explicit approval naming destination, timing, account & budget.
+      - generic [ref=f6e263]:
+        - generic [ref=f6e264]: "09"
+        - heading "Measure" [level=3] [ref=f6e265]
+        - paragraph [ref=f6e266]:
+          - text: Only real post-launch data can flip status to
+          - code [ref=f6e267]: PERFORMANCE_VALIDATED
+          - text: .
+  - generic [ref=f6e269]:
+    - generic [ref=f6e270]: Repository map
+    - heading "A thin router. Depth loaded on demand." [level=2] [ref=f6e271]
+    - generic [ref=f6e272]:
+      - generic [ref=f6e273]:
+        - generic [ref=f6e274]: supermarketer-skill/
+        - text: ├─ SKILL.md — the thin router
+        - text: ├─ bin/ — CLI entry point
+        - text: ├─ lib/ — mode + specialist routers, scaffold, gates, attestation
+        - text: ├─ scripts/ — executable gate wrappers
+        - text: ├─ agents/ — 13 role contracts
+        - text: ├─ reference/ — 20 mode & ops playbooks
+        - text: ├─ vendor/ — 47 specialist playbooks, 145 references, 45 evals
+        - text: ├─ adapters/ — provider-neutral media contracts
+        - text: ├─ templates/ — run-vault & production-pack files
+        - text: ├─ schemas/ — 12 JSON Schemas
+        - text: ├─ tests/ — 83 contract & adversarial tests
+        - text: └─ docs/ · examples/ · SPEC.md
+      - list [ref=f6e275]:
+        - listitem [ref=f6e276]:
+          - generic [ref=f6e277]:
+            - code [ref=f6e278]: bin/
+            - text: +
+            - code [ref=f6e279]: lib/
+            - text: The engine
+          - paragraph [ref=f6e280]: "Dependency-free Node 20+ CLI. One command per lifecycle step: scaffold a vault, run gates, certify readiness, package, validate results."
+        - listitem [ref=f6e281]:
+          - generic [ref=f6e282]:
+            - code [ref=f6e283]: SKILL.md
+            - text: Router
+          - paragraph [ref=f6e284]: Selects one execution mode and one marketing specialty independently, then loads only those playbooks. Never embeds all 47 specialists in the root.
+        - listitem [ref=f6e285]:
+          - generic [ref=f6e286]:
+            - code [ref=f6e287]: agents/
+            - text: Roles
+          - paragraph [ref=f6e288]: Each role has a contract. Producers and reviewers are always separate — the creator of an asset cannot be its only reviewer.
+        - listitem [ref=f6e289]:
+          - generic [ref=f6e290]:
+            - code [ref=f6e291]: schemas/
+            - text: +
+            - code [ref=f6e292]: adapters/
+            - text: Interop
+          - paragraph [ref=f6e293]: JSON Schemas document every structured record; provider-neutral adapter contracts define the handoff for any image, design, or video tool.
+  - generic [ref=f6e295]:
+    - generic [ref=f6e296]: Status & honesty
+    - heading "First release v0.0.1 — explicit about what it deliberately is not." [level=2] [ref=f6e297]
+    - paragraph [ref=f6e298]: 83 automated tests pass locally. The vendor and readiness integrity models are code, not prose. The boundaries below are choices, not gaps.
+    - generic [ref=f6e299]:
+      - generic [ref=f6e300]:
+        - heading "Built for first release v0.0.1" [level=3] [ref=f6e301]:
+          - text: Built for first release
+          - generic [ref=f6e302]: v0.0.1
+        - list [ref=f6e303]:
+          - listitem [ref=f6e304]:
+            - text: "Dependency-free Node 20+ CLI:"
+            - code [ref=f6e305]: init / new / check / ready / verify-ready / package / publish-check / validate-results
+          - listitem [ref=f6e306]: 12 aggregate launch-readiness gates with stable error codes + focused wrappers
+          - listitem [ref=f6e307]: 47 independently routed specialists with exact source provenance and 239 file hashes
+          - listitem [ref=f6e308]:
+            - text: Transactional
+            - code [ref=f6e309]: Z-READY
+            - text: "&"
+            - code [ref=f6e310]: Z-VALIDATED
+            - text: with SHA-256 manifests + post-cert injection detection
+          - listitem [ref=f6e311]: Media metadata inspection (PNG/JPEG/GIF/WebP/SVG/PDF/video), rights & lineage checks
+          - listitem [ref=f6e312]: Reviewer-separation enforcement, path containment, symlink rejection
+          - listitem [ref=f6e313]: Built-in ZIP packaging + checksum sidecar, 12 JSON Schemas, GitHub Actions CI
+          - listitem [ref=f6e314]: 83 contract & adversarial tests; a certified COPY example
+      - generic [ref=f6e315]:
+        - heading "Deliberate integration boundaries by design" [level=3] [ref=f6e316]:
+          - text: Deliberate integration boundaries
+          - generic [ref=f6e317]: by design
+        - list [ref=f6e318]:
+          - listitem [ref=f6e319]: No bundled media-provider credentials or API keys
+          - listitem [ref=f6e320]:
+            - text: "No"
+            - code [ref=f6e321]: publish
+            - text: /
+            - code [ref=f6e322]: send
+            - text: /
+            - code [ref=f6e323]: spend
+            - text: execution —
+            - code [ref=f6e324]: publish-check
+            - text: only verifies scoped human approval
+          - listitem [ref=f6e325]: No reviewer-identity authentication or legal approval
+          - listitem [ref=f6e326]: No universal analytics-export parser — calc evidence + independent reviewer remain the proof
+          - listitem [ref=f6e327]: Actual media generation happens through documented host adapters, not in-core
+          - listitem [ref=f6e328]: SHA-256 gives local integrity, not signer authenticity — use signed releases when non-repudiation matters
+  - generic [ref=f6e331]:
+    - heading "Give it one marketing objective." [level=3] [ref=f6e332]
+    - paragraph [ref=f6e333]:
+      - text: One canonical checkout, an optional
+      - code [ref=f6e334]: npm link
+      - text: ", then either invoke the skill or drive the CLI directly:"
+    - generic [ref=f6e335]: /supermarketer <one marketing objective>
+    - generic [ref=f6e336]:
+      - link "View on GitHub" [ref=f6e337] [cursor=pointer]:
+        - /url: https://github.com/cskwork/supermarketer-skill
+      - link "Install guide" [ref=f6e338] [cursor=pointer]:
+        - /url: https://github.com/cskwork/supermarketer-skill/blob/main/docs/INSTALL.md
+      - link "CLI reference" [ref=f6e339] [cursor=pointer]:
+        - /url: https://github.com/cskwork/supermarketer-skill/blob/main/docs/CLI.md
+  - contentinfo [ref=f6e340]:
+    - generic [ref=f6e341]:
+      - generic [ref=f6e342]:
+        - generic [ref=f6e343]: /supermarketer
+        - generic [ref=f6e344]:
+          - text: Execution lineage inspired by
+          - link "supergoal-skill" [ref=f6e345] [cursor=pointer]:
+            - /url: https://github.com/cskwork/supergoal-skill
+          - text: and
+          - link "superdesign-skill" [ref=f6e346] [cursor=pointer]:
+            - /url: https://github.com/cskwork/superdesign-skill
+          - text: . Specialist knowledge is vendored from
+          - link "marketingskills" [ref=f6e347] [cursor=pointer]:
+            - /url: https://github.com/cskwork/marketingskills
+          - text: commit
+          - code [ref=f6e348]: 130847d
+          - text: under MIT.
+      - generic [ref=f6e349]:
+        - link "github.com/cskwork/supermarketer-skill" [ref=f6e350] [cursor=pointer]:
+          - /url: https://github.com/cskwork/supermarketer-skill
+        - text: "v0.0.1 · 83 tests passing locally · status: LAUNCH_READY / NOT_MEASURED"

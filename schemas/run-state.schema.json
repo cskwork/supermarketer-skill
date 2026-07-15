@@ -47,6 +47,25 @@
         "MEASURE"
       ]
     },
+    "specialty": {
+      "type": "string",
+      "minLength": 1
+    },
+    "specialty_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "specialty_matched": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "specialty_reference": {
+      "type": "string",
+      "pattern": "^vendor/marketingskills/skills/[a-z0-9-]+/SKILL\\.md$"
+    },
     "phase": {
       "type": "string",
       "minLength": 1

@@ -13,6 +13,24 @@ test('explicit mode override is authoritative and validated', () => {
   assert.throws(() => routeObjective('anything', 'NOPE'), /Unknown mode/);
 });
 
+test('mode and specialty route independently without changing legacy mode fields', () => {
+  const result = routeObjective('Audit our pricing tiers and value metric.', 'AUDIT');
+  assert.equal(result.mode, 'AUDIT');
+  assert.equal(result.reference, 'reference/qa.md');
+  assert.equal(result.specialty, 'pricing');
+  assert.equal(result.specialty_reference, 'vendor/marketingskills/skills/pricing/SKILL.md');
+  assert.ok(result.specialty_confidence >= 0.7);
+  assert.ok(result.specialty_matched.length > 0);
+});
+
+test('mode and specialty overrides are independently authoritative', () => {
+  const result = routeObjective('Write a launch email.', 'MEASURE', 'seo-audit');
+  assert.equal(result.mode, 'MEASURE');
+  assert.equal(result.specialty, 'seo-audit');
+  assert.equal(result.confidence, 1);
+  assert.equal(result.specialty_confidence, 1);
+});
+
 for (const [label, objective] of [
   ['launch announcement copy', 'Write the public-launch announcement copy for supermarketer-skill v1.0.0: a GitHub release note and an X post targeting AI-coding developers'],
   ['bare copy as a noun', 'Write the copy for our new landing page'],

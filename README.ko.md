@@ -1,12 +1,14 @@
 # SuperMarketer Skill
 
-SuperMarketer는 제품 마케팅 조사, 포지셔닝, 캠페인, 카피, 포스터·정적 크리에이티브, 이미지, 영상, 현지화, 실험, 감사, 출시 패키징, 성과 분석을 하나의 검증 가능한 흐름으로 처리하는 **실행 가능한 스킬 패키지**입니다.
+SuperMarketer는 12개 실행 모드와 47개 마케팅 전문 플레이북을 독립적으로 조합해 조사, 전략, 가격, SEO, 라이프사이클, 채널, 크리에이티브 제작, 실험, 감사, 성과 분석을 하나의 검증 가능한 흐름으로 처리하는 **실행 가능한 스킬 패키지**입니다.
 
 얇은 에이전트 라우터와 무의존성 Node.js CLI, 실행별 vault, 구조화된 근거·주장·채널·자산 기록, 결정론적 게이트, 독립 검수, 미디어 검사, 명시적 fallback, 무결성 인증, ZIP 패키징, 게시 승인 범위 검사, 실제 성과 검증을 결합했습니다.
 
 ## 구현 범위
 
 - 12개 한·영 모드: `RESEARCH`, `POSITION`, `CAMPAIGN`, `COPY`, `STATIC`, `IMAGE`, `VIDEO`, `LAUNCH-KIT`, `EXPERIMENT`, `LOCALIZE`, `AUDIT`, `MEASURE`.
+- MarketingSkills 커밋 `130847d0945555c43b0b1774e2a4f99d35a32ebe`의 정확한 스냅샷에서 가져온 47개 전문 분야를 별도 축으로 결정론적으로 라우팅.
+- 상시 제품·브랜드 사실, 실행 모드 플레이북 1개, 전문 플레이북 1개, 필요한 세부 reference만 순서대로 로드.
 - 프로젝트 초기화와 하나의 마케팅 목적당 하나의 독립 실행 vault.
 - 근거, 주장, 채널 규격, 납품물, 자산, 검수, 승인, 제작 패키지, 실행 상태, 측정 정보를 위한 YAML/JSON source of truth.
 - 안정적인 오류 코드와 실패 종료 코드를 제공하는 12개 통합 launch-readiness 게이트.
@@ -21,7 +23,7 @@ SuperMarketer는 제품 마케팅 조사, 포지셔닝, 캠페인, 카피, 포�
 - 실제 외부 동작을 하지 않고 정확한 인간 승인 범위만 검증하는 `publish-check`.
 - 실제 post-launch 데이터, 사전 선언 규칙, 계산 근거 해시, 독립 측정 검수를 요구하는 `validate-results`.
 - 원본·규칙·계산·상태·마커 일관성을 재검사하는 `Z-VALIDATED.md` 및 `verify-results`.
-- 정상 흐름과 공격적 실패를 포함한 자동 계약 테스트 37개.
+- 정상 흐름, 전문 분야 경계, vendor 변조, 공격적 실패를 포함한 자동 계약 테스트 83개.
 
 ## 요구 사항
 
@@ -62,6 +64,7 @@ supermarketer install-audit . \
 supermarketer init ./my-project
 
 # 2. 하나의 마케팅 목적을 독립 실행으로 생성
+supermarketer route "SaaS 가격 티어를 감사한다" --specialty pricing --json
 supermarketer new \
   "한국 시장용 출시 포스터와 15초 세로 제품 영상을 만든다" \
   --project ./my-project
@@ -170,10 +173,11 @@ npm pack --dry-run --ignore-scripts
 
 ```text
 SKILL.md        얇은 라우터와 실행 계약
-bin/, lib/      CLI, 라우팅, vault, 게이트, 미디어 검사, workflow
+bin/, lib/      CLI, 모드·전문 분야 라우팅, vault, 게이트, workflow
 scripts/        개별 실행형 게이트 wrapper
 agents/         전략·제작·독립 검수 역할
-reference/      모드별·운영별 플레이북
+reference/      모드별·전문 라우팅·운영 플레이북
+vendor/marketingskills/  47개 전문 지식 스냅샷과 해시 manifest
 adapters/       공급자 중립 미디어 handoff 계약
 templates/      실행 vault와 제작 패키지 템플릿
 schemas/        상호운용용 JSON Schema 문서
@@ -182,5 +186,9 @@ examples/       완성 실행 및 fallback 예제
 tests/          실행 가능한 계약·공격 테스트
 SPEC.md         전체 제품·운영 명세
 ```
+
+## 설계 계보와 vendored 지식
+
+실행 구조는 `cskwork/supergoal-skill`과 `cskwork/superdesign-skill`의 얇은 라우팅, 역할 분리, 정확 검증 원칙에서 영감을 받았습니다. 전문 마케팅 지식은 `cskwork/marketingskills`에서 MIT 라이선스로 가져왔으며 정확한 커밋과 파일 해시를 보존합니다. 제품 사실, 근거 기반 주장, readiness 게이트, 외부 동작 경계, 실제 post-launch 데이터는 계속 SuperMarketer 계약이 지배합니다.
 
 MIT License. `LICENSE`와 `NOTICE.md`를 확인하십시오.

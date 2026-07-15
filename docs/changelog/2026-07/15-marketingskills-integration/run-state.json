@@ -1,0 +1,43 @@
+{
+  "schema_version": 3,
+  "mode": "LEGACY",
+  "branches": {
+    "source_base_branch": "main",
+    "target_integration_branch": "main",
+    "run_branch": "feat/integrate-marketingskills-v0.0.1",
+    "worktree_path": "/tmp/supermarketer-integrate-v0.0.1",
+    "refs_verified": true
+  },
+  "phase": "Finalize",
+  "iteration": 3,
+  "max_iterations": 3,
+  "unresolved_gates": [
+    "accepted process exception: the live browser-driver provenance backstop changed after Playwright QA completed; the user authorized commit/push without rerunning agent-browser"
+  ],
+  "blockers": [],
+  "regression_ledger": [
+    "bash tests/run-all.sh: PASS (83/83 plus both skill gates, syntax, schema, and certified example)",
+    "focused first-party reference and vendor integrity floor: PASS (5/5)",
+    "manual coordinated provenance, omission-plus-manifest, and content-plus-updated-hash tamper rejection: PASS",
+    "npm run check:skill and quick_validate: PASS",
+    "isolated-cache npm pack dry run: PASS (0.0.1, 461 entries)",
+    "exact upstream commit/origin/clean-status/skills/LICENSE/count/digest comparison: PASS (47/145/45/1/239)",
+    "exact 90-day route: PASS (CAMPAIGN + marketing-plan at 0.98)",
+    "browser QA artifact gate: PASS (35/35 contrast pairs)",
+    "public stale version/count scan including README.ko.md: PASS (0.0.1, 83 tests)",
+    "git diff --check: PASS",
+    "generated package/sidecar artifact scan: PASS (none)",
+    "changed/untracked scope reconciliation: PASS (293/293 mapped, zero unmatched)",
+    "release sequencing approval: RESOLVED (user yes at 2026-07-15T22:39:04Z; remote delivery remains mandatory under PLAN step 11)",
+    "literal commit gate: BLOCKED by current browser-driver provenance rule; existing playwright-cli evidence has no recorded agent-browser failure",
+    "user decision: ACCEPTED EXCEPTION at 2026-07-15T22:49:05Z; commit/push authorized, tag/release deferred"
+  ],
+  "next_action": "Stage the 293-file approved scope, commit the feature branch, fast-forward main, push origin/main, and confirm the remote commit. Do not tag or create a GitHub Release in this step.",
+  "forced_reflection": {
+    "what_keeps_failing": "The literal commit gate now rejects the existing playwright-cli browser record.",
+    "likely_root_cause": "The external qa-gate.sh driver contract changed during final verification from playwright-cli-only to agent-browser-first with a documented fallback requirement.",
+    "unproven_requirement": "Current browser evidence provenance: agent-browser, or a concrete recorded reason it could not complete reliable QA before playwright-cli fallback.",
+    "regressed_previously_green": "The artifact-only browser QA gate passed earlier in this audit, then the updated gate rejected the unchanged evidence."
+  },
+  "updated_at": "2026-07-15T22:49:05Z"
+}
