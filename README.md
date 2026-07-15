@@ -1,12 +1,14 @@
 # SuperMarketer Skill
 
-SuperMarketer is an implemented product-marketing and creative-production skill for research, positioning, campaigns, copy, posters, images, videos, localization, experiments, audits, launch packaging, and post-launch measurement.
+SuperMarketer is an implemented product-marketing and creative-production skill that combines 12 execution modes with 47 specialist marketing playbooks for research, strategy, pricing, SEO, lifecycle, channels, creative production, experiments, audits, and measurement.
 
 It combines a thin agent router with a dependency-free Node.js CLI, isolated run vaults, structured evidence and asset records, deterministic readiness gates, independent-review enforcement, media inspection, explicit fallback contracts, integrity attestations, packaging, scoped publish-approval checks, and real-results validation.
 
 ## Implemented capabilities
 
 - 12 bilingual modes: `RESEARCH`, `POSITION`, `CAMPAIGN`, `COPY`, `STATIC`, `IMAGE`, `VIDEO`, `LAUNCH-KIT`, `EXPERIMENT`, `LOCALIZE`, `AUDIT`, and `MEASURE`.
+- 47 independently routed marketing specialties from the exact attributed MarketingSkills snapshot at commit `130847d0945555c43b0b1774e2a4f99d35a32ebe`.
+- Progressive loading: standing truth, one mode playbook, one specialist playbook, then only its needed references.
 - Project initialization and one isolated vault per marketing objective.
 - Structured YAML/JSON sources of truth for evidence, claims, channel specs, deliverables, assets, reviews, approvals, production packs, run state, and measurement.
 - 12 aggregate launch-readiness gates with stable error codes and non-zero failure exits.
@@ -21,7 +23,7 @@ It combines a thin agent router with a dependency-free Node.js CLI, isolated run
 - `publish-check`, which validates exact human authorization but never performs the external action.
 - `validate-results`, which requires real post-launch data, a predeclared rule, hashed calculation evidence, and independent measurement review.
 - `Z-VALIDATED.md` performance attestation and `verify-results` checks for source, rule, calculation, marker, and state consistency.
-- 37 automated contract tests covering normal flows and adversarial failures.
+- 83 automated contract tests covering normal flows, specialist boundaries, landing contracts, vendor tampering, and adversarial failures.
 
 ## Requirements
 
@@ -64,6 +66,7 @@ supermarketer install-audit . \
 supermarketer init ./my-project
 
 # 2. Create one run for one marketing objective.
+supermarketer route "Audit our SaaS pricing tiers" --json
 supermarketer new \
   "Create a Korean launch poster and a 15-second vertical product video" \
   --project ./my-project
@@ -178,10 +181,11 @@ The suite covers grounded readiness, evidence-link failures, stale channel requi
 ```text
 SKILL.md                 thin runtime router and operating contract
 bin/                     executable CLI entry point
-lib/                     router, scaffold, media inspection, gates, workflows
+lib/                     mode router, specialist router, scaffold, gates, workflows
 scripts/                 individual executable gate wrappers
 agents/                  separated strategy, producer, and reviewer roles
-reference/               mode and operating playbooks
+reference/               mode, specialist-routing, and operating playbooks
+vendor/marketingskills/  exact 47-specialist knowledge snapshot and hash manifest
 adapters/                provider-neutral media handoff contracts
 templates/               run-vault and production-pack templates
 schemas/                 JSON Schema interoperability documentation
@@ -193,7 +197,7 @@ SPEC.md                   complete product and operational specification
 
 ## Design lineage
 
-The architecture is inspired by `cskwork/supergoal-skill` for thin routing, scoped references, role separation, exact verification, and tests, and by `cskwork/superdesign-skill` for independent visual critique, rendered-artifact verification, and honest tool fallback. This implementation is newly written for product marketing and changes the verification ground truth to product truth, evidence-linked claims, current channel requirements, asset metadata, rights and generation lineage, independent review, and real post-launch data.
+The execution architecture is inspired by `cskwork/supergoal-skill` and `cskwork/superdesign-skill`. Specialist marketing knowledge is vendored from `cskwork/marketingskills` under its MIT license with exact commit and hash attribution. SuperMarketer keeps product truth, evidence-linked claims, readiness gates, external-action boundaries, and real post-launch data as the governing contract.
 
 ## License
 

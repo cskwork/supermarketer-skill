@@ -20,10 +20,10 @@ supermarketer <command>
 ## `route`
 
 ```bash
-supermarketer route "<objective>" [--mode MODE] [--json]
+supermarketer route "<objective>" [--mode MODE] [--specialty SPECIALTY] [--json]
 ```
 
-Classifies an English or Korean objective and returns the selected mode, confidence, matched signals, playbook, and primary output. `--mode` is an explicit validated override.
+Classifies an English or Korean objective on two independent axes. It returns the selected mode, confidence, matched signals, mode playbook, primary output, specialty, specialty confidence, specialty matched evidence, and vendored specialist playbook. `--mode` and exact `--specialty` are independently validated overrides.
 
 ## `init`
 
@@ -36,10 +36,10 @@ Creates `.supermarketer/{rules,brand,product,legal,runs}` and standing templates
 ## `new`
 
 ```bash
-supermarketer new "<objective>" [--project DIR] [--mode MODE] [--slug SLUG] [--json]
+supermarketer new "<objective>" [--project DIR] [--mode MODE] [--specialty SPECIALTY] [--slug SLUG] [--json]
 ```
 
-Creates an isolated run vault, routes the objective, writes run state and mode-specific templates, and preserves the original objective in `BRIEF.md`.
+Creates an isolated run vault, routes the objective, persists mode and specialist metadata, writes both playbooks to `RUN.md`, creates mode-specific templates, and preserves the original objective in `BRIEF.md`.
 
 ## `check`
 
@@ -218,7 +218,7 @@ Checks Node compatibility and optional media tools. Missing optional tools never
 supermarketer check-skill [skill-dir] [--json]
 ```
 
-Validates `SKILL.md` frontmatter, router size, required distribution files, package bin resolution, run templates, and local Markdown references.
+Validates `SKILL.md` frontmatter, router size, required distribution files, package bin resolution, run templates, first-party Markdown references, and the exact vendored specialist manifest/frontmatter/file hashes.
 
 ## `install-audit`
 

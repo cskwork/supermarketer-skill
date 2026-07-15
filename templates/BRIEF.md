@@ -8,6 +8,10 @@
 
 <RESEARCH | POSITION | CAMPAIGN | COPY | STATIC | IMAGE | VIDEO | LAUNCH-KIT | EXPERIMENT | LOCALIZE | AUDIT | MEASURE>
 
+## Specialty
+
+<one specialist from `lib/specialists/catalog.mjs`>
+
 ## Objective
 
 <business or communication objective>

@@ -1,11 +1,11 @@
 ---
 name: supermarketer
-description: Use for product marketing strategy, market or customer research, positioning, campaigns, launch plans, marketing copy, posters and static creatives, product images, marketing videos, localization, creative experiments, audits, and campaign measurement.
+description: Use for product marketing strategy and execution across 47 specialist domains, including research, positioning, pricing, offers, SEO, lifecycle, outbound, campaigns, launch plans, copy, ads, social, creative production, conversion, analytics, experiments, audits, and measurement.
 ---
 
 # `/supermarketer` — evidence-grounded product marketing and creative production
 
-Turn one marketing objective into a grounded, channel-ready package. Verify launch readiness without pretending that pre-launch review proves performance.
+Turn one marketing objective into a grounded, channel-ready package. Combine one of 12 execution modes with one of 47 marketing specialties, and verify launch readiness without pretending that pre-launch review proves performance.
 
 This root file is a router and operating contract. Load only the relevant file from `reference/` and only the required roles from `agents/`.
 
@@ -39,6 +39,13 @@ Use the deterministic router when available:
 node bin/supermarketer.mjs route "<objective>"
 ```
 
+The router selects two independent axes:
+
+- `mode` — what kind of work to perform and which readiness workflow applies;
+- `specialty` — which domain playbook supplies the marketing knowledge.
+
+Use `--mode MODE` or exact `--specialty specialist-name` overrides only when the user or surrounding workflow has already made that choice. See `reference/specialists.md` for the 47-entry catalog and overlap rules.
+
 | Signal | Mode | Playbook |
 |---|---|---|
 | market, customer, audience, competitor, category, demand, trend | `RESEARCH` | `reference/research.md` |
@@ -62,13 +69,15 @@ Tie-breakers:
 - Optimization without real results routes to `EXPERIMENT`, not `MEASURE`.
 - A designed asset translated for another market routes to `LOCALIZE` because meaning, proof, layout, timing, and culture must be adapted.
 
+After routing, load in this order: standing truth, the selected mode playbook, the chosen `vendor/marketingskills/skills/<specialty>/SKILL.md`, then only the specialist references needed for the objective. Do not load the whole vendor tree.
+
 ## Create the run vault
 
 Initialize once per project and create one isolated run per objective:
 
 ```bash
 node bin/supermarketer.mjs init <project-dir>
-node bin/supermarketer.mjs new "<objective>" --project <project-dir> [--mode MODE]
+node bin/supermarketer.mjs new "<objective>" --project <project-dir> [--mode MODE] [--specialty SPECIALTY]
 ```
 
 The vault is created under:
@@ -79,7 +88,7 @@ The vault is created under:
 
 The machine-readable sources of truth are:
 
-- `run-state.json` — mode and state.
+- `run-state.json` — mode, specialty, and state.
 - `EVIDENCE.yaml` — product, customer, market, channel, legal, and analytics evidence.
 - `CHANNEL-SPECS.yaml` — dated placement requirements.
 - `CLAIMS.yaml` — claim-to-evidence and claim-to-asset links.
@@ -251,6 +260,7 @@ Return `BLOCKED` rather than improvising when:
 - CLI: `docs/CLI.md`
 - Security model: `docs/SECURITY.md`
 - Structured schemas: `docs/SCHEMAS.md`
+- Specialist catalog, load order, and handoffs: `reference/specialists.md`
 
 ## Completion contract
 

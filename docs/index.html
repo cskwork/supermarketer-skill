@@ -4,7 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>/supermarketer — evidence-grounded product marketing & creative production</title>
-<meta name="description" content="One marketing objective in. Channel-ready, launch-ready package out. Truth before persuasion — never claim performance is proven without real data." />
+<meta name="description" content="One marketing objective routed through 12 execution modes and 47 specialist playbooks, with evidence-grounded readiness gates and no false performance claims." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0b0d'/%3E%3Cpath d='M38 12 24 52' stroke='%23c8f23e' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -18,12 +19,16 @@
     --line-soft: #1c1e24;
     --text: #f4f5f7;
     --text-dim: #a3a7b0;
-    --text-mute: #6b6f78;
+    --text-mute: #858a94;
     --accent: #c8f23e;       /* chartreuse — creative, not blue/purple slop */
     --accent-dim: #9bc02a;
     --accent-soft: rgba(200,242,62,0.10);
     --warn: #ff8a3d;
+    --warn-soft: #312520;
     --ok: #4ade80;
+    --ok-soft: #1b2f28;
+    --axis-text: #f4f5f7;
+    --button-text: #0a0b0d;
     --r: 16px;
     --r-sm: 10px;
     --maxw: 1160px;
@@ -39,10 +44,16 @@
     --line-soft: #efede5;
     --text: #16171b;
     --text-dim: #4c505a;
-    --text-mute: #868a93;
-    --accent: #5d7d00;
+    --text-mute: #686c75;
+    --accent: #526f00;
     --accent-dim: #446000;
-    --accent-soft: rgba(93,125,0,0.08);
+    --accent-soft: rgba(82,111,0,0.08);
+    --warn: #9a3a00;
+    --warn-soft: #fff1e8;
+    --ok: #17723a;
+    --ok-soft: #e9fbf0;
+    --axis-text: #4c505a;
+    --button-text: #ffffff;
     --shadow: 0 1px 0 rgba(0,0,0,0.02) inset, 0 18px 40px -24px rgba(0,0,0,0.18);
   }
 
@@ -116,7 +127,7 @@
     transition: transform .15s, background .15s, border-color .15s;
     border: 1px solid transparent; cursor: pointer; white-space: nowrap;
   }
-  .btn-primary { background: var(--accent); color: #0a0b0d; }
+  .btn-primary { background: var(--accent); color: var(--button-text); }
   .btn-primary:hover { transform: translateY(-1px); }
   .btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
   .btn-ghost:hover { border-color: var(--text-mute); }
@@ -164,8 +175,8 @@
     font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 4px 10px;
     border-radius: 999px; letter-spacing: 0.02em; white-space: nowrap;
   }
-  .pill-ok { background: rgba(74,222,128,0.12); color: var(--ok); border: 1px solid rgba(74,222,128,0.25); }
-  .pill-warn { background: rgba(255,138,61,0.12); color: var(--warn); border: 1px solid rgba(255,138,61,0.25); }
+  .pill-ok { background: var(--ok-soft); color: var(--ok); border: 1px solid rgba(74,222,128,0.25); }
+  .pill-warn { background: var(--warn-soft); color: var(--warn); border: 1px solid rgba(255,138,61,0.25); }
   .pill-mute { background: var(--bg-elev); color: var(--text-mute); border: 1px solid var(--line); }
   .status-note {
     margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft);
@@ -198,6 +209,12 @@
   .mode-card .m-name { font-size: 16px; font-weight: 700; margin-top: 8px; letter-spacing: -0.01em; }
   .mode-card .m-desc { font-size: 13px; color: var(--text-dim); margin-top: 6px; line-height: 1.45; }
   .mode-card .m-route { font-family: var(--mono); font-size: 10.5px; color: var(--text-mute); margin-top: 12px; }
+  .specialists-panel { border: 1px solid var(--border); border-radius: 18px; padding: 28px; background: var(--bg-card); }
+  .specialty-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .specialty-group h3 { font-size: 13px; color: var(--accent); margin-bottom: 10px; }
+  .specialty-list { display: flex; flex-wrap: wrap; gap: 7px; }
+  .specialty-list code { padding: 5px 8px; border: 1px solid var(--border); border-radius: 7px; background: var(--bg-elev); color: var(--text-dim); font-size: 11px; }
+  .axis-example { margin-top: 24px; padding: 18px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--axis-text); line-height: 1.65; }
 
   /* ---------- Loop ---------- */
   .loop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; counter-reset: step; }
@@ -208,7 +225,7 @@
   .loop-step .n {
     font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 700;
   }
-  .loop-step h4 { font-size: 16px; font-weight: 700; margin-top: 8px; letter-spacing: -0.01em; }
+  .loop-step h3 { font-size: 16px; font-weight: 700; margin-top: 8px; letter-spacing: -0.01em; }
   .loop-step p { font-size: 13.5px; color: var(--text-dim); margin-top: 8px; line-height: 1.5; }
 
   /* ---------- Structure ---------- */
@@ -231,14 +248,15 @@
   /* ---------- Status / honesty ---------- */
   .honesty { background: var(--bg-elev); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
   .honesty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 36px; }
-  .honesty-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r); padding: 28px; }
-  .honesty-card h4 { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+  .honesty-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r); padding: 28px; min-width: 0; }
+  .honesty-card h3 { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .honesty-card .badge {
     font-family: var(--mono); font-size: 10px; padding: 3px 8px; border-radius: 5px;
     border: 1px solid var(--line); color: var(--text-mute);
   }
   .honesty-card ul { list-style: none; margin-top: 16px; }
   .honesty-card li { font-size: 14px; color: var(--text-dim); padding: 8px 0; display: flex; gap: 10px; align-items: flex-start; }
+  .honesty-card code { overflow-wrap: anywhere; }
   .honesty-card li::before { content: ""; width: 6px; height: 6px; margin-top: 8px; background: var(--accent); border-radius: 1px; transform: rotate(45deg); flex-shrink: 0; }
 
   /* ---------- CTA ---------- */
@@ -276,6 +294,7 @@
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; gap: 36px; }
     .modes-grid { grid-template-columns: repeat(3, 1fr); }
+    .specialty-groups { grid-template-columns: repeat(2, 1fr); }
     .loop-grid { grid-template-columns: repeat(2, 1fr); }
     .struct-grid, .honesty-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
@@ -283,6 +302,7 @@
   @media (max-width: 640px) {
     section { padding: 72px 0; }
     .modes-grid { grid-template-columns: 1fr 1fr; }
+    .specialty-groups { grid-template-columns: 1fr; }
     .loop-grid { grid-template-columns: 1fr; }
     .principles .items { gap: 14px; }
     .cta-band { padding: 40px 24px; }
@@ -302,6 +322,7 @@
     <a class="brand" href="#top"><span class="slash">/</span>supermarketer</a>
     <nav class="nav-links">
       <a href="#modes">Modes</a>
+      <a href="#specialists">Specialists</a>
       <a href="#loop">Workflow</a>
       <a href="#structure">Structure</a>
       <a href="#status">Status</a>
@@ -319,23 +340,24 @@
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Agent skill &middot; v1.0.0 &middot; dependency-free Node CLI</div>
+      <div class="eyebrow">Agent skill &middot; v0.0.1 &middot; dependency-free Node CLI</div>
       <h1>
         One objective in.<br />
         A <span class="accent">launch-ready</span><br />
         package out.
       </h1>
       <p class="hero-sub">
-        Evidence-grounded product marketing and creative production &mdash; research, positioning,
-        copy, posters, images, and video &mdash; routed by a thin skill, verified by deterministic
-        gates before it ships.
+        Evidence-grounded product marketing and creative production &mdash; 12 execution modes and
+        47 specialist playbooks selected independently, then verified by deterministic gates before
+        anything is marked ready.
       </p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#modes">See the 12 modes &rarr;</a>
+        <a class="btn btn-primary" href="#specialists">See two-axis routing &rarr;</a>
         <a class="btn btn-ghost" href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">View on GitHub</a>
       </div>
       <div class="hero-meta">
         <span><span class="dot"></span>12 production modes</span>
+        <span><span class="dot"></span>47 marketing specialists</span>
         <span><span class="dot"></span>12 deterministic gates</span>
         <span><span class="dot"></span>Honest by design</span>
       </div>
@@ -386,11 +408,11 @@
   <div class="wrap">
     <div class="modes-head reveal">
       <div>
-        <div class="eyebrow">The router &middot; classify, then route</div>
-        <h2 class="title">Twelve modes. One objective, correctly routed.</h2>
+        <div class="eyebrow">Execution axis &middot; classify the work</div>
+        <h2 class="title">Twelve modes define how the work is done.</h2>
         <p class="lede">
-          State the mode in one line, then load only the playbook the job needs. The router stays
-          thin; the depth lives in <code>reference/</code>.
+          Mode preserves the existing execution and readiness semantics. Specialty is selected on
+          a separate axis, so the same domain can be written, audited, experimented on, or measured.
         </p>
       </div>
     </div>
@@ -413,6 +435,33 @@
   </div>
 </section>
 
+<!-- ===================== SPECIALISTS ===================== -->
+<section id="specialists">
+  <div class="wrap">
+    <div class="modes-head reveal">
+      <div>
+        <div class="eyebrow">Knowledge axis &middot; 47 specialist playbooks</div>
+        <h2 class="title">Broad execution. Precise marketing depth.</h2>
+        <p class="lede">Load standing product and brand truth first, one mode playbook second, then only the selected vendored specialist and the references it needs. The exact snapshot is hash-protected for deterministic offline use.</p>
+      </div>
+    </div>
+    <div class="specialists-panel reveal">
+      <div class="specialty-groups">
+        <div class="specialty-group"><h3>Strategy &amp; orchestration</h3><div class="specialty-list"><code>product-marketing</code><code>marketing-plan</code><code>marketing-ideas</code><code>marketing-council</code><code>marketing-loops</code><code>launch</code><code>revops</code><code>sales-enablement</code></div></div>
+        <div class="specialty-group"><h3>Research &amp; competition</h3><div class="specialty-list"><code>customer-research</code><code>prospecting</code><code>competitors</code><code>competitor-profiling</code><code>marketing-psychology</code></div></div>
+        <div class="specialty-group"><h3>Copy, content &amp; channels</h3><div class="specialty-list"><code>copywriting</code><code>copy-editing</code><code>content-strategy</code><code>emails</code><code>cold-email</code><code>sms</code><code>social</code></div></div>
+        <div class="specialty-group"><h3>Paid &amp; creative</h3><div class="specialty-list"><code>ads</code><code>ad-creative</code><code>image</code><code>video</code></div></div>
+        <div class="specialty-group"><h3>Conversion &amp; lifecycle</h3><div class="specialty-list"><code>cro</code><code>signup</code><code>onboarding</code><code>paywalls</code><code>popups</code><code>lead-magnets</code><code>churn-prevention</code></div></div>
+        <div class="specialty-group"><h3>Pricing &amp; offer</h3><div class="specialty-list"><code>pricing</code><code>offers</code></div></div>
+        <div class="specialty-group"><h3>Search &amp; discovery</h3><div class="specialty-list"><code>seo-audit</code><code>programmatic-seo</code><code>ai-seo</code><code>schema</code><code>site-architecture</code><code>aso</code><code>directory-submissions</code></div></div>
+        <div class="specialty-group"><h3>Earned, partner &amp; product-led</h3><div class="specialty-list"><code>public-relations</code><code>co-marketing</code><code>community-marketing</code><code>referrals</code><code>free-tools</code></div></div>
+        <div class="specialty-group"><h3>Analytics &amp; experiments</h3><div class="specialty-list"><code>analytics</code><code>ab-testing</code></div></div>
+      </div>
+      <div class="axis-example"><code>AUDIT + pricing</code> checks pricing strategy without changing it. <code>COPY + emails</code> writes lifecycle copy. <code>MEASURE + ads</code> analyzes real paid-campaign data. Explicit mode and specialty overrides remain independent.</div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== LOOP ===================== -->
 <section id="loop">
   <div class="wrap">
@@ -421,15 +470,15 @@
     <p class="lede reveal">The maker never self-approves. Adversarial review and deterministic QA must both pass before anything is marked ready.</p>
 
     <div class="loop-grid">
-      <div class="loop-step reveal"><div class="n">01</div><h4>Frame</h4><p>Capture objective, audience, funnel stage, offer, KPI, and falsifiable readiness criteria in <code>BRIEF.md</code>.</p></div>
-      <div class="loop-step reveal"><div class="n">02</div><h4>Ground</h4><p>Build <code>EVIDENCE.md</code>, dated <code>CHANNEL-SPECS.yaml</code>, and <code>CLAIMS.yaml</code> from current, high-trust sources.</p></div>
-      <div class="loop-step reveal"><div class="n">03</div><h4>Strategize</h4><p>Minimum positioning, message hierarchy, offer/CTA, concept, and channel role. Creative brief for visual/video.</p></div>
-      <div class="loop-step reveal"><div class="n">04</div><h4>Produce</h4><p>Fresh-context specialists build each deliverable. Everything is logged in <code>ASSET-MANIFEST.yaml</code> with lineage.</p></div>
-      <div class="loop-step reveal"><div class="n">05</div><h4>Improve</h4><p>A separate role checks brief coverage, edge cases, crops, legibility, captions, alt text, and variants.</p></div>
-      <div class="loop-step reveal"><div class="n">06</div><h4>Adversarial review</h4><p>Fresh reviewers try to <em>disprove</em> readiness. They make no production edits.</p></div>
-      <div class="loop-step reveal"><div class="n">07</div><h4>QA &amp; package</h4><p>Deterministic artifact checks plus independent review, mapped to evidence in <code>QA.md</code>.</p></div>
-      <div class="loop-step reveal"><div class="n">08</div><h4>Publish gate</h4><p>Post/send/schedule/spend only after explicit approval naming destination, timing, account &amp; budget.</p></div>
-      <div class="loop-step reveal"><div class="n">09</div><h4>Measure</h4><p>Only real post-launch data can flip status to <code>PERFORMANCE_VALIDATED</code>.</p></div>
+      <div class="loop-step reveal"><div class="n">01</div><h3>Frame</h3><p>Capture objective, audience, funnel stage, offer, KPI, and falsifiable readiness criteria in <code>BRIEF.md</code>.</p></div>
+      <div class="loop-step reveal"><div class="n">02</div><h3>Ground</h3><p>Build <code>EVIDENCE.md</code>, dated <code>CHANNEL-SPECS.yaml</code>, and <code>CLAIMS.yaml</code> from current, high-trust sources.</p></div>
+      <div class="loop-step reveal"><div class="n">03</div><h3>Strategize</h3><p>Minimum positioning, message hierarchy, offer/CTA, concept, and channel role. Creative brief for visual/video.</p></div>
+      <div class="loop-step reveal"><div class="n">04</div><h3>Produce</h3><p>Fresh-context specialists build each deliverable. Everything is logged in <code>ASSET-MANIFEST.yaml</code> with lineage.</p></div>
+      <div class="loop-step reveal"><div class="n">05</div><h3>Improve</h3><p>A separate role checks brief coverage, edge cases, crops, legibility, captions, alt text, and variants.</p></div>
+      <div class="loop-step reveal"><div class="n">06</div><h3>Adversarial review</h3><p>Fresh reviewers try to <em>disprove</em> readiness. They make no production edits.</p></div>
+      <div class="loop-step reveal"><div class="n">07</div><h3>QA &amp; package</h3><p>Deterministic artifact checks plus independent review, mapped to evidence in <code>QA.md</code>.</p></div>
+      <div class="loop-step reveal"><div class="n">08</div><h3>Publish gate</h3><p>Post/send/schedule/spend only after explicit approval naming destination, timing, account &amp; budget.</p></div>
+      <div class="loop-step reveal"><div class="n">09</div><h3>Measure</h3><p>Only real post-launch data can flip status to <code>PERFORMANCE_VALIDATED</code>.</p></div>
     </div>
   </div>
 </section>
@@ -444,14 +493,15 @@
         <div class="root">supermarketer-skill/</div>
         &nbsp;&#9500;&#9472; <span class="dir">SKILL.md</span>&nbsp;&nbsp; <span class="desc">&mdash; the thin router</span><br />
         &nbsp;&#9500;&#9472; <span class="dir">bin/</span>&nbsp;&nbsp; <span class="desc">&mdash; CLI entry point</span><br />
-        &nbsp;&#9500;&#9472; <span class="dir">lib/</span>&nbsp;&nbsp; <span class="desc">&mdash; router, scaffold, gates, media, attestation</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">lib/</span>&nbsp;&nbsp; <span class="desc">&mdash; mode + specialist routers, scaffold, gates, attestation</span><br />
         &nbsp;&#9500;&#9472; <span class="dir">scripts/</span>&nbsp;&nbsp; <span class="desc">&mdash; executable gate wrappers</span><br />
         &nbsp;&#9500;&#9472; <span class="dir">agents/</span>&nbsp;&nbsp; <span class="desc">&mdash; 13 role contracts</span><br />
         &nbsp;&#9500;&#9472; <span class="dir">reference/</span>&nbsp;&nbsp; <span class="desc">&mdash; 20 mode &amp; ops playbooks</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">vendor/</span>&nbsp;&nbsp; <span class="desc">&mdash; 47 specialist playbooks, 145 references, 45 evals</span><br />
         &nbsp;&#9500;&#9472; <span class="dir">adapters/</span>&nbsp;&nbsp; <span class="desc">&mdash; provider-neutral media contracts</span><br />
         &nbsp;&#9500;&#9472; <span class="dir">templates/</span>&nbsp;&nbsp; <span class="desc">&mdash; run-vault &amp; production-pack files</span><br />
         &nbsp;&#9500;&#9472; <span class="dir">schemas/</span>&nbsp;&nbsp; <span class="desc">&mdash; 12 JSON Schemas</span><br />
-        &nbsp;&#9500;&#9472; <span class="dir">tests/</span>&nbsp;&nbsp; <span class="desc">&mdash; 37 contract &amp; adversarial tests</span><br />
+        &nbsp;&#9500;&#9472; <span class="dir">tests/</span>&nbsp;&nbsp; <span class="desc">&mdash; 83 contract &amp; adversarial tests</span><br />
         &nbsp;&#9492;&#9472; <span class="dir">docs/</span> &middot; <span class="dir">examples/</span> &middot; <span class="dir">SPEC.md</span>
       </div>
       <ul class="struct-list reveal">
@@ -461,7 +511,7 @@
         </li>
         <li>
           <div class="h"><code>SKILL.md</code> Router</div>
-          <p>Classifies the objective into one mode, states it in a line, and routes to the right playbook. Never embeds the playbook itself.</p>
+          <p>Selects one execution mode and one marketing specialty independently, then loads only those playbooks. Never embeds all 47 specialists in the root.</p>
         </li>
         <li>
           <div class="h"><code>agents/</code> Roles</div>
@@ -480,24 +530,25 @@
 <section id="status" class="honesty">
   <div class="wrap">
     <div class="eyebrow reveal">Status &amp; honesty</div>
-    <h2 class="title reveal">Shipped v1.0.0 &mdash; and explicit about what it deliberately is not.</h2>
-    <p class="lede reveal">37 automated tests pass. The integrity model is code, not prose. And the boundaries below are choices, not gaps.</p>
+    <h2 class="title reveal">First release v0.0.1 &mdash; explicit about what it deliberately is not.</h2>
+    <p class="lede reveal">83 automated tests pass locally. The vendor and readiness integrity models are code, not prose. The boundaries below are choices, not gaps.</p>
 
     <div class="honesty-grid">
       <div class="honesty-card reveal">
-        <h4>Built and verified <span class="badge">v1.0.0</span></h4>
+        <h3>Built for first release <span class="badge">v0.0.1</span></h3>
         <ul>
           <li>Dependency-free Node 20+ CLI: <code>init / new / check / ready / verify-ready / package / publish-check / validate-results</code></li>
           <li>12 aggregate launch-readiness gates with stable error codes + focused wrappers</li>
+          <li>47 independently routed specialists with exact source provenance and 239 file hashes</li>
           <li>Transactional <code>Z-READY</code> &amp; <code>Z-VALIDATED</code> with SHA-256 manifests + post-cert injection detection</li>
           <li>Media metadata inspection (PNG/JPEG/GIF/WebP/SVG/PDF/video), rights &amp; lineage checks</li>
           <li>Reviewer-separation enforcement, path containment, symlink rejection</li>
           <li>Built-in ZIP packaging + checksum sidecar, 12 JSON Schemas, GitHub Actions CI</li>
-          <li>37 contract &amp; adversarial tests; a certified COPY example</li>
+          <li>83 contract &amp; adversarial tests; a certified COPY example</li>
         </ul>
       </div>
       <div class="honesty-card reveal">
-        <h4>Deliberate integration boundaries <span class="badge">by design</span></h4>
+        <h3>Deliberate integration boundaries <span class="badge">by design</span></h3>
         <ul>
           <li>No bundled media-provider credentials or API keys</li>
           <li>No <code>publish</code>/<code>send</code>/<code>spend</code> execution &mdash; <code>publish-check</code> only verifies scoped human approval</li>
@@ -533,14 +584,14 @@
     <div>
       <div class="foot-brand"><span class="slash">/</span>supermarketer</div>
       <div class="lineage">
-        Design lineage inspired by <a href="https://github.com/cskwork/supergoal-skill" target="_blank" rel="noopener">supergoal-skill</a> and
-        <a href="https://github.com/cskwork/superdesign-skill" target="_blank" rel="noopener">superdesign-skill</a>. Newly written for product
-        marketing; review upstream licenses before copying implementation code. MIT licensed.
+        Execution lineage inspired by <a href="https://github.com/cskwork/supergoal-skill" target="_blank" rel="noopener">supergoal-skill</a> and
+        <a href="https://github.com/cskwork/superdesign-skill" target="_blank" rel="noopener">superdesign-skill</a>. Specialist knowledge is vendored from
+        <a href="https://github.com/cskwork/marketingskills" target="_blank" rel="noopener">marketingskills</a> commit <code>130847d</code> under MIT.
       </div>
     </div>
     <div class="foot-meta">
       <a href="https://github.com/cskwork/supermarketer-skill" target="_blank" rel="noopener">github.com/cskwork/supermarketer-skill</a><br />
-      v1.0.0 &middot; 37 tests passing &middot; status: <span style="color:var(--accent)">LAUNCH_READY</span> / <span style="color:var(--text-mute)">NOT_MEASURED</span>
+      v0.0.1 &middot; 83 tests passing locally &middot; status: <span style="color:var(--accent)">LAUNCH_READY</span> / <span style="color:var(--text-mute)">NOT_MEASURED</span>
     </div>
   </div>
 </footer>

@@ -23,3 +23,25 @@ test('createRun writes a mode-specific vault and preserves the original objectiv
   assert.ok(fs.existsSync(path.join(result.vault, 'CREATIVE-BRIEF.md')));
   assert.match(fs.readFileSync(path.join(result.vault, 'BRIEF.md'), 'utf8'), /Create a launch poster and short video\./);
 });
+
+test('createRun persists specialist metadata and both playbooks without competing product truth', () => {
+  const root = makeTempDir();
+  const result = createRun('Audit our SaaS pricing tiers.', {
+    project: root,
+    mode: 'AUDIT',
+    specialty: 'pricing',
+    now: new Date('2026-07-15T09:00:00Z'),
+  });
+  const state = JSON.parse(fs.readFileSync(path.join(result.vault, 'run-state.json'), 'utf8'));
+  const run = fs.readFileSync(path.join(result.vault, 'RUN.md'), 'utf8');
+  const brief = fs.readFileSync(path.join(result.vault, 'BRIEF.md'), 'utf8');
+  assert.equal(state.mode, 'AUDIT');
+  assert.equal(state.specialty, 'pricing');
+  assert.equal(state.specialty_reference, 'vendor/marketingskills/skills/pricing/SKILL.md');
+  assert.match(run, /Mode playbook: `reference\/qa\.md`/);
+  assert.match(run, /Specialist playbook: `vendor\/marketingskills\/skills\/pricing\/SKILL\.md`/);
+  assert.match(brief, /## Specialty\s+pricing/);
+  assert.ok(fs.existsSync(path.join(root, '.supermarketer/product/PRODUCT-TRUTH.md')));
+  assert.ok(fs.existsSync(path.join(root, '.supermarketer/brand/BRAND.md')));
+  assert.equal(fs.existsSync(path.join(root, '.agents/product-marketing.md')), false);
+});
