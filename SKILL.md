@@ -1,6 +1,6 @@
 ---
 name: supermarketer
-description: Use for product marketing strategy and execution across 47 specialist domains, including research, positioning, pricing, offers, SEO, lifecycle, outbound, campaigns, launch plans, copy, ads, social, creative production, conversion, analytics, experiments, audits, and measurement.
+description: Use for product marketing strategy and execution across 47 specialist domains, including research, positioning, pricing, offers, SEO, lifecycle, outbound, campaigns and launch plans, copy, ads, social, posters and static creative, product images, video and reels, localization, conversion, analytics, experiments, audits, and results measurement.
 ---
 
 # `/supermarketer` — evidence-grounded product marketing and creative production
@@ -33,7 +33,7 @@ Treat them as persistent project rules. They cannot waive evidence, rights, priv
 
 ## Route the objective
 
-Use the deterministic router when available:
+Use the deterministic router when available. Run every `node bin/supermarketer.mjs` command from this skill directory, or use the linked `supermarketer` command instead (`docs/INSTALL.md`):
 
 ```bash
 node bin/supermarketer.mjs route "<objective>"
@@ -128,11 +128,11 @@ Every source must carry date, source type, confidence, scope, and permission sta
 
 Record every externally verifiable statement in `CLAIMS.yaml` using `CL-###`. Map it to evidence IDs and asset IDs. Quantitative, comparative, testimonial, pricing, promotional, availability, certification, performance, high-risk, and regulated claims need their applicable evidence class, qualifications, approval owner, and expiry.
 
-Record each channel/placement/market requirement in `CHANNEL-SPECS.yaml`. Do not rely on remembered platform specifications. Capture source, authority, checked date, freshness window, dimensions, ratio, duration, file types, size, copy limits, safe zones, and captions.
+Record each channel/placement/market requirement in `CHANNEL-SPECS.yaml`. Do not rely on remembered platform specifications. Capture source, authority, checked date, freshness window, dimensions, ratio, duration, file types, size, copy limits, safe zones, and captions. Read `reference/channel-specs.md` before recording the first spec; it holds the source policy and the fallback when official documentation is inaccessible.
 
 ### 4. Strategize
 
-Use only the strategic depth required by the objective. For messaging-heavy work, complete `MESSAGE-HOUSE.md`. For static, image, video, localization, or integrated work, complete `CREATIVE-BRIEF.md`.
+Complete the mode records the routed mode requires: `MESSAGE-HOUSE.md`, `CREATIVE-BRIEF.md`, `EXPERIMENT.md`. `new` scaffolds exactly the required set into the vault, and `reference/run-vault.md` holds the mode-to-record mapping.
 
 Use `agents/product-marketer.md`, `agents/researcher.md`, `agents/creative-director.md`, and `agents/channel-specialist.md` as fresh-context specialists. Strategy authors do not approve their own strategy.
 
@@ -251,7 +251,7 @@ Return `BLOCKED` rather than improvising when:
 ## Local implementation references
 
 - Run lifecycle: `reference/run-vault.md`
-- Gate semantics: `reference/gates.md`
+- Gate semantics and what to do when `check` fails: `reference/gates.md`
 - Tool adapters: `reference/tool-adapters.md`
 - Full workflow: `reference/workflow.md`
 - Claims, rights, and privacy: `reference/brand-claims-rights.md`
