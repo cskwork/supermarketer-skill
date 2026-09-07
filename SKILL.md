@@ -1,6 +1,6 @@
 ---
 name: supermarketer
-description: Use for product marketing strategy and execution across 47 specialist domains, including research, positioning, pricing, offers, SEO, lifecycle, outbound, campaigns and launch plans, copy, ads, social, posters and static creative, product images, video and reels, localization, conversion, analytics, experiments, audits, and results measurement.
+description: Plan and produce evidence-grounded product marketing across research, positioning, campaigns, copy, creative assets, localization, audits, and measurement. Routes to specialist playbooks and certifies readiness separately from real campaign performance.
 ---
 
 # `/supermarketer` — evidence-grounded product marketing and creative production
@@ -22,7 +22,7 @@ Performance: NOT_MEASURED | MEASURING | PERFORMANCE_VALIDATED
 
 ## Standing truth
 
-Before beginning, read these when present:
+Read these once per project context, refreshing when they change:
 
 - `.supermarketer/rules/RULES.md`
 - `.supermarketer/brand/BRAND.md`
@@ -69,7 +69,7 @@ Tie-breakers:
 - Optimization without real results routes to `EXPERIMENT`, not `MEASURE`.
 - A designed asset translated for another market routes to `LOCALIZE` because meaning, proof, layout, timing, and culture must be adapted.
 
-After routing, load in this order: standing truth, the selected mode playbook, the chosen `vendor/marketingskills/skills/<specialty>/SKILL.md`, then only the specialist references needed for the objective. Do not load the whole vendor tree.
+After routing, reuse the standing truth already read, then load the selected mode playbook, the chosen `vendor/marketingskills/skills/<specialty>/SKILL.md`, and only the specialist references needed for the objective. Do not load the whole vendor tree.
 
 ## Create the run vault
 
@@ -134,7 +134,7 @@ Record each channel/placement/market requirement in `CHANNEL-SPECS.yaml`. Do not
 
 Complete the mode records the routed mode requires: `MESSAGE-HOUSE.md`, `CREATIVE-BRIEF.md`, `EXPERIMENT.md`. `new` scaffolds exactly the required set into the vault, and `reference/run-vault.md` holds the mode-to-record mapping.
 
-Use `agents/product-marketer.md`, `agents/researcher.md`, `agents/creative-director.md`, and `agents/channel-specialist.md` as fresh-context specialists. Strategy authors do not approve their own strategy.
+Use the relevant role from `agents/product-marketer.md`, `agents/researcher.md`, `agents/creative-director.md`, or `agents/channel-specialist.md`; load only roles the routed work needs. Strategy authors do not approve their own strategy.
 
 ### 5. Produce
 
