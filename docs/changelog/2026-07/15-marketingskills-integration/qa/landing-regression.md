@@ -37,4 +37,4 @@ Result: 38 passed, 0 failed
 ## Residual risk
 
 - Not tested: remote CI, deployed GitHub Pages, cache behavior after deployment, release/tag state, screen-reader announcement quality, and browsers other than Playwright Chromium.
-- SuperQA deterministic replay/report: unavailable. Doctor passed runtime/browser checks but could not write `/Users/danny/.superqa/.doctor-touch` under the sandbox. Per the task constraint, this optional path did not replace or block the required Playwright proof.
+- SuperQA deterministic replay/report: unavailable. Doctor passed runtime/browser checks but could not write `/Users/<user>/.superqa/.doctor-touch` under the sandbox. Per the task constraint, this optional path did not replace or block the required Playwright proof.
