@@ -107,10 +107,10 @@ Backward-trace: clean
 | `node bin/supermarketer.mjs version` | agent_detected | Canonical CLI version is `0.0.1` |
 | `rg -n 'v0\.0\.1|47 marketing specialists|78 tests' docs/index.html README.md README.ko.md NOTICE.md RELEASE-NOTES.md` | agent_detected | Public release/count/specialist claims are present on intended surfaces |
 | `git diff --check` | agent_detected | Patch whitespace and conflict-marker hygiene |
-| `/opt/anaconda3/bin/python /Users/danny/.agents/skills/.system/skill-creator/scripts/quick_validate.py .` | agent_detected | Skill frontmatter and structure validate under the skill-creator contract |
+| `/opt/anaconda3/bin/python ~/.agents/skills/.system/skill-creator/scripts/quick_validate.py .` | agent_detected | Skill frontmatter and structure validate under the skill-creator contract |
 | `node --test tests/router.test.mjs tests/cli.test.mjs tests/specialist-router.test.mjs tests/scaffold.test.mjs tests/reference-integrity.test.mjs tests/marketing-specialists-gate.test.mjs` | evaluator_owned | Impacted code floor: 49/49 pass |
 | exact 90-day forward-test `node bin/supermarketer.mjs route ... --json` | evaluator_owned | Reproduces the `onboarding` misroute with contradictory specialty scores |
-| `bash /Users/danny/Documents/PARA/Resource/supergoal-skill/templates/qa-gate.sh docs/changelog/2026-07/15-marketingskills-integration browser` | evaluator_owned | Artifact-only browser gate exits 1 because 10/35 contrast pairs fail |
+| `bash ~/Documents/PARA/Resource/supergoal-skill/templates/qa-gate.sh docs/changelog/2026-07/15-marketingskills-integration browser` | evaluator_owned | Artifact-only browser gate exits 1 because 10/35 contrast pairs fail |
 | `git -C /tmp/supermarketer-upstream-LQpbSr/marketingskills rev-parse HEAD` plus recursive `diff` | evaluator_owned | Exact vendored skill and license content matches the approved upstream commit |
 | public-surface stale scan excluding `docs/changelog/**` | evaluator_owned | No stale `v1.0.0` or 37-test claim on release surfaces; the approved broad scan only finds historical run-vault evidence |
 | `node --test --test-name-pattern="cross-funnel 90-day plans" tests/specialist-router.test.mjs` | agent_detected | Exact cross-funnel prompt selects `marketing-plan` while the full focused suite preserves onboarding-only routing |
@@ -122,9 +122,9 @@ Backward-trace: clean
 | exact 90-day `node bin/supermarketer.mjs route ... --json` rerun | agent_detected | CLI returns `marketing-plan` at 0.98 with matched evidence `90-day marketing plan` |
 | `bash tests/run-all.sh` | agent_detected | Full iteration-2 floor passes 83/83 plus skill, vendor, syntax, schema, and certified-example checks |
 | `npm run check:skill` | agent_detected | First-party references, root frontmatter, and vendor integrity remain green after iteration 2 |
-| `/opt/anaconda3/bin/python /Users/danny/.agents/skills/.system/skill-creator/scripts/quick_validate.py .` | agent_detected | Skill structure and frontmatter remain valid after iteration 2 |
+| `/opt/anaconda3/bin/python ~/.agents/skills/.system/skill-creator/scripts/quick_validate.py .` | agent_detected | Skill structure and frontmatter remain valid after iteration 2 |
 | `git diff --check` | agent_detected | Iteration-2 patch has no whitespace errors |
-| `bash /Users/danny/Documents/PARA/Resource/supergoal-skill/templates/qa-gate.sh docs/changelog/2026-07/15-marketingskills-integration browser` | evaluator_owned | Iteration-2 artifact-only browser gate exits 0; 35/35 contrast pairs, Playwright driver declaration, and as-is/to-be evidence pass |
+| `bash ~/Documents/PARA/Resource/supergoal-skill/templates/qa-gate.sh docs/changelog/2026-07/15-marketingskills-integration browser` | evaluator_owned | Iteration-2 artifact-only browser gate exits 0; 35/35 contrast pairs, Playwright driver declaration, and as-is/to-be evidence pass |
 | `npm_config_cache=/tmp/supermarketer-auditor2-npm-cache-oPUdLh npm pack --dry-run --ignore-scripts --json` | evaluator_owned | Isolated-cache package preflight exits 0 at `0.0.1` with 460 entries and reruns 83/83 tests |
 | temporary-copy coordinated manifest/provenance/omission/content tamper probe | evaluator_owned | Disproves the claimed exact vendor protection: all three tampered snapshots incorrectly return `ok: true` |
 | `rg -n -i "v?1\\.0\\.0|37 (automated |contract |)tests|37개|78 (automated |contract |)tests|78개|78 tests" README.md README.ko.md SPEC.md NOTICE.md CHANGELOG.md RELEASE-NOTES.md docs/index.html docs/CLI.md docs/IMPLEMENTATION.md package.json package-lock.json lib` | evaluator_owned | Finds one stale public count at `README.ko.md:26` |
@@ -132,7 +132,7 @@ Backward-trace: clean
 | `bash tests/run-all.sh` | agent_detected | Final iteration-3 floor passes 83/83 plus both skill gates, syntax, schema, and certified-example checks |
 | `npm run check:skill` | agent_detected | First-party references, root frontmatter, and the independently pinned vendor snapshot remain green |
 | `npm_config_cache=/tmp/supermarketer-builder3-final-npm-cache npm pack --dry-run --ignore-scripts --json` | agent_detected | Isolated-cache package preflight passes at `0.0.1` with 461 entries |
-| `/opt/anaconda3/bin/python /Users/danny/.agents/skills/.system/skill-creator/scripts/quick_validate.py .` | agent_detected | Skill structure and frontmatter remain valid after the integrity fix |
+| `/opt/anaconda3/bin/python ~/.agents/skills/.system/skill-creator/scripts/quick_validate.py .` | agent_detected | Skill structure and frontmatter remain valid after the integrity fix |
 | `git -C /tmp/supermarketer-upstream-LQpbSr/marketingskills rev-parse HEAD` plus recursive `diff` and snapshot count/digest probe | agent_detected | Vendor bytes match exact commit `130847d0945555c43b0b1774e2a4f99d35a32ebe`, with 47/145/45/1/239 counts and the pinned manifest digest |
 | `git diff --check` | agent_detected | Final iteration-3 patch has no whitespace errors |
 | `rg -n -i "v?1\\.0\\.0|37 (automated |contract |)tests|37개|78 (automated |contract |)tests|78개|78 tests|테스트 78개" README.md README.ko.md SPEC.md NOTICE.md CHANGELOG.md RELEASE-NOTES.md docs/index.html docs/CLI.md docs/IMPLEMENTATION.md package.json package-lock.json lib` | agent_detected | Scoped public surfaces contain no stale version or test-count claim |
@@ -160,7 +160,7 @@ DB: not used
 - [x] Responsive/motion: HTML/body measured `390/390px`; both status cards and specialist panel measured `342px` inside `24..366px`; reduced motion produced `0s` transitions, no animation, and zero hidden reveal elements.
 - [x] Side effects: zero console errors, uncaught JavaScript errors, failed requests, HTTP 4xx/5xx, dialogs, unexpected tabs/popups, or favicon requests/errors.
 - [x] Contrast: 35/35 settled computed pairs pass unchanged thresholds; lowest body ratio `7.06:1`, lowest normal ratio `5.03:1`.
-- SuperQA replay report: not produced because doctor could not write `/Users/danny/.superqa/.doctor-touch` in the sandbox; the required Playwright evidence completed.
+- SuperQA replay report: not produced because doctor could not write `/Users/<user>/.superqa/.doctor-touch` in the sandbox; the required Playwright evidence completed.
 
 ## Reproduction Fidelity
 
